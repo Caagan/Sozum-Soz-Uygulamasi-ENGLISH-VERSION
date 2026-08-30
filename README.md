@@ -2,6 +2,10 @@
 
 > This project was prepared for the **Samsung Innovation Campus Generative AI Hackathon**.
 
+## ACCESS ALL PROJECT FILES FROM THIS LINK
+
+https://drive.google.com/drive/folders/1wA-KB87F391dXMPi51C4j-AUOBaqv3t3?usp=sharing
+
 ## Deliverables
 
 - **Report (PDF):** [`Hackathon Report.pdf`](./Hackathon%20Report.pdf) — SÖZÜM SÖZ hackathon report (Group 8)
