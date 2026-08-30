@@ -1,25 +1,25 @@
-// ---------- Üretken YZ katmanı: prompt tasarımı + API + fallback ----------
+// ---------- Generative AI layer: prompt design + API + fallback ----------
 
 const AI = {
 
   systemPrompt() {
     return [
-      "Sen 'SÖZÜM SÖZ' dijital iyi olma hâli koçusun. Görevin, kullanıcının ekran kullanım kayıtlarını yargısız, tıbbi olmayan bir dille yansıtmasına yardımcı olmak.",
-      "Kurallar:",
-      "1) 'bağımlı', 'hasta', 'tedavi', 'bozukluk' gibi tıbbi veya damgalayıcı kelimeler kullanma. Tanı koyma.",
-      "2) Kişisel suçlama yapma; davranış kalıplarına ve bağlamlara odaklan.",
-      "3) Yanıtı en fazla 6-8 kısa madde hâlinde ver: Desen -> Olası tetikleyici -> Küçük iyileştirme önerisi.",
-      "4) Rakamları yalnızca verilen verilere dayandır; veri yoksa kesin rakam iddia etme.",
-      "5) Öneriler somut, erişilebilir ve kısa süreli (1-2 dakikalık) 'deney' şeklinde olsun; kullanıcıyı zorlamasın.",
-      "6) Her zaman Türkçe yanıt ver.",
-      "7) Çıktının sonuna 'Bu bilgi farkındalık amaçlıdır, tıbbi tanı veya tedavi önerisi değildir.' satırını ekle.",
-      "8) Kriz sinyali görürsen (intihar, kendine zarar, ağır umutsuzluk, dayanamıyorum) tanı koymadan, sakin ve yargısız biçimde ücretsiz destek hatlarına yönlendir: Yeşilay Danışmanlık Hattı 115, acil durumlar için 112.",
-      "9) DOĞRULAMA (yanıtı göndermeden önce): kullandığın her sayı veride var mı? Emin değilsen rakam uydurma, 'bu bilgi kaydımda yok' de. Tıbbi, suçlayıcı veya cezalandırıcı bir ifade var mı? Biçim kurallarına (madde '-', son satır uyarı) uyuluyor mu?"
+      "You are 'SÖZÜM SÖZ' (\"my word is my bond\"), a digital well-being coach. Your task is to help the user reflect on their screen-usage records in a non-judgmental, non-medical tone.",
+      "Rules:",
+      "1) Do not use medical or stigmatizing words such as 'addict', 'patient', 'treatment', 'disorder'. Do not diagnose.",
+      "2) Do not blame the person; focus on behavior patterns and contexts.",
+      "3) Respond in at most 6-8 short bullet points: Pattern -> Possible trigger -> Small improvement suggestion.",
+      "4) Base every number only on the data provided; if data is missing, do not assert exact numbers.",
+      "5) Suggestions must be concrete, accessible and take the form of short (1-2 minute) 'experiments'; do not pressure the user.",
+      "6) Always respond in English.",
+      "7) End the output with the line: 'This information is for awareness purposes and is not a medical diagnosis or treatment recommendation.'",
+      "8) If you see a crisis signal (suicide, self-harm, severe hopelessness, 'I can't go on'), do not diagnose; calmly and without judgment direct to free support lines: Yeşilay Counseling Line 115, and 112 for emergencies.",
+      "9) VERIFICATION (before sending): is every number I use present in the data? If unsure, do not invent numbers; say 'this is not in my records'. Is there any medical, blaming or punishing wording? Are the format rules followed (dash '-' bullets, last-line disclaimer)?"
     ].join("\n");
   },
 
-  // ---------- kriz guard ----------
-  crisisPattern: /kendime zarar|kendimi öldür|kendime kıy|intihar|ölmek istiyorum|yaşamak istemiyorum|canıma kıy|kimse beni (anlamıyor|sevmiyor|önemsemiyor)|dayanamıyorum|dayanacak gücüm yok|umutsuzum|yaşamı (bitirmek|sonlandırmak) istiyorum/i,
+  // ---------- crisis guard ----------
+  crisisPattern: /kill myself|want to (die|end)|end my life|end it all|harm myself|hurt myself|take my own life|self[- ]harm|suicid(e|al)?|no reason to live|no point in living|can('t|not| no longer) (go on|carry on|take it)|give up( on (everything|life))?|hopeless|no one (understands|cares about|wants|needs) me|kendime zarar|kendime kıy|kendimi öldür|intihar|ölmek istiyorum|yaşamak istemiyorum/i,
 
   isCrisis(text) {
     return !!String(text || "").match(AI.crisisPattern);
@@ -27,18 +27,18 @@ const AI = {
 
   crisisReply() {
     return [
-      "Önemli bir şey yazdın ve bunu ciddiye alıyorum. SÖZÜM SÖZ tanı koymaz ve tıbbi destek sağlamaz; ama en doğru adım, bu duyguları tek başına tutmamak.",
+      "You wrote something important, and I take it seriously. SÖZÜM SÖZ does not diagnose and does not provide medical support; but the right step is not to keep these feelings to yourself.",
       "",
-      "Lütfen hemen bir yetişkinle konuş (aile büyüğü, velin, öğretmen veya rehber öğretmen) ya da ücretsiz destek hattını ara:",
-      "- Yeşilay Danışmanlık Hattı: 115",
-      "- Acil durum / güvenlik riski: 112",
+      "Please talk to a trusted adult right away (a parent, guardian, teacher or school counselor) or call a free support line:",
+      "- Yeşilay Counseling Line: 115",
+      "- Emergency / immediate risk to safety: 112",
       "",
-      "Bu bilgi farkındalık amaçlıdır, tıbbi tanı veya tedavi önerisi değildir."
+      "This information is for awareness purposes and is not a medical diagnosis or treatment recommendation."
     ].join("\n");
   },
 
-  // ---------- tıbbi geçit (tıbbi soruları yanıtlamayız, doktora yönlendiririz) ----------
-  medicalPattern: /(ağr(ı|ım)|sancı|iltihap|ateş|mide|baş dönmesi|dönüyor|uyuşma|karıncalanma|çarpıntı|kalp|tansiyon|şeker|ilaç|doz|reçete|ameliyat|yara|kanama|kusma|ishal|kabızlık|diyabet|kolesterol|grip|öksürük|nefes darlığı|kırık|çıkık|şişlik|döküntü|kaşıntı|vitamin|doktor|hap|şurup|eczane)/i,
+  // ---------- medical gate (we do not answer medical questions, we refer to a doctor) ----------
+  medicalPattern: /(ağr(ı|ım)|sancı|mide|ateş|baş dönmesi|tansiyon|şeker|ilaç|reçete|ameliyat|kanama|doktor)|(pain|ache(s|d)?|stomach|fever|headache|migraine|nausea|dizzy|numbness|tingling|palpitation|chest|heart attack|blood pressure|diabetes|medication|medicine|pill|prescription|surgery|operation|wound|injury|bleeding|vomit|rash|itch|allerg(y|ic)?|doctor|hospital|pharmacy|dose|overdose|infection|virus)/i,
 
   isMedical(text) {
     return !!String(text || "").match(AI.medicalPattern);
@@ -46,23 +46,23 @@ const AI = {
 
   medicalReply() {
     return [
-      "Bu tıbbi bir soru gibi görünüyor; SÖZÜM SÖZ tanı koymaz ve tıbbi tavsiye veremez.",
-      "Sağlık konularında bir doktora veya sağlık kuruluşuna danışman en doğru adım olur.",
+      "This looks like a medical question; SÖZÜM SÖZ does not make diagnoses and cannot give medical advice.",
+      "The right step for health questions is to consult a doctor or a healthcare provider.",
       "",
-      "Bunun yerine sana dijital iyi olma hâlinde destek olabilirim: ekran süresi, süre sözü, mola ve gece kullanımı üzerine konuşabiliriz."
+      "Instead, I can support you on digital well-being: we can talk about screen time, duration promises, breaks, and night-time usage."
     ].join("\n");
   },
 
-  // ---------- konu dışı (off-topic) tespiti, gruplara ayrılır ----------
-  wellbeingContext: /(telefon|ekran|uygulama|kaydır|feed|süre sözü|mola|bağımlı|bildirim|oturum|alışkanlık|aşırı|oyun bağ|sosyal medya|gece kullanım)/i,
+  // ---------- off-topic detection, split into groups ----------
+  wellbeingContext: /(phone|screen|app|scroll|feed|promise|süre sözü|break|mola|addict|notification|session|habit|overuse|social media|night usage|gaming|digital|dijital|ekran|bildirim|alışkanlık|kaydırma|gece kullanım)/i,
 
   offTopicGroups: [
-    { name: "finans", re: /döviz|dolar|euro|avro|borsa|hisse|kripto|bitcoin|coin|faiz|enflasyon|banka|piyasa|maaş/i },
-    { name: "haber", re: /seçim|siyaset|parti|hükümet|savaş|deprem|gündem|gazete|haber/i },
-    { name: "spor", re: /maç sonucu|takım|lig|şampiyon|gol|skor|futbolcu/i },
-    { name: "eğlence", re: /hile|mini sipariş|sanatçı|ünlü|magazin/i },
-    { name: "bilgi", re: /matematik|denklem|fizik|kimya|tarih sorusu|coğrafya|ne demek|anlamı nedir|ingilizce|ödev/i },
-    { name: "yaşam", re: /hava durumu|tarif|otel|gezi öner/i }
+    { name: "finance", re: /forex|dollar|euro|currency|exchange rate|stock market|share price|bitcoin|crypto|cryptocurrency|interest rate|inflation|bank|invest|salary|tax|faiz|enflasyon|döviz|borsa|kripto/i },
+    { name: "news", re: /election|politics|government|war|earthquake|news headline|president|seçim|siyaset|hükümet|savaş|deprem|haber/i },
+    { name: "sports", re: /match (result|score)|score today|league table|championship|champion|goal|football result|maç sonucu|takım|lig|şampiyon|gol|skor/i },
+    { name: "entertainment", re: /celebrity|movie (review|plot|trailer)|song lyrics|actor|pop star|film|dizi|müzik|ünlü|magazin/i },
+    { name: "knowledge", re: /math|equation|physics|chemistry|history question|geography|what (does|is|in)|translate|homework|definition|english word|matematik|denklem|fizik|kimya/i },
+    { name: "lifestyle", re: /weather|recipe|cooking|hotel|travel tip|hava durumu|tarif|otel|gezi öner/i }
   ],
 
   detectOffTopic(q) {
@@ -76,17 +76,17 @@ const AI = {
 
   offTopicReply(group) {
     const labels = {
-      finans: "Döviz, hisse ve piyasa bilgileri benim alanım değil",
-      haber: "Güncel haber ve siyaset benim alanım değil",
-      spor: "Spor sonuçları ve puanlar benim alanım değil",
-      eğlence: "Film, müzik veya oyun hileleri önermiyorum",
-      bilgi: "Genel bilgi ve ders konuları benim alanım değil",
-      yaşam: "Tarif, hava durumu ve yaşam tavsiyesi benim alanım dışında"
+      finance: "Currency, stock and market details are not my field",
+      news: "Current news and politics are not my field",
+      sports: "Sports results and scores are not my field",
+      entertainment: "I don't recommend movies, music or game cheats",
+      knowledge: "General knowledge and homework topics are not my field",
+      lifestyle: "Recipes, weather and lifestyle advice are outside my field"
     };
     return [
-      (labels[group] || "Bu konu benim alanım değil") + "; ben dijital iyi olma hâli koçuyum.",
-      "Bunun yerine şunlarda yardımcı olabilirim: ekran süresi, süre sözü, mola önerisi, gece kullanımı, uygulama atlama alışkanlığı.",
-      "Seni şu anda en çok zorlayan ekran alışkanlığı hangisi?"
+      (labels[group] || "This topic is not my field") + "; I am a digital well-being coach.",
+      "Instead, I can help with: screen time, duration promises, break suggestions, night-time usage, and the habit of jumping between apps.",
+      "Which screen habit is pushing you the most right now?"
     ].join("\n");
   },
 
@@ -95,10 +95,10 @@ const AI = {
   },
 
   periodOf(h) {
-    if (h >= 6 && h < 12) return "sabah";
-    if (h >= 12 && h < 18) return "öğleden sonra";
-    if (h >= 18 && h < 22) return "akşam";
-    return "gece";
+    if (h >= 6 && h < 12) return "morning";
+    if (h >= 12 && h < 18) return "afternoon";
+    if (h >= 18 && h < 22) return "evening";
+    return "night";
   },
 
   aggregate(sessions) {
@@ -142,144 +142,144 @@ const AI = {
 
   serialized(sessions) {
     return sessions.slice(0, 14).map(s => ({
-      uygulama: s.appName,
-      hedefDakika: s.promisedMin,
-      gercekDakika: s.usedMin,
-      sonuc: s.result,
-      kapanisSaat: AI.hourOf(s.ts)
+      app: s.appName,
+      targetMinutes: s.promisedMin,
+      actualMinutes: s.usedMin,
+      result: s.result,
+      closeHour: AI.hourOf(s.ts)
     }));
   },
 
   buildDaily(sessions) {
     const agg = AI.aggregate(sessions);
     return [
-      "===== BÖLÜM 1: KOMUT (görevin) =====",
-      "Kullanıcının bugüne ait ekran kullanım kaydını yargısız, tanı koymadan ve sayıları YALNIZCA aşağıdaki VERİ bölümünden alarak bir yansımaya dönüştür.",
+      "===== SECTION 1: COMMAND (your task) =====",
+      "Turn the user's screen-usage record for today into a reflection without judgment, without making a diagnosis, and taking numbers ONLY from the DATA section below.",
       "",
-      "===== BÖLÜM 2: VERİ (sayılar sadece buradan gelecek) =====",
-      "Kullanıcının bugüne ait ekran kullanım kaydı (JSON):",
+      "===== SECTION 2: DATA (numbers come only from here) =====",
+      "The user's screen-usage record for today (JSON):",
       JSON.stringify({
-        toplamOturum: agg.total,
-        toplamKullanimDk: agg.usedMin,
-        tutulanSoz: agg.kept,
-        bozulanSoz: agg.brokenExceed + agg.brokenHop
+        totalSessions: agg.total,
+        totalMinutes: agg.usedMin,
+        promisesKept: agg.kept,
+        promisesBroken: agg.brokenExceed + agg.brokenHop
       }, null, 2),
       "",
-      "Oturumlar:",
+      "Sessions:",
       AI.serialized(sessions).length
         ? JSON.stringify(AI.serialized(sessions), null, 2)
-        : "Bugüne ait oturum kaydı yok; bunu belirt.",
+        : "There are no session records for today; say so.",
       "",
-      "===== BÖLÜM 3: ÖRNEK 1 — OLAĞAN GÜN (sözlerin çoğu tutulmuş) =====",
-      "\"Bugün 4 uygulamada toplam ~85 dakika geçirdin ve 2 sözünü tuttuğun için iyi bir başlangıç. En fazla aşım TikTok'ta görünüyor (2 kez, ortalama 7 dk). Akşam 21:00 sonrası aşım eğilimi dikkat çekiyor; yorgunluk döneminde otomatik kaydırma davranışı tetiklenmiş olabilir. Küçük deneyim: TikTok'a girmeden önce 1 dakika 'girme sebebimi' yaz. İkinci deneyim: telefonu saat 23:00'te başka odaya bırak.\"",
+      "===== SECTION 3: EXAMPLE 1 — A NORMAL DAY (most promises kept) =====",
+      "\"Today you spent ~85 minutes across 4 apps and kept 2 promises — a good start. The biggest overshoot is on TikTok (2 times, ~7 minutes each). An overshoot tendency appears after 21:00; automatic scrolling may be triggered during fatigue. Small experiment: before opening TikTok, write your 'reason for entering' for 1 minute. Second experiment: put the phone in another room at 23:00.\"",
       "",
-      "===== BÖLÜM 4: ÖRNEK 2 — ZOR GÜN (birçok söz bozulmuş, yumuşak ve cesaretlendirici dil) =====",
-      "\"Bugün zordu ve bunu saklamak yerine fark etmek önemli: 5 oturumda 4 hedef aşıldı, toplamda hedefinin ~40 dk üzerine çıktın. Bu bir başarısızlık değil; tekrar eden bir kalıp. Aşımlar öğleden sonra ve gece saatlerinde yoğunlaşıyor. Küçük deneyimin: öğleden sonra geçişlerinde 30 saniye nefes alıp sonra karar ver; 23:00'ten sonra telefonu başka odaya bırak.\"",
+      "===== SECTION 4: EXAMPLE 2 — A HARD DAY (several promises broken, soft and encouraging tone) =====",
+      "\"Today was hard, and noticing it matters more than hiding it: 4 of 5 sessions exceeded the target, and in total you went ~40 minutes over your target. This is not a failure; it is a repeating pattern. Overshoots concentrate in the afternoon and late night. Your small experiments: take 30 seconds to breathe before mid-day app switches; after 23:00 leave the phone in another room.\"",
       "",
-      "===== BÖLÜM 5: DOĞRULAMA (yanıtı göndermeden önce kendine sor) =====",
-      "1) Kullandığım her rakam BÖLÜM 2'deki VERİ'de var mı? Yoksa rakam uydurma; yerine 'kaydımda yok' demekten çekinme.",
-      "2) Hiçbir maddede tıbbi, suçlayıcı veya cezalandırıcı dil var mı?",
-      "3) Her madde '-' ile başlıyor mu ve son satırda yasal uyarı var mı?",
+      "===== SECTION 5: VERIFY (ask yourself before sending) =====",
+      "1) Is every number I use present in the DATA in SECTION 2? If not, do not invent numbers; feel free to say 'not in my records'.",
+      "2) Is there any medical, blaming or punishing language in any bullet?",
+      "3) Does every bullet start with '-' and is the last line the legal disclaimer?",
       "",
-      "Şimdi bu kullanıcının verisiyle, ÖRNEK 1/2'nin yapısına ve tüm kurallara uyarak yanıt ver."
+      "Now respond for this user's data, following the structure of EXAMPLES 1/2 and all the rules."
     ].join("\n");
   },
 
   buildWeekly(sessions) {
     const agg = AI.aggregate(sessions);
     const catLines = agg.categories.length
-      ? agg.categories.map(c => "* " + (CATEGORY_LABELS[c.name] || c.name) + ": " + c.used + " dk").join("\n")
-      : "* Veri yok.";
+      ? agg.categories.map(c => "* " + (CATEGORY_LABELS[c.name] || c.name) + ": " + c.used + " min").join("\n")
+      : "* No data.";
     const appLines = agg.topApps.length
-      ? agg.topApps.slice(0, 3).map(a => "* " + a.name + ": " + a.used + " dk (" + a.exceed + " aşım)").join("\n")
-      : "* Veri yok.";
+      ? agg.topApps.slice(0, 3).map(a => "* " + a.name + ": " + a.used + " min (" + a.exceed + " overshoots)").join("\n")
+      : "* No data.";
     return [
-      "===== BÖLÜM 1: KOMUT (görevin) =====",
-      "Kullanıcının son 7 günlük ekran kullanım kaydından, sayıları yalnızca aşağıdaki VERİ'den alarak yargısız bir haftalık yansıma üret.",
+      "===== SECTION 1: COMMAND (your task) =====",
+      "From the user's screen-usage record of the last 7 days, produce a non-judgmental weekly reflection, taking numbers only from the DATA below.",
       "",
-      "===== BÖLÜM 2: VERİ (sayılar sadece buradan gelecek) =====",
-      "Kullanıcının son 7 güne ait ekran kullanımı istatistiği:",
+      "===== SECTION 2: DATA (numbers come only from here) =====",
+      "The user's screen usage statistics for the last 7 days:",
       JSON.stringify({
-        toplamOturum: agg.total,
-        toplamKullanimDk: agg.usedMin,
-        tutulanSoz: agg.kept,
-        bozulanSozAsim: agg.brokenExceed,
-        bozulanSozAtlama: agg.brokenHop,
-        ortalamaAsimDk: agg.avgOvershootMin,
-        enCokKullanilan: agg.topApps.slice(0, 3).map(a => a.name),
-        kategoriDagilimDk: Object.fromEntries(agg.categories.map(c => [c.name, c.used]))
+        totalSessions: agg.total,
+        totalMinutes: agg.usedMin,
+        promisesKept: agg.kept,
+        promisesBrokenOvershoot: agg.brokenExceed,
+        promisesBrokenHop: agg.brokenHop,
+        averageOvershootMin: agg.avgOvershootMin,
+        mostUsed: agg.topApps.slice(0, 3).map(a => a.name),
+        categoryBreakdownMin: Object.fromEntries(agg.categories.map(c => [c.name, c.used]))
       }, null, 2),
       "",
-      "Kategori dağılımı:",
+      "Category breakdown:",
       catLines,
-      "En çok kullanılan 3 uygulama:",
+      "Top 3 apps:",
       appLines,
       "",
-      "===== BÖLÜM 3: ADIMLAR (sırayı asla bozma) =====",
-      "ADIM 1: Haftanın genel tablosunu 1-2 cümlelik, yargısız bir özetle. Tanı koyma.",
-      "ADIM 2: En belirgin 2 kalıbı seç; her biri için 'desen -> olası tetikleyici -> küçük deneyim' yapısında kısa madde yaz.",
-      "ADIM 3: Gelecek hafta için 2 somut ve esnek sınır/rota önerisi ver (sert 'günde 1 saat' gibi hedefler koyma).",
-      "ADIM 4: Cesaretlendirici ama gerçekçi bir kapanış cümlesi yaz ve yasal uyarı notunu ekle.",
+      "===== SECTION 3: STEPS (never change the order) =====",
+      "STEP 1: Summarize the overall picture of the week in 1-2 non-judgmental sentences. Do not diagnose.",
+      "STEP 2: Pick the 2 strongest patterns; for each, write a short bullet using 'pattern -> possible trigger -> small experiment'.",
+      "STEP 3: Give 2 concrete and flexible boundary/routine suggestions for next week (do not set rigid targets such as '1 hour per day').",
+      "STEP 4: Write an encouraging but realistic closing sentence and add the legal disclaimer line.",
       "",
-      "===== BÖLÜM 4: DOĞRULAMA (yanıtı göndermeden önce kendine sor) =====",
-      "1) Tüm rakamlar VERİ'den mi? Bilmediğimi uydurma.",
-      "2) Tıbbi/suçlayıcı dil var mı?",
-      "3) Bölüm 3'teki adım sırası korundu mu ve son satır yasal uyarı mı?",
+      "===== SECTION 4: VERIFY (ask yourself before sending) =====",
+      "1) Are all numbers from the DATA? Don't invent what I don't know.",
+      "2) Is there any medical or blaming language?",
+      "3) Is the step order in SECTION 3 preserved and is the last line the legal disclaimer?",
       "",
-      "Şimdi bu kullanıcının verisiyle yanıt ver."
+      "Now respond with the weekly reflection."
     ].join("\n");
   },
 
   fallback(kind, agg) {
     if (!agg || agg.total === 0) {
-      return "Henüz yeterli veri yok. Önce bir uygulamada süre sözü ver ve oturumu kapat; ardından buraya dönüp yeniden oluştur.";
+      return "Not enough data yet. Make a duration promise on an app and close the session; then come back here and generate again.";
     }
     const top = agg.topApps[0];
     const exApps = agg.topApps.filter(a => a.exceed > 0);
-    const periodNames = { sabah: "sabah saatlerinde", "öğleden sonra": "öğleden sonra", akşam: "akşam saatlerinde", gece: "gece saatlerinde" };
+    const periodNames = { morning: "in the morning", afternoon: "in the afternoon", evening: "in the evening", night: "at night" };
     const worstPeriod = Object.keys(agg.periodCounts)
       .map(p => ({ p, n: agg.periodCounts[p] }))
       .sort((a, b) => b.n - a.n)[0];
     const periodStr = worstPeriod && worstPeriod.n > 0
-      ? "Aşımların en sık " + periodNames[worstPeriod.p] + " görülüyor."
-      : "Aşımların gün içinde dengeli dağılıyor.";
+      ? "Your overshoots occur most often " + periodNames[worstPeriod.p] + "."
+      : "Your overshoots are spread evenly through the day.";
     const exStr = exApps.length
-      ? "Hedef aşımın olan uygulamalar: " + exApps.slice(0, 2).map(a => a.name).join(" ve ") + " (" + exApps[0].exceed + " kez)."
-      : "Bu dönemde hedef aşımın yok, güzel bir disiplin.";
+      ? "Apps where you exceeded the target: " + exApps.slice(0, 2).map(a => a.name).join(" and ") + " (" + exApps[0].exceed + " times)."
+      : "No overshoots in this period — nice discipline.";
     if (kind === "daily") {
       return [
-        "Bugün " + agg.total + " oturumda toplam ~" + agg.usedMin + " dakika geçirdin ve " + agg.kept + " sözünü tuttun. İyi bir başlangıç.",
+        "Today you spent ~" + agg.usedMin + " minutes across " + agg.total + " sessions and kept " + agg.kept + " promises. A good start.",
         "",
-        "Desen: " + top.name + " en yüksek kullanımın (" + top.used + " dk). " + exStr,
+        "Pattern: " + top.name + " is your highest usage (" + top.used + " min). " + exStr,
         periodStr,
         "",
-        "Olası tetikleyiciler: Akış (feed) tabanlı uygulamalarda süre fark edilmeden akar; otomatik içerik önerisi, 'bir dakika daha' isteğini artırabilir. Bunun farkında olmak ilk basamağı atlamanı kolaylaştırır.",
+        "Possible triggers: time flows unnoticed in feed-based apps; automatic content recommendations can raise the 'one more minute' urge. Being aware of this makes the first step easier.",
         "",
-        "Küçük deneyler (1 hafta):",
-        "1) " + top.name + " adlı uygulamayı açmadan önce 10 saniye 'şu an ne hissettiğimi / neden girdiğimi' yaz.",
-        "2) Oturuma başlamadan önce bitiş saati söyle; süre dolunca telefonu ters çevir ve 2 dakika uzaklaş.",
+        "Small experiments (1 week):",
+        "1) For 10 seconds before opening " + top.name + ", write 'what I feel / why I am entering'.",
+        "2) Say a finish time out loud before the session; when the time is up, turn the phone over and step away for 2 minutes.",
         "",
-        "Bu bilgi farkındalık amaçlıdır, tıbbi tanı veya tedavi önerisi değildir."
+        "This information is for awareness purposes and is not a medical diagnosis or treatment recommendation."
       ].join("\n");
     }
     return [
-      "Haftalık genel görünüm: Toplam " + agg.total + " oturum, ~" + agg.usedMin + " dakika ekran zamanı. " + agg.kept + " söz tutuldu, " + (agg.brokenExceed + agg.brokenHop) + " söz bozuldu.",
+      "Weekly overview: " + agg.total + " sessions, ~" + agg.usedMin + " minutes of screen time. " + agg.kept + " promises kept, " + (agg.brokenExceed + agg.brokenHop) + " broken.",
       "",
-      "Desen 1: " + top.name + " toplam kullanımının önemli bir bölümünü alıyor (" + top.used + " dk) ve aşım eğilimi taşıyor.",
-      "Desen 2: " + periodStr + " Yorgunluk ve geç saatteki geçişler, 'kısa bir bakış' ile başlayıp uzayan oturumların eşiği olabiliyor.",
+      "Pattern 1: " + top.name + " takes a large share of the total usage (" + top.used + " min) and carries an overshoot tendency.",
+      "Pattern 2: " + periodStr + " Fatigue and late-night transitions can be the threshold where a 'quick look' turns into a long session.",
       "",
-      "Küçük deneyler: 1) Haftada bir gün tüm bildirimleri kapat. 2) Bir uygulamayı açmadan önce 'kaç dakika' sorusunu sesli olarak yanıtla, sonra aç.",
+      "Small experiments: 1) Turn off all notifications for one day this week. 2) Before opening an app, answer 'how many minutes?' out loud, then open it.",
       "",
-      "Önümüzdeki hafta için: 'Sıfır aşım' gibi sert bir hedef yerine, aynı saat dilimlerindeki oturumları her gün 3 dakika kısaltmayı dene.",
+      "For next week: instead of a rigid goal like 'zero overshoots', try shortening sessions in the same time slots by 3 minutes each day.",
       "",
-      "Bu bilgi farkındalık amaçlıdır, tıbbi tanı veya tedavi önerisi değildir."
+      "This information is for awareness purposes and is not a medical diagnosis or treatment recommendation."
     ].join("\n");
   },
 
   async generate(kind, sessions, cfg) {
     const system = AI.systemPrompt();
     const user = kind === "daily" ? AI.buildDaily(sessions) : AI.buildWeekly(sessions);
-    const promptText = "SİSTEM PROMPTU:\n" + system + "\n\n\nKULLANICI PROMPTU:\n" + user;
+    const promptText = "SYSTEM PROMPT:\n" + system + "\n\n\nUSER PROMPT:\n" + user;
     if (cfg.live && cfg.apiKey) {
       try {
         const callCfg = Object.assign({}, cfg, { temperature: 0.5 });
@@ -324,12 +324,12 @@ const AI = {
       try {
         const j = await res.json();
         if (j.error) detail = j.error.message || j.error.code || res.status;
-      } catch (e) { /* boş */ }
-      throw new Error("API isteğinde hata (HTTP " + detail + ").");
+      } catch (e) { /* empty */ }
+      throw new Error("API request failed (HTTP " + detail + ").");
     }
     const j = await res.json();
     const text = j.choices && j.choices[0] && j.choices[0].message && j.choices[0].message.content;
-    if (!text) throw new Error("YZ'dan boş yanıt geldi.");
+    if (!text) throw new Error("The AI returned an empty response.");
     return text.trim();
   },
 
@@ -354,69 +354,69 @@ const AI = {
       try {
         const je = await res.json();
         if (je.error) detail = je.error.message || je.error.code || res.status;
-      } catch (e) { /* boş */ }
-      throw new Error("Gemini isteğinde hata (HTTP " + detail + ").");
+      } catch (e) { /* empty */ }
+      throw new Error("Gemini request failed (HTTP " + detail + ").");
     }
     const j = await res.json();
     const parts = j.candidates && j.candidates[0] && j.candidates[0].content && j.candidates[0].content.parts;
     const text = parts ? parts.map(p => p.text || "").join("") : "";
-    if (!text) throw new Error("YZ'dan boş yanıt geldi.");
+    if (!text) throw new Error("The AI returned an empty response.");
     return text.trim();
   },
 
   coachSystem() {
     return [
-      "Sen 'SÖZÜM SÖZ' dijital iyi olma hâli koçusun. Görevin, kullanıcının oturumuyla ilgili kısa, empatik ve suçluluk hissettirmeyen tek bir bildirim üretmek.",
-      "Kurallar:",
-      "1) Yargılama, suçlama yapma; 'bağımlı', 'hasta', 'tedavi' gibi tıbbi veya damgalayıcı sözcükler kullanma.",
-      "2) En fazla 2 cümle; içten ve teşvik edici ol.",
-      "3) Somut, hemen yapılabilir bir küçük mola öner (gözleri dinlendir, su iç, ayaklarını uzat, 20 nefes vb.).",
-      "4) Molayı puan cinsinden sun (points): makul aralık 10-20.",
-      "5) Sert hedef koyma, kullanıcıyı zorlama; öneri bir seçenek olsun.",
-      "6) Çıktıyı yalnızca JSON olarak üret: {\"title\": \"...\", \"body\": \"...\", \"breakOffer\": \"...\", \"points\": <sayı>}",
-      "7) Her zaman Türkçe cevap ver, markdown işareti kullanma."
+      "You are 'SÖZÜM SÖZ', a digital well-being coach. Your task is to produce one short, empathetic notification about the user's session that does not make them feel guilty.",
+      "Rules:",
+      "1) Do not judge or blame; do not use medical or stigmatizing words such as 'addict', 'patient', 'treatment'.",
+      "2) At most 2 sentences; warm and encouraging.",
+      "3) Suggest one concrete, immediately doable microbreak (rest your eyes, drink water, stretch your legs, take 20 breaths, etc.).",
+      "4) Present the break in points (points): a reasonable range is 10-20.",
+      "5) Do not set hard targets or pressure the user; make it an option.",
+      "6) Output ONLY as JSON: {\"title\": \"...\", \"body\": \"...\", \"breakOffer\": \"...\", \"points\": <number>}",
+      "7) Always answer in English, do not use markdown."
     ].join("\n");
   },
 
   buildCoach(opts) {
     return [
-      "===== BÖLÜM 1: KOMUT =====",
-      "Tek, empatik, suçluluk hissettirmeyen bir bildirim üret. Çıktı YALNIZCA bu JSON şeması olacak: {\"title\": \"...\", \"body\": \"...\", \"breakOffer\": \"...\", \"points\": <sayı>}",
+      "===== SECTION 1: COMMAND =====",
+      "Produce one empathetic, non-guilt-inducing notification. The output will be ONLY this JSON schema: {\"title\": \"...\", \"body\": \"...\", \"breakOffer\": \"...\", \"points\": <number>}",
       "",
-      "===== BÖLÜM 2: VERİ / BAĞLAM =====",
-      "Uygulama: " + opts.appName,
-      "Kategori: " + (CATEGORY_LABELS[opts.category] || opts.category || "bilinmiyor"),
-      "Saat: " + opts.hour + ":00",
-      "Durum: " + (opts.type === "overshoot"
-        ? "hedef " + opts.promisedMin + " dk idi, " + opts.overMin + " dk aşıldı"
-        : "kapatıp hemen başka uygulamaya geçildi (uygulama atlama)."),
-      "Kullanıcının güncel serisi: " + opts.streak + (opts.streak > 1 ? " söz arka arkaya tutuldu" : ""),
+      "===== SECTION 2: DATA / CONTEXT =====",
+      "App: " + opts.appName,
+      "Category: " + (CATEGORY_LABELS[opts.category] || opts.category || "unknown"),
+      "Hour: " + opts.hour + ":00",
+      "Status: " + (opts.type === "overshoot"
+        ? "the target was " + opts.promisedMin + " min, " + opts.overMin + " min was exceeded"
+        : "closed an app and immediately switched to another one (app hopping)."),
+      "User's current streak: " + opts.streak + (opts.streak > 1 ? " promises kept in a row" : ""),
       "",
-      "===== BÖLÜM 3: ÖRNEK 1 — SÜRE AŞIMI =====",
-      "{\"title\": \"Mola zamanı\", \"body\": \"30 dakikalık oturum biraz uzadı; bu gayet doğal.\", \"breakOffer\": \"Gözlerini 20 saniye dinlendirip bir bardak su içmek ister misin?\", \"points\": 15}",
+      "===== SECTION 3: EXAMPLE 1 — OVERSHOOT =====",
+      "{\"title\": \"Break time\", \"body\": \"Your 30-minute session stretched a little; that's completely natural.\", \"breakOffer\": \"Would you like to rest your eyes for 20 seconds and drink a glass of water?\", \"points\": 15}",
       "",
-      "===== BÖLÜM 4: ÖRNEK 2 — HIZLI GEÇİŞ =====",
-      "{\"title\": \"Hızlı geçiş fark ettik\", \"body\": \"Bir uygulamayı kapatıp hemen diğerine geçmek stresle daha sık olur.\", \"breakOffer\": \"10 saniye dur ve kendine sor: şu an gerçekten neye ihtiyacım var?\", \"points\": 10}",
+      "===== SECTION 4: EXAMPLE 2 — QUICK SWITCH =====",
+      "{\"title\": \"Quick switch noticed\", \"body\": \"Closing one app and immediately opening another is more common under stress.\", \"breakOffer\": \"Pause for 10 seconds and ask yourself: what do I really need right now?\", \"points\": 10}",
       "",
-      "===== BÖLÜM 5: DOĞRULAMA (göndermeden önce) =====",
-      "1) title, body, breakOffer, points alanları var mı?",
-      "2) points 1-20 aralığında mı?",
-      "3) Tıbbi veya suçlayıcı bir ifade var mı?",
-      "İçeriği bu kullanıcının bağlamına uyarla, şema dışına çıkma."
+      "===== SECTION 5: VERIFY (before sending) =====",
+      "1) Do the title, body, breakOffer and points fields exist?",
+      "2) Is points within 1-20?",
+      "3) Is there any medical or blaming wording?",
+      "Adapt the content to this user's context; do not leave the schema."
     ].join("\n");
   },
 
   fallbackCoach(opts) {
     var title, body, breakOffer, points;
     if (opts.type === "overshoot") {
-      title = "Süre hedefini hafifçe aştın";
-      body = (opts.appName || "Oturum") + " beklediğinden " + opts.overMin + " dk uzadı. Fark etmen yeterli.";
-      breakOffer = "Küçük bir mola: gözlerini 20 sn kapat, nefes al, su iç.";
+      title = "You slightly exceeded your target";
+      body = (opts.appName || "The session") + " ran " + opts.overMin + " min longer than expected. Noticing it is enough.";
+      breakOffer = "A quick break: close your eyes for 20 sec, breathe, drink water.";
       points = 5;
     } else {
-      title = "Hızlı geçiş fark ettik";
-      body = (opts.appName || "Yeni uygulama") + " oturumuna geçtin; hemen ardından diğerine geçmek dikkati böler.";
-      breakOffer = "10 saniye dur ve kendine sor: şu an gerçekten neye ihtiyacım var?";
+      title = "Quick switch noticed";
+      body = "You moved on to " + (opts.appName || "a new app") + "; immediately jumping to another splits your attention.";
+      breakOffer = "Pause for 10 seconds and ask yourself: what do I really need right now?";
       points = 3;
     }
     return { title: title, body: body, breakOffer: breakOffer, points: points };
@@ -427,7 +427,7 @@ const AI = {
     try {
       var obj = m ? JSON.parse(m[0]) : null;
       return {
-        title: (obj && obj.title) || "Mola zamanı",
+        title: (obj && obj.title) || "Break time",
         body: (obj && obj.body) || "",
         breakOffer: (obj && obj.breakOffer) || "",
         points: (obj && typeof obj.points === "number") ? obj.points : 5
@@ -440,7 +440,7 @@ const AI = {
   async generateCoach(opts, cfg) {
     var system = AI.coachSystem();
     var user = AI.buildCoach(opts);
-    var promptText = "SİSTEM PROMPTU:\n" + system + "\n\n\nKULLANICI PROMPTU:\n" + user;
+    var promptText = "SYSTEM PROMPT:\n" + system + "\n\n\nUSER PROMPT:\n" + user;
     if (cfg.live && cfg.apiKey) {
       try {
         var callCfg = Object.assign({}, cfg, { temperature: 0.8 });
@@ -456,18 +456,18 @@ const AI = {
 
   chatSystem() {
     return [
-      "Sen 'SÖZÜM SÖZ' dijital iyi olma hâli koçusun. Kullanıcıyla karşılıklı sohbet edersin.",
-      "Kurallar:",
-      "1) Yargısız, empatik ve teşvik edici ol; 'bağımlı', 'hasta', 'tedavi' gibi tıbbi veya damgalayıcı sözcükler kullanma, tanı koyma.",
-      "2) Yanıtı 6-10 satırla sınırla; daha uzun cevapları kısa paragraflara böl, gereksiz madde yığma.",
-      "3) Öneriler kısa, somut ve 'küçük deney' niteliğinde olsun; sert hedefler koyma, kullanıcıyı zorlama.",
-      "4) Gerekirse tek bir net soru sor ve yanıtına göre devam et (çok turlu sohbet).",
-      "5) Rakamları yalnızca verdiğim anonim veri bağlamına dayandır; veri yoksa varsayım yapma.",
-      "6) Her zaman Türkçe yanıt ver.",
-      "7) Yönlendirici öneri verdiğinde sona 'Bu bilgi farkındalık amaçlıdır, tıbbi tanı veya tedavi önerisi değildir.' satırını ekle.",
-      "8) Kriz sinyali görürsen (intihar, kendine zarar, ağır umutsuzluk) tanı koyma; sakin ve yargısız biçimde ücretsiz destek hatlarına yönlendir: Yeşilay Danışmanlık Hattı 115, acil için 112.",
-      "9) Soru ekran kullanımı/dijital iyi olma ile ilgisizse (döviz, yemek, genel haber, matematik vb.) soruyu yanıtlama; bu konunun alanının dışında olduğunu kısaca söyle ve konuyu kullanıcının ekran alışkanlıklarına geri getir.",
-      "10) DOĞRULAMA: yanıtı göndermeden önce rakamların yalnızca verilen bağlamdan olduğunu kontrol et; emin değilsen rakam uydurma. Yanıt içinde tıbbi/suçlayıcı ifade varsa düzelt."
+      "You are 'SÖZÜM SÖZ', a digital well-being coach. You converse with the user back and forth.",
+      "Rules:",
+      "1) Be non-judgmental, empathetic and encouraging; do not use medical or stigmatizing words such as 'addict', 'patient', 'treatment'; do not diagnose.",
+      "2) Limit the response to 6-10 lines; split longer answers into short paragraphs without piling up bullets.",
+      "3) Suggestions must be short, concrete 'small experiments'; do not set hard targets or pressure the user.",
+      "4) If needed, ask one clear question and continue based on the answer (multi-turn conversation).",
+      "5) Base numbers only on the anonymous data context I give you; if there is no data, do not assume.",
+      "6) Always respond in English.",
+      "7) When you give directive advice, end with: 'This information is for awareness purposes and is not a medical diagnosis or treatment recommendation.'",
+      "8) If you see a crisis signal (suicide, self-harm, severe hopelessness) do not diagnose; calmly and without judgment direct to free support lines: Yeşilay Counseling Line 115, and 112 for emergencies.",
+      "9) If the question is unrelated to screen usage / digital well-being (currency, food, general news, math, etc.), do not answer it; briefly say it is outside your field and bring the topic back to the user's screen habits.",
+      "10) VERIFICATION: before sending, check that the numbers come only from the given context; if unsure, do not invent numbers. If the response contains medical/blaming wording, fix it."
     ].join("\n");
   },
 
@@ -476,10 +476,10 @@ const AI = {
     if (AI.isCrisis(q)) return AI.crisisReply();
     if (agg && agg.total > 0) {
       var top = agg.topApps[0];
-      lines.push("Son 7 gününün özeti: " + agg.total + " oturum, ~" + agg.usedMin + " dk ekran süresi; " + agg.kept + " söz tutuldu, " + (agg.brokenExceed + agg.brokenHop) + " bozuldu." + (top ? " En çok " + top.name + " öne çıkıyor (" + top.used + " dk)." : ""));
+      lines.push("Your last 7 days: " + agg.total + " sessions, ~" + agg.usedMin + " minutes of screen time; " + agg.kept + " promises kept, " + (agg.brokenExceed + agg.brokenHop) + " broken." + (top ? " " + top.name + " stands out the most (" + top.used + " min)." : ""));
       lines.push("");
     } else {
-      lines.push("Henüz yeterli verim yok; ama birlikte küçük bir başlangıç yapabiliriz.");
+      lines.push("I don't have enough data yet; but we can start with something small together.");
       lines.push("");
     }
 var lower = String(q || "").toLowerCase();
@@ -492,65 +492,65 @@ var lower = String(q || "").toLowerCase();
       var off = AI.detectOffTopic(q);
       if (off) {
         lines.push(AI.offTopicReply(off));
-      } else if (/mola|stres|yorgun|dinlen|göz/i.test(lower)) {
-        lines.push("İyi bir adım. Şimdi 20 saniye gözlerini kapat, 3 yavaş nefes al ve bir bardak su iç.");
-        lines.push("Telefon ekranındayken 'Mola başla' butonu sana kısa bir mola ve +5 puan kazandırır.");
-      } else if (/plan|hedef|başla|nasıl|ipucu|öner/i.test(lower)) {
-        lines.push("Küçük ve esnek başlayalım:");
-        lines.push("1) Bugün 3 uygulama için süre sözü ver; ilkini 10 dakika tut.");
-        lines.push("2) Her sözden sonra 1 dakikalık nefes molası ver.");
-        lines.push("3) En çok aşım yaptığın saati not et; yarın o saatte 3 dakika kısaltmayı dene.");
-        lines.push("Dilersen şimdi Telefon sekmesinden ilk sözünü koyalım.");
-      } else if (/akşam|gece|kaydır|kayma|döngü|bağımlı|uyku|uyuyam/i.test(lower)) {
-        lines.push("Geç saatteki oturumlar genellikle yorgunlukla başlar; otomatik kaydırma fark edilmeden sürer.");
-        lines.push("Küçük deney: akşam 21:00'den sonra telefonu başka odaya bırak. İlk denemeyi hangi gün yaparsın?");
-      } else if (/motivasyon|isteksiz|heves|sıkıldım|can sıkıntısı|enerji/i.test(lower)) {
-        lines.push("Motivasyonun düşük olması çok normal; burada önemli olan kendini zorlamak değil, küçük bir ilk adım.");
-        lines.push("Şimdi telefonu üç katmana ayır: olmazsa olmaz (mesaj), keyifli (video), kaçış (feed). Kaçış katmanına bugün 5 dakikalık 'giriş sözü' koy.");
-        lines.push("Küçük deney: yarın sabah telefonu 20 dakika dışarıda bırak ve kahvaltıda telefonsuz kal.");
-      } else if (/bildirim|sürekli bak|tıklama dürtüsü|telefon elime/i.test(lower)) {
-        lines.push("Sürekli bakma dürtüsü, bildirim tasarımının bizi yönlendirmesinden gelir; bu senin disiplin eksikliğin değil.");
-        lines.push("Küçük deneyler: 1) Uygulama bildirimlerini toplu sessize al (yalnızca kişisel sohbetleri açık bırak). 2) Telefonu evde sabit bir noktada tut, cebinde değil.");
-      } else if (/iş|ders|odak|verim|dikkat|çalışamıyorum/i.test(lower)) {
-        lines.push("Odak için en etkili perde, telefonu çalışma alanından uzaklaştırmaktır; görünmeyen telefon, çok daha az özlenir.");
-        lines.push("Pomodoro denemesi: 25 dakika söz ver (telefon başka odaya), 5 dakika mola. Üç turda bir bildirimlere bak.");
-        lines.push("Bugün ilk turu kaçta başlatacağız?");
-      } else if (/alternatif|bahçe|spor|yürüyüş|kitap|dışarı|arkadaş|hobi/i.test(lower)) {
-        lines.push("Ekran yerine somut bir alternatif öneriyorum: bugün 10 dakikalık yürüyüş + 1 sayfa kitap.");
-        lines.push("Küçük deney: feed yerine radyo/playlist dinle, ellerin meşgulken kaydırma isteği azalır.");
-      } else if (/üzgün|kızgı|suçlu|pişman|kötü hisset|mahcup/i.test(lower)) {
-        lines.push("Bu hissi adlandırdığın için bunu kutlayalım; suçluluk motivasyon yaratmaz, kalıp fark etmek yaratır.");
-        lines.push("Küçük deney: kendine mektup yaz 'yarın tek bir aşımı azaltırsam ne kazanırım?' ve o cümleyi alarm ekranına koy.");
-        lines.push("Unutma: burada ne sınav ne ceza var; sadece dikkatle seçilmiş küçük adımlar.");
-      } else if (/merhaba|selam|nasılsın|hey\b/i.test(lower)) {
-        lines.push("Merhaba! Ben SÖZÜM SÖZ koçunum; ekran alışkanlıklarını birlikte gözden geçirebiliriz.");
-        lines.push("Zamanın varsa: son 7 günün özetini çıkarayım mı, yoksa küçük bir hedefle mi başlayalım?");
+      } else if (/break|stress|tired|rest|eye|relax|drained/i.test(lower)) {
+        lines.push("A good step. Now close your eyes for 20 seconds, take 3 slow breaths and drink a glass of water.");
+        lines.push("While on the app screen, the 'Start break' button gives you a short break and +5 points.");
+      } else if (/plan|goal|start|how|tip|suggest|advice|routine|schedule/i.test(lower)) {
+        lines.push("Let's start small and flexible:");
+        lines.push("1) Make a duration promise for 3 apps today; keep the first one at 10 minutes.");
+        lines.push("2) Take a 1-minute breathing break after each promise.");
+        lines.push("3) Note the hour when you overshoot the most; tomorrow try to shorten it by 3 minutes.");
+        lines.push("If you like, we can set your first promise right now on the Phone tab.");
+      } else if (/evening|night|scroll|late|sleep|insomnia|can('t|not)? sleep|bed|unwind/i.test(lower)) {
+        lines.push("Late-night sessions usually start with fatigue; automatic scrolling continues unnoticed.");
+        lines.push("Small experiment: after 21:00 leave the phone in another room. Which day will you try it first?");
+      } else if (/motivation|unwilling|bored|boredom|energy|demotivated/i.test(lower)) {
+        lines.push("Low motivation is completely normal; what matters is not forcing yourself but taking one small first step.");
+        lines.push("Now divide your phone into three layers: essential (messages), enjoyable (video), escape (feed). Put a 5-minute 'entry promise' on the escape layer today.");
+        lines.push("Small experiment: tomorrow morning leave the phone out of reach for 20 minutes and keep breakfast phone-free.");
+      } else if (/notification|keep checking|urge to check|phone in (my )?hand|checking habit/i.test(lower)) {
+        lines.push("The urge to keep checking comes from how notifications are designed to steer us — not from a lack of discipline.");
+        lines.push("Small experiments: 1) Mute app notifications in bulk (keep only personal chats). 2) Keep the phone in one fixed spot at home, not in your pocket.");
+      } else if (/work|study|focus|productivity|attention|concentrate|exam|deadline/i.test(lower)) {
+        lines.push("The most effective screen for focus is removing the phone from your workspace; a phone you cannot see is missed far less.");
+        lines.push("Pomodoro trial: 25 minutes promise (phone in another room), 5 minutes break. Check notifications after three rounds.");
+        lines.push("When will we start the first round today?");
+      } else if (/alternative|walk|exercise|book|outside|friend|hobby|outdoor|nature/i.test(lower)) {
+        lines.push("I suggest a concrete offline alternative: today, a 10-minute walk + 1 page of a book.");
+        lines.push("Small experiment: listen to a playlist instead of the feed; when your hands are busy, the urge to scroll drops.");
+      } else if (/sad|angry|guilt|regret|bad feel|ashamed|upset|blue|down/i.test(lower)) {
+        lines.push("Let's honor the fact that you named this feeling; guilt does not create motivation — recognizing a pattern does.");
+        lines.push("Small experiment: write yourself a note — 'what do I gain if I reduce one overshoot tomorrow?' — and put that sentence on the lockscreen.");
+        lines.push("Remember: there is no exam and no punishment here; only small, carefully chosen steps.");
+      } else if (/hello|hi|hey\b|good (morning|afternoon|evening)/i.test(lower)) {
+        lines.push("Hello! I'm your SÖZÜM SÖZ coach; we can review your screen habits together.");
+        lines.push("If you have time: shall I summarize your last 7 days, or shall we start with a small goal?");
       } else {
-        lines.push("Sana netleştirici bir soru sorayım: Uygulamayı şu an hangi amaçla kullanıyorsun (can sıkıntısı, kaçış, alışkanlık)? Yanıtına göre odağı daraltayım.");
+        lines.push("Let me ask a clarifying question: what purpose are you using the app for right now (boredom, escape, habit)? I'll narrow the focus based on your answer.");
       }
     }
     lines.push("");
-    lines.push("Bu bilgi farkındalık amaçlıdır, tıbbi tanı veya tedavi önerisi değildir.");
+    lines.push("This information is for awareness purposes and is not a medical diagnosis or treatment recommendation.");
     return lines.join("\n");
   },
 
   async chat(cfg, sessions, chatHistory) {
     var agg = AI.aggregate(sessions);
     var context = {
-      son7Gun: {
-        toplamOturum: agg.total,
-        toplamKullanimDk: agg.usedMin,
-        tutulanSoz: agg.kept,
-        bozulanSoz: agg.brokenExceed + agg.brokenHop,
-        enCokKullanilan: agg.topApps.slice(0, 3).map(function (a) { return a.name + " (" + a.used + " dk)"; })
+      last7Days: {
+        totalSessions: agg.total,
+        totalMinutes: agg.usedMin,
+        promisesKept: agg.kept,
+        promisesBroken: agg.brokenExceed + agg.brokenHop,
+        mostUsed: agg.topApps.slice(0, 3).map(function (a) { return a.name + " (" + a.used + " min)"; })
       }
     };
     var messages = [
       { role: "system", content: AI.chatSystem() },
-      { role: "system", content: "Kullanıcının anonim veri bağlamı (JSON; kimlik içermez): " + JSON.stringify(context) }
+      { role: "system", content: "The user's anonymous data context (JSON; contains no identity): " + JSON.stringify(context) }
     ];
     chatHistory.slice(-20).forEach(function (m) { messages.push({ role: m.role, content: m.content }); });
-    var promptText = messages.map(function (m) { return (m.role === "user" ? "KULLANICI" : m.role === "assistant" ? "KOÇ" : "SİSTEM") + ":\n" + m.content; }).join("\n\n");
+    var promptText = messages.map(function (m) { return (m.role === "user" ? "USER" : m.role === "assistant" ? "COACH" : "SYSTEM") + ":\n" + m.content; }).join("\n\n");
     var last = chatHistory[chatHistory.length - 1];
     var lastQ = (last && last.content) || "";
     if (AI.isCrisis(lastQ)) {

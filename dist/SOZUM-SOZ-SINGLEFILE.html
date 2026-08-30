@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SÖZÜM SÖZ - Dijital İyi Olma Hâli</title>
+<title>SÖZÜM SÖZ - Digital Well-Being</title>
 <style>
 :root {
   --green-800: #0e3d2a;
@@ -174,7 +174,7 @@ body {
 .notif-actions { display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
 .notif-actions .btn { padding: 7px 10px; font-size: 12px; border-radius: 9px; }
 
-/* mikromola ekranı */
+/* micro-break screen */
 .s-break {
   height: 100%; display: flex; flex-direction: column; align-items: center;
   justify-content: center; gap: 14px; padding: 28px 22px; text-align: center; color: #e2e8f0;
@@ -300,7 +300,7 @@ body {
 .s-soz .soz-row .chev { color: #86efac; font-weight: 800; }
 .s-soz .btn { margin-top: 10px; }
 
-/* telefon içi KVKK / açık rıza ekranı */
+/* in-phone KVKK / explicit-consent screen */
 .s-consent { padding: 66px 14px 30px; height: 100%; display: flex; flex-direction: column; overflow: auto; }
 .s-consent .brand { margin-bottom: 10px; }
 .s-consent h2 { font-size: 18px; color: #fff; margin-bottom: 10px; }
@@ -312,7 +312,7 @@ body {
 .s-consent .consent-body li::before { content: "▪"; color: var(--green-500); margin-right: 6px; }
 .s-consent .btn { margin-top: 8px; }
 
-/* ---- uygulama içi sayfa (tam ekran) ---- */
+/* ---- in-app page (full screen) ---- */
 .s-app {
   position: relative; height: 100%; color: #e2e8f0; display: flex; flex-direction: column;
   background: linear-gradient(180deg, #0f1a2e, #0b1220 40%, #0a101d);
@@ -429,7 +429,7 @@ body {
 .controls-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 .switch-line { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--ink-soft); cursor: pointer; }
 
-/* son aktiviteler (zaman çizelgesi) */
+/* recent activity (timeline) */
 .feed {
   display: flex; flex-direction: column; gap: 2px;
   max-height: 300px; overflow-y: auto;
@@ -614,7 +614,7 @@ body {
   .phone { width: 100%; max-width: 342px; margin: 0 auto; height: 78vh; min-height: 560px; }
 }
 
-/* haftalık görevler */
+/* weekly challenges */
 .ch-list { display: flex; flex-direction: column; gap: 12px; }
 .ch-card { border: 1px solid var(--line); border-radius: var(--radius); padding: 14px; }
 .ch-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
@@ -627,13 +627,13 @@ body {
 .ch-cur { font-size: 12px; color: var(--ink-soft); }
 .ch-action { margin-top: 10px; }
 
-/* AI damgası / rozeti */
+/* AI stamp / badge */
 .ai-badge { display: inline-block; font-size: 10px; font-weight: 800; color: #fff; background: var(--green-600); border-radius: 6px; padding: 1px 6px; margin-bottom: 5px; letter-spacing: .5px; animation: badgeGlow 3s ease-in-out infinite; }
 .ai-stamp { font-size: 11px; color: var(--muted); margin-top: 8px; font-style: italic; }
 
-/* ---- şov efektleri ---- */
+/* ---- show effects ---- */
 
-/* YZ düşünüyor: üç nokta */
+/* AI thinking: three dots */
 .ai-dots { display: inline-block; margin-left: 3px; }
 .ai-dots::after {
   content: ".";
@@ -647,7 +647,7 @@ body {
   100% { content: "."; }
 }
 
-/* puan uçuş efekti */
+/* points fly effect */
 .float-pts {
   position: absolute; font-size: 16px; font-weight: 800; color: var(--green-600);
   text-shadow: 0 1px 2px rgba(0,0,0,.15); pointer-events: none; z-index: 60;
@@ -659,7 +659,7 @@ body {
   100% { transform: translateY(-34px); opacity: 0; }
 }
 
-/* mola geri sayımı halkası */
+/* break countdown ring */
 .bk-ring {
   width: 132px; height: 132px; border-radius: 50%; position: relative;
   display: grid; place-items: center;
@@ -676,13 +676,13 @@ body {
   50% { transform: scale(1.045); box-shadow: 0 0 40px rgba(22,163,74,.6); }
 }
 
-/* KVKK / modal açılışı: fade + ölçek */
+/* KVKK / modal opening: fade + scale */
 @keyframes popIn { from { opacity: 0; transform: scale(.92) translateY(8px); } to { opacity: 1; transform: none; } }
 .modal { animation: popIn .24s cubic-bezier(.22,1,.36,1); }
 .modal-backdrop { animation: fade .25s ease; }
 .anim-pop { animation: popIn .3s cubic-bezier(.22,1,.36,1); }
 
-/* 'Canlı YZ' rozeti */
+/* "Live AI" badge */
 .ai-status.live .live-dot {
   display: inline-block; width: 9px; height: 9px; border-radius: 50%;
   background: #16a34a; margin-right: 6px; vertical-align: middle;
@@ -697,7 +697,7 @@ body {
   50% { box-shadow: 0 0 6px 1px rgba(22,163,74,.55); }
 }
 
-/* ---- süre sözü: telefon içi alt sayfa (sheet) ---- */
+/* ---- time promise: in-phone bottom sheet ---- */
 .s-sheet-backdrop {
   position: absolute; inset: 0; background: rgba(2,6,23,.55); z-index: 40;
   animation: fade .22s ease;
@@ -770,22 +770,22 @@ body {
       <span class="brand-name">SÖZÜM <b>SÖZ</b></span>
     </div>
     <div class="topbar-metrics">
-      <span class="pill points-pill">PUAN <b id="hPoints">0</b></span>
-      <span class="pill streak-pill">SERİ <b id="hStreak">0</b></span>
-      <span class="pill mood-pill">Bu hafta <b id="hMood">😐</b></span>
-      <button class="btn btn-settings" id="btnSettings">Ayarlar</button>
+      <span class="pill points-pill">POINTS <b id="hPoints">0</b></span>
+      <span class="pill streak-pill">STREAK <b id="hStreak">0</b></span>
+      <span class="pill mood-pill">This week <b id="hMood">😐</b></span>
+      <button class="btn btn-settings" id="btnSettings">Settings</button>
     </div>
   </header>
 
   <nav class="tabs">
-    <button class="tab active" data-tab="phone">Telefon</button>
-    <button class="tab" data-tab="stats">Durum</button>
-    <button class="tab" data-tab="charts">Grafikler</button>
-    <button class="tab" data-tab="challenges">Görevler</button>
-    <button class="tab" data-tab="rewards">Ödül Kataloğu</button>
-    <button class="tab" data-tab="draw">Çekiliş</button>
-    <button class="tab" data-tab="ai">Yansıma (YZ)</button>
-    <button class="tab" data-tab="chat">Sohbet</button>
+    <button class="tab active" data-tab="phone">Phone</button>
+    <button class="tab" data-tab="stats">Status</button>
+    <button class="tab" data-tab="charts">Charts</button>
+    <button class="tab" data-tab="challenges">Challenges</button>
+    <button class="tab" data-tab="rewards">Reward Catalog</button>
+    <button class="tab" data-tab="draw">Draw</button>
+    <button class="tab" data-tab="ai">Reflection (AI)</button>
+    <button class="tab" data-tab="chat">Chat</button>
   </nav>
 
   <main>
@@ -800,53 +800,53 @@ body {
         </div>
       </div>
       <div class="demo-controls">
-        <span class="hint">Demo hızı: 1 saniye ≈ 1 dakika (süre sözünü hızla test edebilirsin)</span>
+        <span class="hint">Demo speed: 1 second ≈ 1 minute (so you can quickly test a time promise)</span>
         <div class="controls-row">
           <label class="switch-line">
             <input type="checkbox" id="speedToggle" checked>
-            <span>Hızlı demo (1 sn = 1 dk)</span>
+            <span>Fast demo (1 sec = 1 min)</span>
           </label>
-          <button class="btn btn-danger" id="btnReset">Sıfırla</button>
+          <button class="btn btn-danger" id="btnReset">Reset</button>
         </div>
         <div class="controls-row" id="moodRow">
-          <span class="hint">Haftalık skor emojisi (demo):</span>
-          <button class="btn btn-sm" data-mood="good">😀 İyi</button>
-          <button class="btn btn-sm" data-mood="mid">😐 Orta</button>
-          <button class="btn btn-sm" data-mood="bad">🙁 Kötü</button>
-          <button class="btn btn-sm" data-mood="auto">Otomatik</button>
+          <span class="hint">Weekly score emoji (demo):</span>
+          <button class="btn btn-sm" data-mood="good">😀 Good</button>
+          <button class="btn btn-sm" data-mood="mid">😐 Average</button>
+          <button class="btn btn-sm" data-mood="bad">🙁 Bad</button>
+          <button class="btn btn-sm" data-mood="auto">Auto</button>
         </div>
       </div>
       <div class="card">
-        <h3>Son aktiviteler</h3>
-        <div id="phoneFeed" class="feed muted">Henüz aktivite yok.</div>
+        <h3>Recent activity</h3>
+        <div id="phoneFeed" class="feed muted">No activity yet.</div>
       </div>
     </section>
 
     <section id="tab-stats" class="tabpanel">
       <div class="panel-head">
-        <h2>Durum Tablosu</h2>
-        <p class="muted">Veriler yalnızca bu tarayıcıda (cihazında) saklanır; hiçbir sunucuya gönderilmez.</p>
+        <h2>Status Table</h2>
+        <p class="muted">Data is stored only in this browser (on your device); it is never sent to any server.</p>
       </div>
       <div id="statCards" class="stat-grid"></div>
       <div class="card">
-        <h3>Son 7 gün - en çok zaman harcadığın kategoriler</h3>
+        <h3>Last 7 days - categories where you spent the most time</h3>
         <div id="categoryBars" class="cat-bars"></div>
       </div>
       <div class="card" id="challengeCard"></div>
       <div class="card">
-        <h3>Yol haritası (bu prototipin dışında)</h3>
+        <h3>Roadmap (outside this prototype)</h3>
         <ul class="roadmap">
-          <li>Gerçek telefon takibi: Android Usage Stats + erişilebilirlik servisi (yalnızca söz verdiğin uygulamada çalışır, şeffaf izinli).</li>
-          <li>Streak'e göre orantılı ödüller: ay içinde sınırsız prim değil, dengeli teşvik.</li>
-          <li>Cihazlar arası şifreli senkron, ebeveyn modu, haftalık kendi kendine değerlendirme.</li>
+          <li>Real phone tracking: Android Usage Stats + accessibility service (works only for the app you made a promise in, with transparent permissions).</li>
+          <li>Proportional rewards based on streak: not unlimited bonuses in a month, but balanced incentives.</li>
+          <li>Encrypted cross-device sync, parent mode, weekly self-evaluation.</li>
         </ul>
       </div>
     </section>
 
     <section id="tab-charts" class="tabpanel">
       <div class="panel-head">
-        <h2>Grafikler</h2>
-        <p class="muted">Geçmiş aktivite görünümü: bugünkü kullanımın, geçen haftanın aynı günüyle ve son haftalarla karşılaştırması.</p>
+        <h2>Charts</h2>
+        <p class="muted">Historical activity view: today's usage compared with the same day last week and with recent weeks.</p>
       </div>
       <div id="chartTodayVsWeek" class="card"></div>
       <div id="chartLast7" class="card"></div>
@@ -857,8 +857,8 @@ body {
 
     <section id="tab-challenges" class="tabpanel">
       <div class="panel-head">
-        <h2>Haftalık Görevler</h2>
-        <p class="muted">Her haftanın başında da katılabilirsin: göreve katıl, koşulu sağla, puanı kazan. İlerleme son 7 günün kayıtlarından sayılır; her Pazartesi sıfırlanır.</p>
+        <h2>Weekly Challenges</h2>
+        <p class="muted">Join at the start of each week: join a challenge, meet the condition, earn the points. Progress is counted from the last 7 days of records; it resets every Monday.</p>
       </div>
       <div class="card">
         <div id="challengeList" class="ch-list"></div>
@@ -867,109 +867,109 @@ body {
 
     <section id="tab-rewards" class="tabpanel">
       <div class="panel-head">
-        <h2>Ödül Kataloğu</h2>
-        <p class="muted">Yeşilay ortak ödül kataloğu (prototip senaryosu). Biriktirdiğin puanlarla ödül seçersin.</p>
+        <h2>Reward Catalog</h2>
+        <p class="muted">Yeşilay partner reward catalog (prototype scenario). You pick a reward with the points you collect.</p>
       </div>
       <div id="rewardGrid" class="reward-grid"></div>
       <div id="myRewards" class="card">
-        <h3>Sipariş ettiklerin</h3>
-        <div id="myRewardsList" class="muted">Henüz sipariş vermedin.</div>
+        <h3>Your orders</h3>
+        <div id="myRewardsList" class="muted">You haven't placed any orders yet.</div>
       </div>
     </section>
 
     <section id="tab-draw" class="tabpanel">
       <div class="panel-head">
-        <h2>Aylık Çekiliş</h2>
-        <p class="muted">Ay boyunca hiçbir sözünü bozmazsan çekilişe katılmaya hak kazanırsın. Senaryodur; gerçek kurallar Yeşilay protokolüne bağlıdır.</p>
+        <h2>Monthly Draw</h2>
+        <p class="muted">If you keep every promise during the month, you earn the right to enter the draw. This is a scenario; the real rules follow the Yeşilay protocol.</p>
       </div>
       <div class="card">
-        <h3>Bu ayki ilerleme</h3>
+        <h3>This month's progress</h3>
         <div id="monthProgress"></div>
         <div id="monthStatus" class="muted"></div>
       </div>
       <div class="card">
-        <h3>Ödüller</h3>
+        <h3>Prizes</h3>
         <ul class="prizes" id="prizeList"></ul>
       </div>
       <div class="card">
-        <button class="btn btn-primary btn-lg" id="btnEnterDraw" disabled>Çekilişe Katıl</button>
+        <button class="btn btn-primary btn-lg" id="btnEnterDraw" disabled>Enter the Draw</button>
         <div id="drawEnteredNote" class="muted"></div>
       </div>
     </section>
 
     <section id="tab-ai" class="tabpanel">
       <div class="panel-head">
-        <h2>Yansıma Koçu (Üretken YZ)</h2>
-        <p class="muted">Söz geçmişinden yargılamasız bir yansıma ve haftalık özet üretir. Tanı koymaz; tıbbi tanı/tedavi önerisi değildir.</p>
+        <h2>Reflection Coach (Generative AI)</h2>
+        <p class="muted">Generates a non-judgmental reflection and a weekly summary from your promise history. It does not diagnose; it is not a medical diagnosis/treatment recommendation.</p>
       </div>
       <div id="aiStatus" class="ai-status muted"></div>
       <div class="card">
-        <h3>Günlük Yansıma</h3>
-        <p class="muted">Bugünkü oturumlarından kısa, yargılamasız bir özet üretir: kalıplar, olası tetikleyiciler ve küçük iyileştirme önerileri.</p>
+        <h3>Daily Reflection</h3>
+        <p class="muted">Produces a short, non-judgmental summary from today's sessions: patterns, possible triggers, and small improvement suggestions.</p>
         <div class="row">
-          <button class="btn btn-primary" id="btnDailyAI">Yansımayı Oluştur</button>
+          <button class="btn btn-primary" id="btnDailyAI">Generate Reflection</button>
         </div>
       </div>
       <div class="card">
-        <h3>Haftalık Özet</h3>
-        <p class="muted">Son 7 günün genel özeti ve haftaya hazırlık önerileri.</p>
+        <h3>Weekly Summary</h3>
+        <p class="muted">An overview of the last 7 days and suggestions to prepare for the week ahead.</p>
         <div class="row">
-          <button class="btn btn-primary" id="btnWeeklyAI">Haftalık Özeti Oluştur</button>
+          <button class="btn btn-primary" id="btnWeeklyAI">Generate Weekly Summary</button>
         </div>
       </div>
       <div class="card" id="aiOutputCard">
-        <h3>YZ Çıktısı</h3>
-        <div id="aiOutput" class="ai-output muted">Henüz çıktı yok. Yukarıdaki butonlardan birine bas.</div>
-        <div class="input-ai-note">Bu çıktı bir yapay zekâ (YZ) modeli tarafından üretilir. YZ hata yapabilir; içerik farkındalık amaçlıdır, tıbbi tanı veya tedavi önerisi değildir. Gerekirse bir uzman görüşü alınması önerilir.</div>
+        <h3>AI Output</h3>
+        <div id="aiOutput" class="ai-output muted">No output yet. Press one of the buttons above.</div>
+        <div class="input-ai-note">This output is generated by an artificial intelligence (AI) model. AI can make mistakes; the content is for awareness purposes and is not a medical diagnosis or treatment recommendation. If necessary, it is recommended to seek professional advice.</div>
       </div>
       <div id="aiPromptWrap"></div>
-      <p class="muted small">Not: YZ yalnızca farkındalık desteğidir. Verilerin cihazında kalır; dışarıya yalnızca anonim özet (prompt) gider.</p>
+      <p class="muted small">Note: AI is only an awareness support. Your data stays on your device; only an anonymous summary (the prompt) goes outside.</p>
     </section>
 
     <section id="tab-chat" class="tabpanel">
       <div class="panel-head">
-        <h2>Sohbet · YZ Koç</h2>
-        <p class="muted">Çok turlu sohbet: koç, geçmiş oturumlarını ve konuşma geçmişini hatırlayarak yanıt verir. Tanı koymaz; tıbbi tanı/tedavi önerisi değildir.</p>
+        <h2>Chat · AI Coach</h2>
+        <p class="muted">Multi-turn conversation: the coach responds while remembering your past sessions and conversation history. It does not diagnose; it is not a medical diagnosis/treatment recommendation.</p>
       </div>
       <div class="card">
         <div id="chatLog" class="chat-log">
-          <div class="chat-empty muted">Koça soru sormak için alttaki önerilerden birine dokun veya mesajını yaz.</div>
+          <div class="chat-empty muted">Tap one of the suggestions below to ask the coach a question, or write your own message.</div>
         </div>
         <div class="chat-chips" id="chatChips">
-          <button class="chip" data-q="Bugün için bana 3 sözlük bir plan çıkar">Bugünlük plan</button>
-          <button class="chip" data-q="Akşamları neden bu kadar ekrana kayıyorum?">Akşam kayması</button>
-          <button class="chip" data-q="Ödül hedefime nasıl ulaşırım?">Hedefime ulaşma</button>
-          <button class="chip" data-q="Şu an kısa bir mola öner">Mola öner</button>
+          <button class="chip" data-q="Make me a plan of 3 promises for today">Today's plan</button>
+          <button class="chip" data-q="Why do I keep slipping into screens in the evenings?">Evening slide</button>
+          <button class="chip" data-q="How can I reach my reward goal?">Reach my goal</button>
+          <button class="chip" data-q="Suggest a short break right now">Break suggestion</button>
         </div>
-        <div class="input-ai-note">Bu sohbet bir yapay zekâ (YZ) modeliyle yürütülür. YZ hata yapabilir; verdiği bilgi farkındalık amaçlıdır, tıbbi tanı veya tedavi önerisi değildir. Sağlığınla ilgili durumlarda bir uzman görüşü al.</div>
+        <div class="input-ai-note">This chat is conducted with an artificial intelligence (AI) model. AI can make mistakes; the information it gives is for awareness purposes and is not a medical diagnosis or treatment recommendation. Seek professional advice for anything related to your health.</div>
         <div class="chat-input-row">
-          <input type="text" id="chatInput" placeholder="Koça yaz...">
-          <button class="btn btn-primary" id="chatSend">Gönder</button>
+          <input type="text" id="chatInput" placeholder="Write to the coach...">
+          <button class="btn btn-primary" id="chatSend">Send</button>
         </div>
-        <p class="muted small">Canlı bağlantı kapalıysa şablon yanıt üretilir. Konuşma geçmişi yalnızca bu tarayıcıda saklanır; API'ye yalnızca bağlam + son 20 mesaj (anonim) gider.</p>
+        <p class="muted small">If the live connection is off, a template response is generated. Conversation history is stored only in this browser; only the context + the last 20 messages (anonymous) go to the API.</p>
       </div>
     </section>
 
   </main>
 
   <footer class="footer muted small">
-    SÖZÜM SÖZ - Dijital Bağımlılık ve Dijital İyi Olma Hâli hackathon prototipi.
+    SÖZÜM SÖZ - Digital Dependence and Digital Well-Being hackathon prototype.
   </footer>
 </div>
 
 <div id="modalRoot" class="modal-root"></div>
 
 <script>
-// ---------- Veri: uygulamalar, ödüller, çekiliş, zorluklar ----------
+// ---------- Data: apps, rewards, draw, challenges ----------
 
 const CATEGORY_LABELS = {
-  social: "Sosyal Medya",
+  social: "Social Media",
   video: "Video",
-  messaging: "Mesajlaşma",
-  streaming: "Dizi / Film",
-  gaming: "Oyun",
-  music: "Müzik",
-  news: "Haber / Okuma"
+  messaging: "Messaging",
+  streaming: "Series / Movies",
+  gaming: "Gaming",
+  music: "Music",
+  news: "News / Reading"
 };
 
 const CATEGORY_GLYPHS = {
@@ -1020,15 +1020,15 @@ const APPS = [
     svg: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><rect x='2' y='2' width='20' height='20' rx='6' fill='#1db954'/><path d='M6 11.3c3.6-1.2 8-.3 12 1.8M6.6 14.5c3-1 6.6-.3 9.4 1.4M7.2 17.4c2.5-.8 5.2-.3 7.4.9' stroke='#191414' stroke-width='1.8' fill='none' stroke-linecap='round'/></svg>"
   },
   {
-    id: "news", name: "Haber", monogram: "HN", color: "#0f766e", category: "news",
+    id: "news", name: "News", monogram: "HN", color: "#0f766e", category: "news",
     svg: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><rect x='2' y='2' width='20' height='20' rx='6' fill='#0f766e'/><rect x='6.2' y='4.8' width='7.4' height='4.4' fill='#fff'/><path d='M6.2 12h11.6M6.2 14.8h11.6M6.2 17.6h8.6' stroke='#fff' stroke-width='1.6' stroke-linecap='round'/></svg>"
   }
 ];
 
 const TIME_OPTIONS = [2, 5, 10, 15, 20, 30, 45, 60];
 
-// Inline SVG logo'ların data-URI'ye dönüştürülmesi (çevrimdışı + tek dosya uyumlu)
-// Not: Chromium yüzde-encoded (utf8,) svg data-URI'lerini reddediyor → base64 kullan.
+// Convert inline SVG logos to data-URIs (offline + single-file friendly)
+// Note: Chromium rejects percent-encoded (utf8,) svg data-URIs → use base64.
 function svgLogoURI(markup) {
   var bin = "";
   for (var i = 0; i < markup.length; i++) {
@@ -1041,7 +1041,7 @@ function appLogoURI(app) {
   return (app && app.svg) ? svgLogoURI(app.svg) : "";
 }
 
-// Tıklanabilir uygulama ikonu HTML'i (logo varsa img, yoksa monogram)
+// Clickable app icon HTML (img if logo available, otherwise monogram)
 function appIconHTML(app, extraClass) {
   var base = "background:linear-gradient(135deg," + app.color + ",#0f172a)";
   var inner = app.svg
@@ -1050,7 +1050,7 @@ function appIconHTML(app, extraClass) {
   return "<div class='" + (extraClass || "app-icon") + "' style='" + base + "'>" + inner + "</div>";
 }
 
-// SÖZÜM SÖZ marka logosu: kalkan + onay işareti (söz/sözde kalmak) + parıltı
+// SÖZÜM SÖZ brand logo: shield + checkmark (keeping one's word) + sparkle
 var SOZ_LOGO_SVG =
   "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>" +
   "<defs><linearGradient id='s' x1='0' y1='0' x2='1' y2='1'>" +
@@ -1063,15 +1063,15 @@ var SOZ_LOGO_SVG =
   "</svg>";
 var SOZ_LOGO = svgLogoURI(SOZ_LOGO_SVG);
 
-// Ödül kataloğu - Yeşilay ortak senaryosu
+// Reward catalog — Yeşilay partnership scenario
 const REWARDS = [
-  { id: "sertifika", name: "Yeşilay Sağlıklı Yaşam Sertifikası", desc: "Aylık söz karnen ve katılım belgen.", price: 500, monogram: "BE" },
-  { id: "kitap", name: "Yeşilay Çocuk Kitabı", desc: "İyi olma hâli temalı çocuk kitabı seti.", price: 1000, monogram: "KI" },
-  { id: "kumbara", name: "Kumbara", desc: "Çocuklar için hedef biriktirme kumbarası.", price: 1500, monogram: "KU" },
-  { id: "matara", name: "Yeşilay Matara", desc: "Şişeni yanında taşı, suyunu unutma.", price: 2000, monogram: "MA" },
-  { id: "masa-saati", name: "Masa Saati", desc: "Ekranla geçen süreyi değil, molalarını ödüllendir.", price: 3000, monogram: "MS" },
-  { id: "termos", name: "Termos", desc: "Gün boyu suyunu yanında taşı.", price: 4000, monogram: "TE" },
-  { id: "tabak", name: "Yeşilay Tabak Takımı", desc: "Yemeğin kadar ekranın da sınırlı kalsın.", price: 5000, monogram: "TA" }
+  { id: "certificate", name: "Yeşilay Healthy Living Certificate", desc: "Your monthly promise report card and participation certificate.", price: 500, monogram: "CE" },
+  { id: "book", name: "Yeşilay Children's Book", desc: "A children's book set themed around well-being.", price: 1000, monogram: "BO" },
+  { id: "piggybank", name: "Piggy Bank", desc: "A goal-saving piggy bank for kids.", price: 1500, monogram: "PG" },
+  { id: "bottle", name: "Yeşilay Water Bottle", desc: "Carry your bottle with you; don't forget your water.", price: 2000, monogram: "BT" },
+  { id: "clock", name: "Desk Clock", desc: "Reward your breaks, not the time spent on screens.", price: 3000, monogram: "DC" },
+  { id: "thermos", name: "Thermos", desc: "Carry your water with you all day.", price: 4000, monogram: "TH" },
+  { id: "plates", name: "Yeşilay Plate Set", desc: "Let your screen time stay as limited as your plate.", price: 5000, monogram: "PL" }
 ];
 
 const MILESTONES = { 3: 10, 7: 25, 14: 60, 30: 150 };
@@ -1079,83 +1079,83 @@ const MILESTONES = { 3: 10, 7: 25, 14: 60, 30: 150 };
 const DAILY_CHALLENGE = {
   id: "3-soz",
   target: 3,
-  title: "Günün sözü",
-  text: "Bugün 3 sözünü tut, ekstra puan kazan.",
+  title: "Promise of the day",
+  text: "Keep 3 promises today to earn bonus points.",
   reward: 20,
-  metric: "tutulanSoz"
+  metric: "keptPromises"
 };
 
-// Haftalık görevler: her hafta kullanıcı katılır, koşul sağlanınca puan kazanır.
-// metric -> app.js'teki challengeCurrent() fonksiyonunda hesaplanır.
-// direction "less" = değer HEDEFİN ALTINDA kalmalı (örn. ekran < 10 saat).
+// Weekly challenges: the user joins each week and earns points when the condition is met.
+// metric -> computed in the challengeCurrent() function in app.js.
+// direction "less" = value must STAY BELOW the target (e.g. screen < 10 hours).
 const CHALLENGES = [
   {
-    id: "ekran10",
-    title: "Haftalık ekran süresi < 10 saat",
-    text: "Bu hafta toplam ekran kullanımını 10 saatten (600 dk) az tut.",
-    metric: "weeklyMin", target: 600, unit: "dk", direction: "less", reward: 10
+    id: "screen10",
+    title: "Weekly screen time < 10 hours",
+    text: "Keep your total screen usage under 10 hours (600 min) this week.",
+    metric: "weeklyMin", target: 600, unit: "min", direction: "less", reward: 10
   },
   {
-    id: "tut7",
-    title: "7 sözü zamanında kapat",
-    text: "Hafta içinde en az 7 oturumu hedef süresinde bitir.",
-    metric: "keptCount", target: 7, unit: "söz", direction: "more", reward: 15
+    id: "keep7",
+    title: "Close 7 promises on time",
+    text: "Finish at least 7 sessions within their target time this week.",
+    metric: "keptCount", target: 7, unit: "promise", direction: "more", reward: 15
   },
   {
-    id: "mola5",
-    title: "5 mikromolayı tamamla",
-    text: "Hafta içinde en az 5 mikromolayı tamamla (Yansıma Koçu'nun önerdiği).",
-    metric: "breaks", target: 5, unit: "mola", direction: "more", reward: 10
+    id: "break5",
+    title: "Complete 5 micro-breaks",
+    text: "Complete at least 5 micro-breaks this week (suggested by the Reflection Coach).",
+    metric: "breaks", target: 5, unit: "break", direction: "more", reward: 10
   },
   {
-    id: "farkli3",
-    title: "3 farklı uygulamada söz ver",
-    text: "Hafta içinde en az 3 farklı uygulamada süre sözü koy.",
-    metric: "distinctApps", target: 3, unit: "uygulama", direction: "more", reward: 8
+    id: "apps3",
+    title: "Make promises in 3 different apps",
+    text: "Set a time promise in at least 3 different apps this week.",
+    metric: "distinctApps", target: 3, unit: "app", direction: "more", reward: 8
   },
   {
-    id: "az-asim",
-    title: "Süre aşımı 3'ten az",
-    text: "Hafta içinde süreyi en fazla 2 kez aş (aşım erken fark edilen söz bozması sayılmaz).",
-    metric: "overshootCount", target: 3, unit: "aşım", direction: "less", reward: 12
+    id: "low-overshoot",
+    title: "Fewer than 3 time overshoots",
+    text: "Exceed the time at most 2 times this week (an overshoot caught early doesn't count as a broken promise).",
+    metric: "overshootCount", target: 3, unit: "overshoot", direction: "less", reward: 12
   }
 ];
 
 const DRAW_PRIZES = [
-  "Tatil / seyahat paketi (aile ile)",
-  "Dizüstü bilgisayar",
-  "Akıllı telefon",
-  "Oyun konsolu ve aksesuar",
-  "Yeşilay deneyim paketi (farkındalık kampı)"
+  "Holiday / travel package (with family)",
+  "Laptop",
+  "Smartphone",
+  "Game console and accessories",
+  "Yeşilay experience package (awareness camp)"
 ];
 
-const DRAW_TARGET_KEPT = 30; // ay içinde tutulması gereken söz sayısı
+const DRAW_TARGET_KEPT = 30; // number of promises to keep within the month
 
 const MOCK_MEDIA = ["#7dd3fc", "#fca5a5", "#86efac", "#fde68a", "#d8b4fe", "#f9a8d4", "#93c5fd", "#fdba74"];
 </script>
 <script>
-// ---------- Üretken YZ katmanı: prompt tasarımı + API + fallback ----------
+// ---------- Generative AI layer: prompt design + API + fallback ----------
 
 const AI = {
 
   systemPrompt() {
     return [
-      "Sen 'SÖZÜM SÖZ' dijital iyi olma hâli koçusun. Görevin, kullanıcının ekran kullanım kayıtlarını yargısız, tıbbi olmayan bir dille yansıtmasına yardımcı olmak.",
-      "Kurallar:",
-      "1) 'bağımlı', 'hasta', 'tedavi', 'bozukluk' gibi tıbbi veya damgalayıcı kelimeler kullanma. Tanı koyma.",
-      "2) Kişisel suçlama yapma; davranış kalıplarına ve bağlamlara odaklan.",
-      "3) Yanıtı en fazla 6-8 kısa madde hâlinde ver: Desen -> Olası tetikleyici -> Küçük iyileştirme önerisi.",
-      "4) Rakamları yalnızca verilen verilere dayandır; veri yoksa kesin rakam iddia etme.",
-      "5) Öneriler somut, erişilebilir ve kısa süreli (1-2 dakikalık) 'deney' şeklinde olsun; kullanıcıyı zorlamasın.",
-      "6) Her zaman Türkçe yanıt ver.",
-      "7) Çıktının sonuna 'Bu bilgi farkındalık amaçlıdır, tıbbi tanı veya tedavi önerisi değildir.' satırını ekle.",
-      "8) Kriz sinyali görürsen (intihar, kendine zarar, ağır umutsuzluk, dayanamıyorum) tanı koymadan, sakin ve yargısız biçimde ücretsiz destek hatlarına yönlendir: Yeşilay Danışmanlık Hattı 115, acil durumlar için 112.",
-      "9) DOĞRULAMA (yanıtı göndermeden önce): kullandığın her sayı veride var mı? Emin değilsen rakam uydurma, 'bu bilgi kaydımda yok' de. Tıbbi, suçlayıcı veya cezalandırıcı bir ifade var mı? Biçim kurallarına (madde '-', son satır uyarı) uyuluyor mu?"
+      "You are 'SÖZÜM SÖZ' (\"my word is my bond\"), a digital well-being coach. Your task is to help the user reflect on their screen-usage records in a non-judgmental, non-medical tone.",
+      "Rules:",
+      "1) Do not use medical or stigmatizing words such as 'addict', 'patient', 'treatment', 'disorder'. Do not diagnose.",
+      "2) Do not blame the person; focus on behavior patterns and contexts.",
+      "3) Respond in at most 6-8 short bullet points: Pattern -> Possible trigger -> Small improvement suggestion.",
+      "4) Base every number only on the data provided; if data is missing, do not assert exact numbers.",
+      "5) Suggestions must be concrete, accessible and take the form of short (1-2 minute) 'experiments'; do not pressure the user.",
+      "6) Always respond in English.",
+      "7) End the output with the line: 'This information is for awareness purposes and is not a medical diagnosis or treatment recommendation.'",
+      "8) If you see a crisis signal (suicide, self-harm, severe hopelessness, 'I can't go on'), do not diagnose; calmly and without judgment direct to free support lines: Yeşilay Counseling Line 115, and 112 for emergencies.",
+      "9) VERIFICATION (before sending): is every number I use present in the data? If unsure, do not invent numbers; say 'this is not in my records'. Is there any medical, blaming or punishing wording? Are the format rules followed (dash '-' bullets, last-line disclaimer)?"
     ].join("\n");
   },
 
-  // ---------- kriz guard ----------
-  crisisPattern: /kendime zarar|kendimi öldür|kendime kıy|intihar|ölmek istiyorum|yaşamak istemiyorum|canıma kıy|kimse beni (anlamıyor|sevmiyor|önemsemiyor)|dayanamıyorum|dayanacak gücüm yok|umutsuzum|yaşamı (bitirmek|sonlandırmak) istiyorum/i,
+  // ---------- crisis guard ----------
+  crisisPattern: /kill myself|want to (die|end)|end my life|end it all|harm myself|hurt myself|take my own life|self[- ]harm|suicid(e|al)?|no reason to live|no point in living|can('t|not| no longer) (go on|carry on|take it)|give up( on (everything|life))?|hopeless|no one (understands|cares about|wants|needs) me|kendime zarar|kendime kıy|kendimi öldür|intihar|ölmek istiyorum|yaşamak istemiyorum/i,
 
   isCrisis(text) {
     return !!String(text || "").match(AI.crisisPattern);
@@ -1163,18 +1163,18 @@ const AI = {
 
   crisisReply() {
     return [
-      "Önemli bir şey yazdın ve bunu ciddiye alıyorum. SÖZÜM SÖZ tanı koymaz ve tıbbi destek sağlamaz; ama en doğru adım, bu duyguları tek başına tutmamak.",
+      "You wrote something important, and I take it seriously. SÖZÜM SÖZ does not diagnose and does not provide medical support; but the right step is not to keep these feelings to yourself.",
       "",
-      "Lütfen hemen bir yetişkinle konuş (aile büyüğü, velin, öğretmen veya rehber öğretmen) ya da ücretsiz destek hattını ara:",
-      "- Yeşilay Danışmanlık Hattı: 115",
-      "- Acil durum / güvenlik riski: 112",
+      "Please talk to a trusted adult right away (a parent, guardian, teacher or school counselor) or call a free support line:",
+      "- Yeşilay Counseling Line: 115",
+      "- Emergency / immediate risk to safety: 112",
       "",
-      "Bu bilgi farkındalık amaçlıdır, tıbbi tanı veya tedavi önerisi değildir."
+      "This information is for awareness purposes and is not a medical diagnosis or treatment recommendation."
     ].join("\n");
   },
 
-  // ---------- tıbbi geçit (tıbbi soruları yanıtlamayız, doktora yönlendiririz) ----------
-  medicalPattern: /(ağr(ı|ım)|sancı|iltihap|ateş|mide|baş dönmesi|dönüyor|uyuşma|karıncalanma|çarpıntı|kalp|tansiyon|şeker|ilaç|doz|reçete|ameliyat|yara|kanama|kusma|ishal|kabızlık|diyabet|kolesterol|grip|öksürük|nefes darlığı|kırık|çıkık|şişlik|döküntü|kaşıntı|vitamin|doktor|hap|şurup|eczane)/i,
+  // ---------- medical gate (we do not answer medical questions, we refer to a doctor) ----------
+  medicalPattern: /(ağr(ı|ım)|sancı|mide|ateş|baş dönmesi|tansiyon|şeker|ilaç|reçete|ameliyat|kanama|doktor)|(pain|ache(s|d)?|stomach|fever|headache|migraine|nausea|dizzy|numbness|tingling|palpitation|chest|heart attack|blood pressure|diabetes|medication|medicine|pill|prescription|surgery|operation|wound|injury|bleeding|vomit|rash|itch|allerg(y|ic)?|doctor|hospital|pharmacy|dose|overdose|infection|virus)/i,
 
   isMedical(text) {
     return !!String(text || "").match(AI.medicalPattern);
@@ -1182,23 +1182,23 @@ const AI = {
 
   medicalReply() {
     return [
-      "Bu tıbbi bir soru gibi görünüyor; SÖZÜM SÖZ tanı koymaz ve tıbbi tavsiye veremez.",
-      "Sağlık konularında bir doktora veya sağlık kuruluşuna danışman en doğru adım olur.",
+      "This looks like a medical question; SÖZÜM SÖZ does not make diagnoses and cannot give medical advice.",
+      "The right step for health questions is to consult a doctor or a healthcare provider.",
       "",
-      "Bunun yerine sana dijital iyi olma hâlinde destek olabilirim: ekran süresi, süre sözü, mola ve gece kullanımı üzerine konuşabiliriz."
+      "Instead, I can support you on digital well-being: we can talk about screen time, duration promises, breaks, and night-time usage."
     ].join("\n");
   },
 
-  // ---------- konu dışı (off-topic) tespiti, gruplara ayrılır ----------
-  wellbeingContext: /(telefon|ekran|uygulama|kaydır|feed|süre sözü|mola|bağımlı|bildirim|oturum|alışkanlık|aşırı|oyun bağ|sosyal medya|gece kullanım)/i,
+  // ---------- off-topic detection, split into groups ----------
+  wellbeingContext: /(phone|screen|app|scroll|feed|promise|süre sözü|break|mola|addict|notification|session|habit|overuse|social media|night usage|gaming|digital|dijital|ekran|bildirim|alışkanlık|kaydırma|gece kullanım)/i,
 
   offTopicGroups: [
-    { name: "finans", re: /döviz|dolar|euro|avro|borsa|hisse|kripto|bitcoin|coin|faiz|enflasyon|banka|piyasa|maaş/i },
-    { name: "haber", re: /seçim|siyaset|parti|hükümet|savaş|deprem|gündem|gazete|haber/i },
-    { name: "spor", re: /maç sonucu|takım|lig|şampiyon|gol|skor|futbolcu/i },
-    { name: "eğlence", re: /hile|mini sipariş|sanatçı|ünlü|magazin/i },
-    { name: "bilgi", re: /matematik|denklem|fizik|kimya|tarih sorusu|coğrafya|ne demek|anlamı nedir|ingilizce|ödev/i },
-    { name: "yaşam", re: /hava durumu|tarif|otel|gezi öner/i }
+    { name: "finance", re: /forex|dollar|euro|currency|exchange rate|stock market|share price|bitcoin|crypto|cryptocurrency|interest rate|inflation|bank|invest|salary|tax|faiz|enflasyon|döviz|borsa|kripto/i },
+    { name: "news", re: /election|politics|government|war|earthquake|news headline|president|seçim|siyaset|hükümet|savaş|deprem|haber/i },
+    { name: "sports", re: /match (result|score)|score today|league table|championship|champion|goal|football result|maç sonucu|takım|lig|şampiyon|gol|skor/i },
+    { name: "entertainment", re: /celebrity|movie (review|plot|trailer)|song lyrics|actor|pop star|film|dizi|müzik|ünlü|magazin/i },
+    { name: "knowledge", re: /math|equation|physics|chemistry|history question|geography|what (does|is|in)|translate|homework|definition|english word|matematik|denklem|fizik|kimya/i },
+    { name: "lifestyle", re: /weather|recipe|cooking|hotel|travel tip|hava durumu|tarif|otel|gezi öner/i }
   ],
 
   detectOffTopic(q) {
@@ -1212,17 +1212,17 @@ const AI = {
 
   offTopicReply(group) {
     const labels = {
-      finans: "Döviz, hisse ve piyasa bilgileri benim alanım değil",
-      haber: "Güncel haber ve siyaset benim alanım değil",
-      spor: "Spor sonuçları ve puanlar benim alanım değil",
-      eğlence: "Film, müzik veya oyun hileleri önermiyorum",
-      bilgi: "Genel bilgi ve ders konuları benim alanım değil",
-      yaşam: "Tarif, hava durumu ve yaşam tavsiyesi benim alanım dışında"
+      finance: "Currency, stock and market details are not my field",
+      news: "Current news and politics are not my field",
+      sports: "Sports results and scores are not my field",
+      entertainment: "I don't recommend movies, music or game cheats",
+      knowledge: "General knowledge and homework topics are not my field",
+      lifestyle: "Recipes, weather and lifestyle advice are outside my field"
     };
     return [
-      (labels[group] || "Bu konu benim alanım değil") + "; ben dijital iyi olma hâli koçuyum.",
-      "Bunun yerine şunlarda yardımcı olabilirim: ekran süresi, süre sözü, mola önerisi, gece kullanımı, uygulama atlama alışkanlığı.",
-      "Seni şu anda en çok zorlayan ekran alışkanlığı hangisi?"
+      (labels[group] || "This topic is not my field") + "; I am a digital well-being coach.",
+      "Instead, I can help with: screen time, duration promises, break suggestions, night-time usage, and the habit of jumping between apps.",
+      "Which screen habit is pushing you the most right now?"
     ].join("\n");
   },
 
@@ -1231,10 +1231,10 @@ const AI = {
   },
 
   periodOf(h) {
-    if (h >= 6 && h < 12) return "sabah";
-    if (h >= 12 && h < 18) return "öğleden sonra";
-    if (h >= 18 && h < 22) return "akşam";
-    return "gece";
+    if (h >= 6 && h < 12) return "morning";
+    if (h >= 12 && h < 18) return "afternoon";
+    if (h >= 18 && h < 22) return "evening";
+    return "night";
   },
 
   aggregate(sessions) {
@@ -1278,144 +1278,144 @@ const AI = {
 
   serialized(sessions) {
     return sessions.slice(0, 14).map(s => ({
-      uygulama: s.appName,
-      hedefDakika: s.promisedMin,
-      gercekDakika: s.usedMin,
-      sonuc: s.result,
-      kapanisSaat: AI.hourOf(s.ts)
+      app: s.appName,
+      targetMinutes: s.promisedMin,
+      actualMinutes: s.usedMin,
+      result: s.result,
+      closeHour: AI.hourOf(s.ts)
     }));
   },
 
   buildDaily(sessions) {
     const agg = AI.aggregate(sessions);
     return [
-      "===== BÖLÜM 1: KOMUT (görevin) =====",
-      "Kullanıcının bugüne ait ekran kullanım kaydını yargısız, tanı koymadan ve sayıları YALNIZCA aşağıdaki VERİ bölümünden alarak bir yansımaya dönüştür.",
+      "===== SECTION 1: COMMAND (your task) =====",
+      "Turn the user's screen-usage record for today into a reflection without judgment, without making a diagnosis, and taking numbers ONLY from the DATA section below.",
       "",
-      "===== BÖLÜM 2: VERİ (sayılar sadece buradan gelecek) =====",
-      "Kullanıcının bugüne ait ekran kullanım kaydı (JSON):",
+      "===== SECTION 2: DATA (numbers come only from here) =====",
+      "The user's screen-usage record for today (JSON):",
       JSON.stringify({
-        toplamOturum: agg.total,
-        toplamKullanimDk: agg.usedMin,
-        tutulanSoz: agg.kept,
-        bozulanSoz: agg.brokenExceed + agg.brokenHop
+        totalSessions: agg.total,
+        totalMinutes: agg.usedMin,
+        promisesKept: agg.kept,
+        promisesBroken: agg.brokenExceed + agg.brokenHop
       }, null, 2),
       "",
-      "Oturumlar:",
+      "Sessions:",
       AI.serialized(sessions).length
         ? JSON.stringify(AI.serialized(sessions), null, 2)
-        : "Bugüne ait oturum kaydı yok; bunu belirt.",
+        : "There are no session records for today; say so.",
       "",
-      "===== BÖLÜM 3: ÖRNEK 1 — OLAĞAN GÜN (sözlerin çoğu tutulmuş) =====",
-      "\"Bugün 4 uygulamada toplam ~85 dakika geçirdin ve 2 sözünü tuttuğun için iyi bir başlangıç. En fazla aşım TikTok'ta görünüyor (2 kez, ortalama 7 dk). Akşam 21:00 sonrası aşım eğilimi dikkat çekiyor; yorgunluk döneminde otomatik kaydırma davranışı tetiklenmiş olabilir. Küçük deneyim: TikTok'a girmeden önce 1 dakika 'girme sebebimi' yaz. İkinci deneyim: telefonu saat 23:00'te başka odaya bırak.\"",
+      "===== SECTION 3: EXAMPLE 1 — A NORMAL DAY (most promises kept) =====",
+      "\"Today you spent ~85 minutes across 4 apps and kept 2 promises — a good start. The biggest overshoot is on TikTok (2 times, ~7 minutes each). An overshoot tendency appears after 21:00; automatic scrolling may be triggered during fatigue. Small experiment: before opening TikTok, write your 'reason for entering' for 1 minute. Second experiment: put the phone in another room at 23:00.\"",
       "",
-      "===== BÖLÜM 4: ÖRNEK 2 — ZOR GÜN (birçok söz bozulmuş, yumuşak ve cesaretlendirici dil) =====",
-      "\"Bugün zordu ve bunu saklamak yerine fark etmek önemli: 5 oturumda 4 hedef aşıldı, toplamda hedefinin ~40 dk üzerine çıktın. Bu bir başarısızlık değil; tekrar eden bir kalıp. Aşımlar öğleden sonra ve gece saatlerinde yoğunlaşıyor. Küçük deneyimin: öğleden sonra geçişlerinde 30 saniye nefes alıp sonra karar ver; 23:00'ten sonra telefonu başka odaya bırak.\"",
+      "===== SECTION 4: EXAMPLE 2 — A HARD DAY (several promises broken, soft and encouraging tone) =====",
+      "\"Today was hard, and noticing it matters more than hiding it: 4 of 5 sessions exceeded the target, and in total you went ~40 minutes over your target. This is not a failure; it is a repeating pattern. Overshoots concentrate in the afternoon and late night. Your small experiments: take 30 seconds to breathe before mid-day app switches; after 23:00 leave the phone in another room.\"",
       "",
-      "===== BÖLÜM 5: DOĞRULAMA (yanıtı göndermeden önce kendine sor) =====",
-      "1) Kullandığım her rakam BÖLÜM 2'deki VERİ'de var mı? Yoksa rakam uydurma; yerine 'kaydımda yok' demekten çekinme.",
-      "2) Hiçbir maddede tıbbi, suçlayıcı veya cezalandırıcı dil var mı?",
-      "3) Her madde '-' ile başlıyor mu ve son satırda yasal uyarı var mı?",
+      "===== SECTION 5: VERIFY (ask yourself before sending) =====",
+      "1) Is every number I use present in the DATA in SECTION 2? If not, do not invent numbers; feel free to say 'not in my records'.",
+      "2) Is there any medical, blaming or punishing language in any bullet?",
+      "3) Does every bullet start with '-' and is the last line the legal disclaimer?",
       "",
-      "Şimdi bu kullanıcının verisiyle, ÖRNEK 1/2'nin yapısına ve tüm kurallara uyarak yanıt ver."
+      "Now respond for this user's data, following the structure of EXAMPLES 1/2 and all the rules."
     ].join("\n");
   },
 
   buildWeekly(sessions) {
     const agg = AI.aggregate(sessions);
     const catLines = agg.categories.length
-      ? agg.categories.map(c => "* " + (CATEGORY_LABELS[c.name] || c.name) + ": " + c.used + " dk").join("\n")
-      : "* Veri yok.";
+      ? agg.categories.map(c => "* " + (CATEGORY_LABELS[c.name] || c.name) + ": " + c.used + " min").join("\n")
+      : "* No data.";
     const appLines = agg.topApps.length
-      ? agg.topApps.slice(0, 3).map(a => "* " + a.name + ": " + a.used + " dk (" + a.exceed + " aşım)").join("\n")
-      : "* Veri yok.";
+      ? agg.topApps.slice(0, 3).map(a => "* " + a.name + ": " + a.used + " min (" + a.exceed + " overshoots)").join("\n")
+      : "* No data.";
     return [
-      "===== BÖLÜM 1: KOMUT (görevin) =====",
-      "Kullanıcının son 7 günlük ekran kullanım kaydından, sayıları yalnızca aşağıdaki VERİ'den alarak yargısız bir haftalık yansıma üret.",
+      "===== SECTION 1: COMMAND (your task) =====",
+      "From the user's screen-usage record of the last 7 days, produce a non-judgmental weekly reflection, taking numbers only from the DATA below.",
       "",
-      "===== BÖLÜM 2: VERİ (sayılar sadece buradan gelecek) =====",
-      "Kullanıcının son 7 güne ait ekran kullanımı istatistiği:",
+      "===== SECTION 2: DATA (numbers come only from here) =====",
+      "The user's screen usage statistics for the last 7 days:",
       JSON.stringify({
-        toplamOturum: agg.total,
-        toplamKullanimDk: agg.usedMin,
-        tutulanSoz: agg.kept,
-        bozulanSozAsim: agg.brokenExceed,
-        bozulanSozAtlama: agg.brokenHop,
-        ortalamaAsimDk: agg.avgOvershootMin,
-        enCokKullanilan: agg.topApps.slice(0, 3).map(a => a.name),
-        kategoriDagilimDk: Object.fromEntries(agg.categories.map(c => [c.name, c.used]))
+        totalSessions: agg.total,
+        totalMinutes: agg.usedMin,
+        promisesKept: agg.kept,
+        promisesBrokenOvershoot: agg.brokenExceed,
+        promisesBrokenHop: agg.brokenHop,
+        averageOvershootMin: agg.avgOvershootMin,
+        mostUsed: agg.topApps.slice(0, 3).map(a => a.name),
+        categoryBreakdownMin: Object.fromEntries(agg.categories.map(c => [c.name, c.used]))
       }, null, 2),
       "",
-      "Kategori dağılımı:",
+      "Category breakdown:",
       catLines,
-      "En çok kullanılan 3 uygulama:",
+      "Top 3 apps:",
       appLines,
       "",
-      "===== BÖLÜM 3: ADIMLAR (sırayı asla bozma) =====",
-      "ADIM 1: Haftanın genel tablosunu 1-2 cümlelik, yargısız bir özetle. Tanı koyma.",
-      "ADIM 2: En belirgin 2 kalıbı seç; her biri için 'desen -> olası tetikleyici -> küçük deneyim' yapısında kısa madde yaz.",
-      "ADIM 3: Gelecek hafta için 2 somut ve esnek sınır/rota önerisi ver (sert 'günde 1 saat' gibi hedefler koyma).",
-      "ADIM 4: Cesaretlendirici ama gerçekçi bir kapanış cümlesi yaz ve yasal uyarı notunu ekle.",
+      "===== SECTION 3: STEPS (never change the order) =====",
+      "STEP 1: Summarize the overall picture of the week in 1-2 non-judgmental sentences. Do not diagnose.",
+      "STEP 2: Pick the 2 strongest patterns; for each, write a short bullet using 'pattern -> possible trigger -> small experiment'.",
+      "STEP 3: Give 2 concrete and flexible boundary/routine suggestions for next week (do not set rigid targets such as '1 hour per day').",
+      "STEP 4: Write an encouraging but realistic closing sentence and add the legal disclaimer line.",
       "",
-      "===== BÖLÜM 4: DOĞRULAMA (yanıtı göndermeden önce kendine sor) =====",
-      "1) Tüm rakamlar VERİ'den mi? Bilmediğimi uydurma.",
-      "2) Tıbbi/suçlayıcı dil var mı?",
-      "3) Bölüm 3'teki adım sırası korundu mu ve son satır yasal uyarı mı?",
+      "===== SECTION 4: VERIFY (ask yourself before sending) =====",
+      "1) Are all numbers from the DATA? Don't invent what I don't know.",
+      "2) Is there any medical or blaming language?",
+      "3) Is the step order in SECTION 3 preserved and is the last line the legal disclaimer?",
       "",
-      "Şimdi bu kullanıcının verisiyle yanıt ver."
+      "Now respond with the weekly reflection."
     ].join("\n");
   },
 
   fallback(kind, agg) {
     if (!agg || agg.total === 0) {
-      return "Henüz yeterli veri yok. Önce bir uygulamada süre sözü ver ve oturumu kapat; ardından buraya dönüp yeniden oluştur.";
+      return "Not enough data yet. Make a duration promise on an app and close the session; then come back here and generate again.";
     }
     const top = agg.topApps[0];
     const exApps = agg.topApps.filter(a => a.exceed > 0);
-    const periodNames = { sabah: "sabah saatlerinde", "öğleden sonra": "öğleden sonra", akşam: "akşam saatlerinde", gece: "gece saatlerinde" };
+    const periodNames = { morning: "in the morning", afternoon: "in the afternoon", evening: "in the evening", night: "at night" };
     const worstPeriod = Object.keys(agg.periodCounts)
       .map(p => ({ p, n: agg.periodCounts[p] }))
       .sort((a, b) => b.n - a.n)[0];
     const periodStr = worstPeriod && worstPeriod.n > 0
-      ? "Aşımların en sık " + periodNames[worstPeriod.p] + " görülüyor."
-      : "Aşımların gün içinde dengeli dağılıyor.";
+      ? "Your overshoots occur most often " + periodNames[worstPeriod.p] + "."
+      : "Your overshoots are spread evenly through the day.";
     const exStr = exApps.length
-      ? "Hedef aşımın olan uygulamalar: " + exApps.slice(0, 2).map(a => a.name).join(" ve ") + " (" + exApps[0].exceed + " kez)."
-      : "Bu dönemde hedef aşımın yok, güzel bir disiplin.";
+      ? "Apps where you exceeded the target: " + exApps.slice(0, 2).map(a => a.name).join(" and ") + " (" + exApps[0].exceed + " times)."
+      : "No overshoots in this period — nice discipline.";
     if (kind === "daily") {
       return [
-        "Bugün " + agg.total + " oturumda toplam ~" + agg.usedMin + " dakika geçirdin ve " + agg.kept + " sözünü tuttun. İyi bir başlangıç.",
+        "Today you spent ~" + agg.usedMin + " minutes across " + agg.total + " sessions and kept " + agg.kept + " promises. A good start.",
         "",
-        "Desen: " + top.name + " en yüksek kullanımın (" + top.used + " dk). " + exStr,
+        "Pattern: " + top.name + " is your highest usage (" + top.used + " min). " + exStr,
         periodStr,
         "",
-        "Olası tetikleyiciler: Akış (feed) tabanlı uygulamalarda süre fark edilmeden akar; otomatik içerik önerisi, 'bir dakika daha' isteğini artırabilir. Bunun farkında olmak ilk basamağı atlamanı kolaylaştırır.",
+        "Possible triggers: time flows unnoticed in feed-based apps; automatic content recommendations can raise the 'one more minute' urge. Being aware of this makes the first step easier.",
         "",
-        "Küçük deneyler (1 hafta):",
-        "1) " + top.name + " adlı uygulamayı açmadan önce 10 saniye 'şu an ne hissettiğimi / neden girdiğimi' yaz.",
-        "2) Oturuma başlamadan önce bitiş saati söyle; süre dolunca telefonu ters çevir ve 2 dakika uzaklaş.",
+        "Small experiments (1 week):",
+        "1) For 10 seconds before opening " + top.name + ", write 'what I feel / why I am entering'.",
+        "2) Say a finish time out loud before the session; when the time is up, turn the phone over and step away for 2 minutes.",
         "",
-        "Bu bilgi farkındalık amaçlıdır, tıbbi tanı veya tedavi önerisi değildir."
+        "This information is for awareness purposes and is not a medical diagnosis or treatment recommendation."
       ].join("\n");
     }
     return [
-      "Haftalık genel görünüm: Toplam " + agg.total + " oturum, ~" + agg.usedMin + " dakika ekran zamanı. " + agg.kept + " söz tutuldu, " + (agg.brokenExceed + agg.brokenHop) + " söz bozuldu.",
+      "Weekly overview: " + agg.total + " sessions, ~" + agg.usedMin + " minutes of screen time. " + agg.kept + " promises kept, " + (agg.brokenExceed + agg.brokenHop) + " broken.",
       "",
-      "Desen 1: " + top.name + " toplam kullanımının önemli bir bölümünü alıyor (" + top.used + " dk) ve aşım eğilimi taşıyor.",
-      "Desen 2: " + periodStr + " Yorgunluk ve geç saatteki geçişler, 'kısa bir bakış' ile başlayıp uzayan oturumların eşiği olabiliyor.",
+      "Pattern 1: " + top.name + " takes a large share of the total usage (" + top.used + " min) and carries an overshoot tendency.",
+      "Pattern 2: " + periodStr + " Fatigue and late-night transitions can be the threshold where a 'quick look' turns into a long session.",
       "",
-      "Küçük deneyler: 1) Haftada bir gün tüm bildirimleri kapat. 2) Bir uygulamayı açmadan önce 'kaç dakika' sorusunu sesli olarak yanıtla, sonra aç.",
+      "Small experiments: 1) Turn off all notifications for one day this week. 2) Before opening an app, answer 'how many minutes?' out loud, then open it.",
       "",
-      "Önümüzdeki hafta için: 'Sıfır aşım' gibi sert bir hedef yerine, aynı saat dilimlerindeki oturumları her gün 3 dakika kısaltmayı dene.",
+      "For next week: instead of a rigid goal like 'zero overshoots', try shortening sessions in the same time slots by 3 minutes each day.",
       "",
-      "Bu bilgi farkındalık amaçlıdır, tıbbi tanı veya tedavi önerisi değildir."
+      "This information is for awareness purposes and is not a medical diagnosis or treatment recommendation."
     ].join("\n");
   },
 
   async generate(kind, sessions, cfg) {
     const system = AI.systemPrompt();
     const user = kind === "daily" ? AI.buildDaily(sessions) : AI.buildWeekly(sessions);
-    const promptText = "SİSTEM PROMPTU:\n" + system + "\n\n\nKULLANICI PROMPTU:\n" + user;
+    const promptText = "SYSTEM PROMPT:\n" + system + "\n\n\nUSER PROMPT:\n" + user;
     if (cfg.live && cfg.apiKey) {
       try {
         const callCfg = Object.assign({}, cfg, { temperature: 0.5 });
@@ -1460,12 +1460,12 @@ const AI = {
       try {
         const j = await res.json();
         if (j.error) detail = j.error.message || j.error.code || res.status;
-      } catch (e) { /* boş */ }
-      throw new Error("API isteğinde hata (HTTP " + detail + ").");
+      } catch (e) { /* empty */ }
+      throw new Error("API request failed (HTTP " + detail + ").");
     }
     const j = await res.json();
     const text = j.choices && j.choices[0] && j.choices[0].message && j.choices[0].message.content;
-    if (!text) throw new Error("YZ'dan boş yanıt geldi.");
+    if (!text) throw new Error("The AI returned an empty response.");
     return text.trim();
   },
 
@@ -1490,69 +1490,69 @@ const AI = {
       try {
         const je = await res.json();
         if (je.error) detail = je.error.message || je.error.code || res.status;
-      } catch (e) { /* boş */ }
-      throw new Error("Gemini isteğinde hata (HTTP " + detail + ").");
+      } catch (e) { /* empty */ }
+      throw new Error("Gemini request failed (HTTP " + detail + ").");
     }
     const j = await res.json();
     const parts = j.candidates && j.candidates[0] && j.candidates[0].content && j.candidates[0].content.parts;
     const text = parts ? parts.map(p => p.text || "").join("") : "";
-    if (!text) throw new Error("YZ'dan boş yanıt geldi.");
+    if (!text) throw new Error("The AI returned an empty response.");
     return text.trim();
   },
 
   coachSystem() {
     return [
-      "Sen 'SÖZÜM SÖZ' dijital iyi olma hâli koçusun. Görevin, kullanıcının oturumuyla ilgili kısa, empatik ve suçluluk hissettirmeyen tek bir bildirim üretmek.",
-      "Kurallar:",
-      "1) Yargılama, suçlama yapma; 'bağımlı', 'hasta', 'tedavi' gibi tıbbi veya damgalayıcı sözcükler kullanma.",
-      "2) En fazla 2 cümle; içten ve teşvik edici ol.",
-      "3) Somut, hemen yapılabilir bir küçük mola öner (gözleri dinlendir, su iç, ayaklarını uzat, 20 nefes vb.).",
-      "4) Molayı puan cinsinden sun (points): makul aralık 10-20.",
-      "5) Sert hedef koyma, kullanıcıyı zorlama; öneri bir seçenek olsun.",
-      "6) Çıktıyı yalnızca JSON olarak üret: {\"title\": \"...\", \"body\": \"...\", \"breakOffer\": \"...\", \"points\": <sayı>}",
-      "7) Her zaman Türkçe cevap ver, markdown işareti kullanma."
+      "You are 'SÖZÜM SÖZ', a digital well-being coach. Your task is to produce one short, empathetic notification about the user's session that does not make them feel guilty.",
+      "Rules:",
+      "1) Do not judge or blame; do not use medical or stigmatizing words such as 'addict', 'patient', 'treatment'.",
+      "2) At most 2 sentences; warm and encouraging.",
+      "3) Suggest one concrete, immediately doable microbreak (rest your eyes, drink water, stretch your legs, take 20 breaths, etc.).",
+      "4) Present the break in points (points): a reasonable range is 10-20.",
+      "5) Do not set hard targets or pressure the user; make it an option.",
+      "6) Output ONLY as JSON: {\"title\": \"...\", \"body\": \"...\", \"breakOffer\": \"...\", \"points\": <number>}",
+      "7) Always answer in English, do not use markdown."
     ].join("\n");
   },
 
   buildCoach(opts) {
     return [
-      "===== BÖLÜM 1: KOMUT =====",
-      "Tek, empatik, suçluluk hissettirmeyen bir bildirim üret. Çıktı YALNIZCA bu JSON şeması olacak: {\"title\": \"...\", \"body\": \"...\", \"breakOffer\": \"...\", \"points\": <sayı>}",
+      "===== SECTION 1: COMMAND =====",
+      "Produce one empathetic, non-guilt-inducing notification. The output will be ONLY this JSON schema: {\"title\": \"...\", \"body\": \"...\", \"breakOffer\": \"...\", \"points\": <number>}",
       "",
-      "===== BÖLÜM 2: VERİ / BAĞLAM =====",
-      "Uygulama: " + opts.appName,
-      "Kategori: " + (CATEGORY_LABELS[opts.category] || opts.category || "bilinmiyor"),
-      "Saat: " + opts.hour + ":00",
-      "Durum: " + (opts.type === "overshoot"
-        ? "hedef " + opts.promisedMin + " dk idi, " + opts.overMin + " dk aşıldı"
-        : "kapatıp hemen başka uygulamaya geçildi (uygulama atlama)."),
-      "Kullanıcının güncel serisi: " + opts.streak + (opts.streak > 1 ? " söz arka arkaya tutuldu" : ""),
+      "===== SECTION 2: DATA / CONTEXT =====",
+      "App: " + opts.appName,
+      "Category: " + (CATEGORY_LABELS[opts.category] || opts.category || "unknown"),
+      "Hour: " + opts.hour + ":00",
+      "Status: " + (opts.type === "overshoot"
+        ? "the target was " + opts.promisedMin + " min, " + opts.overMin + " min was exceeded"
+        : "closed an app and immediately switched to another one (app hopping)."),
+      "User's current streak: " + opts.streak + (opts.streak > 1 ? " promises kept in a row" : ""),
       "",
-      "===== BÖLÜM 3: ÖRNEK 1 — SÜRE AŞIMI =====",
-      "{\"title\": \"Mola zamanı\", \"body\": \"30 dakikalık oturum biraz uzadı; bu gayet doğal.\", \"breakOffer\": \"Gözlerini 20 saniye dinlendirip bir bardak su içmek ister misin?\", \"points\": 15}",
+      "===== SECTION 3: EXAMPLE 1 — OVERSHOOT =====",
+      "{\"title\": \"Break time\", \"body\": \"Your 30-minute session stretched a little; that's completely natural.\", \"breakOffer\": \"Would you like to rest your eyes for 20 seconds and drink a glass of water?\", \"points\": 15}",
       "",
-      "===== BÖLÜM 4: ÖRNEK 2 — HIZLI GEÇİŞ =====",
-      "{\"title\": \"Hızlı geçiş fark ettik\", \"body\": \"Bir uygulamayı kapatıp hemen diğerine geçmek stresle daha sık olur.\", \"breakOffer\": \"10 saniye dur ve kendine sor: şu an gerçekten neye ihtiyacım var?\", \"points\": 10}",
+      "===== SECTION 4: EXAMPLE 2 — QUICK SWITCH =====",
+      "{\"title\": \"Quick switch noticed\", \"body\": \"Closing one app and immediately opening another is more common under stress.\", \"breakOffer\": \"Pause for 10 seconds and ask yourself: what do I really need right now?\", \"points\": 10}",
       "",
-      "===== BÖLÜM 5: DOĞRULAMA (göndermeden önce) =====",
-      "1) title, body, breakOffer, points alanları var mı?",
-      "2) points 1-20 aralığında mı?",
-      "3) Tıbbi veya suçlayıcı bir ifade var mı?",
-      "İçeriği bu kullanıcının bağlamına uyarla, şema dışına çıkma."
+      "===== SECTION 5: VERIFY (before sending) =====",
+      "1) Do the title, body, breakOffer and points fields exist?",
+      "2) Is points within 1-20?",
+      "3) Is there any medical or blaming wording?",
+      "Adapt the content to this user's context; do not leave the schema."
     ].join("\n");
   },
 
   fallbackCoach(opts) {
     var title, body, breakOffer, points;
     if (opts.type === "overshoot") {
-      title = "Süre hedefini hafifçe aştın";
-      body = (opts.appName || "Oturum") + " beklediğinden " + opts.overMin + " dk uzadı. Fark etmen yeterli.";
-      breakOffer = "Küçük bir mola: gözlerini 20 sn kapat, nefes al, su iç.";
+      title = "You slightly exceeded your target";
+      body = (opts.appName || "The session") + " ran " + opts.overMin + " min longer than expected. Noticing it is enough.";
+      breakOffer = "A quick break: close your eyes for 20 sec, breathe, drink water.";
       points = 5;
     } else {
-      title = "Hızlı geçiş fark ettik";
-      body = (opts.appName || "Yeni uygulama") + " oturumuna geçtin; hemen ardından diğerine geçmek dikkati böler.";
-      breakOffer = "10 saniye dur ve kendine sor: şu an gerçekten neye ihtiyacım var?";
+      title = "Quick switch noticed";
+      body = "You moved on to " + (opts.appName || "a new app") + "; immediately jumping to another splits your attention.";
+      breakOffer = "Pause for 10 seconds and ask yourself: what do I really need right now?";
       points = 3;
     }
     return { title: title, body: body, breakOffer: breakOffer, points: points };
@@ -1563,7 +1563,7 @@ const AI = {
     try {
       var obj = m ? JSON.parse(m[0]) : null;
       return {
-        title: (obj && obj.title) || "Mola zamanı",
+        title: (obj && obj.title) || "Break time",
         body: (obj && obj.body) || "",
         breakOffer: (obj && obj.breakOffer) || "",
         points: (obj && typeof obj.points === "number") ? obj.points : 5
@@ -1576,7 +1576,7 @@ const AI = {
   async generateCoach(opts, cfg) {
     var system = AI.coachSystem();
     var user = AI.buildCoach(opts);
-    var promptText = "SİSTEM PROMPTU:\n" + system + "\n\n\nKULLANICI PROMPTU:\n" + user;
+    var promptText = "SYSTEM PROMPT:\n" + system + "\n\n\nUSER PROMPT:\n" + user;
     if (cfg.live && cfg.apiKey) {
       try {
         var callCfg = Object.assign({}, cfg, { temperature: 0.8 });
@@ -1592,18 +1592,18 @@ const AI = {
 
   chatSystem() {
     return [
-      "Sen 'SÖZÜM SÖZ' dijital iyi olma hâli koçusun. Kullanıcıyla karşılıklı sohbet edersin.",
-      "Kurallar:",
-      "1) Yargısız, empatik ve teşvik edici ol; 'bağımlı', 'hasta', 'tedavi' gibi tıbbi veya damgalayıcı sözcükler kullanma, tanı koyma.",
-      "2) Yanıtı 6-10 satırla sınırla; daha uzun cevapları kısa paragraflara böl, gereksiz madde yığma.",
-      "3) Öneriler kısa, somut ve 'küçük deney' niteliğinde olsun; sert hedefler koyma, kullanıcıyı zorlama.",
-      "4) Gerekirse tek bir net soru sor ve yanıtına göre devam et (çok turlu sohbet).",
-      "5) Rakamları yalnızca verdiğim anonim veri bağlamına dayandır; veri yoksa varsayım yapma.",
-      "6) Her zaman Türkçe yanıt ver.",
-      "7) Yönlendirici öneri verdiğinde sona 'Bu bilgi farkındalık amaçlıdır, tıbbi tanı veya tedavi önerisi değildir.' satırını ekle.",
-      "8) Kriz sinyali görürsen (intihar, kendine zarar, ağır umutsuzluk) tanı koyma; sakin ve yargısız biçimde ücretsiz destek hatlarına yönlendir: Yeşilay Danışmanlık Hattı 115, acil için 112.",
-      "9) Soru ekran kullanımı/dijital iyi olma ile ilgisizse (döviz, yemek, genel haber, matematik vb.) soruyu yanıtlama; bu konunun alanının dışında olduğunu kısaca söyle ve konuyu kullanıcının ekran alışkanlıklarına geri getir.",
-      "10) DOĞRULAMA: yanıtı göndermeden önce rakamların yalnızca verilen bağlamdan olduğunu kontrol et; emin değilsen rakam uydurma. Yanıt içinde tıbbi/suçlayıcı ifade varsa düzelt."
+      "You are 'SÖZÜM SÖZ', a digital well-being coach. You converse with the user back and forth.",
+      "Rules:",
+      "1) Be non-judgmental, empathetic and encouraging; do not use medical or stigmatizing words such as 'addict', 'patient', 'treatment'; do not diagnose.",
+      "2) Limit the response to 6-10 lines; split longer answers into short paragraphs without piling up bullets.",
+      "3) Suggestions must be short, concrete 'small experiments'; do not set hard targets or pressure the user.",
+      "4) If needed, ask one clear question and continue based on the answer (multi-turn conversation).",
+      "5) Base numbers only on the anonymous data context I give you; if there is no data, do not assume.",
+      "6) Always respond in English.",
+      "7) When you give directive advice, end with: 'This information is for awareness purposes and is not a medical diagnosis or treatment recommendation.'",
+      "8) If you see a crisis signal (suicide, self-harm, severe hopelessness) do not diagnose; calmly and without judgment direct to free support lines: Yeşilay Counseling Line 115, and 112 for emergencies.",
+      "9) If the question is unrelated to screen usage / digital well-being (currency, food, general news, math, etc.), do not answer it; briefly say it is outside your field and bring the topic back to the user's screen habits.",
+      "10) VERIFICATION: before sending, check that the numbers come only from the given context; if unsure, do not invent numbers. If the response contains medical/blaming wording, fix it."
     ].join("\n");
   },
 
@@ -1612,10 +1612,10 @@ const AI = {
     if (AI.isCrisis(q)) return AI.crisisReply();
     if (agg && agg.total > 0) {
       var top = agg.topApps[0];
-      lines.push("Son 7 gününün özeti: " + agg.total + " oturum, ~" + agg.usedMin + " dk ekran süresi; " + agg.kept + " söz tutuldu, " + (agg.brokenExceed + agg.brokenHop) + " bozuldu." + (top ? " En çok " + top.name + " öne çıkıyor (" + top.used + " dk)." : ""));
+      lines.push("Your last 7 days: " + agg.total + " sessions, ~" + agg.usedMin + " minutes of screen time; " + agg.kept + " promises kept, " + (agg.brokenExceed + agg.brokenHop) + " broken." + (top ? " " + top.name + " stands out the most (" + top.used + " min)." : ""));
       lines.push("");
     } else {
-      lines.push("Henüz yeterli verim yok; ama birlikte küçük bir başlangıç yapabiliriz.");
+      lines.push("I don't have enough data yet; but we can start with something small together.");
       lines.push("");
     }
 var lower = String(q || "").toLowerCase();
@@ -1628,65 +1628,65 @@ var lower = String(q || "").toLowerCase();
       var off = AI.detectOffTopic(q);
       if (off) {
         lines.push(AI.offTopicReply(off));
-      } else if (/mola|stres|yorgun|dinlen|göz/i.test(lower)) {
-        lines.push("İyi bir adım. Şimdi 20 saniye gözlerini kapat, 3 yavaş nefes al ve bir bardak su iç.");
-        lines.push("Telefon ekranındayken 'Mola başla' butonu sana kısa bir mola ve +5 puan kazandırır.");
-      } else if (/plan|hedef|başla|nasıl|ipucu|öner/i.test(lower)) {
-        lines.push("Küçük ve esnek başlayalım:");
-        lines.push("1) Bugün 3 uygulama için süre sözü ver; ilkini 10 dakika tut.");
-        lines.push("2) Her sözden sonra 1 dakikalık nefes molası ver.");
-        lines.push("3) En çok aşım yaptığın saati not et; yarın o saatte 3 dakika kısaltmayı dene.");
-        lines.push("Dilersen şimdi Telefon sekmesinden ilk sözünü koyalım.");
-      } else if (/akşam|gece|kaydır|kayma|döngü|bağımlı|uyku|uyuyam/i.test(lower)) {
-        lines.push("Geç saatteki oturumlar genellikle yorgunlukla başlar; otomatik kaydırma fark edilmeden sürer.");
-        lines.push("Küçük deney: akşam 21:00'den sonra telefonu başka odaya bırak. İlk denemeyi hangi gün yaparsın?");
-      } else if (/motivasyon|isteksiz|heves|sıkıldım|can sıkıntısı|enerji/i.test(lower)) {
-        lines.push("Motivasyonun düşük olması çok normal; burada önemli olan kendini zorlamak değil, küçük bir ilk adım.");
-        lines.push("Şimdi telefonu üç katmana ayır: olmazsa olmaz (mesaj), keyifli (video), kaçış (feed). Kaçış katmanına bugün 5 dakikalık 'giriş sözü' koy.");
-        lines.push("Küçük deney: yarın sabah telefonu 20 dakika dışarıda bırak ve kahvaltıda telefonsuz kal.");
-      } else if (/bildirim|sürekli bak|tıklama dürtüsü|telefon elime/i.test(lower)) {
-        lines.push("Sürekli bakma dürtüsü, bildirim tasarımının bizi yönlendirmesinden gelir; bu senin disiplin eksikliğin değil.");
-        lines.push("Küçük deneyler: 1) Uygulama bildirimlerini toplu sessize al (yalnızca kişisel sohbetleri açık bırak). 2) Telefonu evde sabit bir noktada tut, cebinde değil.");
-      } else if (/iş|ders|odak|verim|dikkat|çalışamıyorum/i.test(lower)) {
-        lines.push("Odak için en etkili perde, telefonu çalışma alanından uzaklaştırmaktır; görünmeyen telefon, çok daha az özlenir.");
-        lines.push("Pomodoro denemesi: 25 dakika söz ver (telefon başka odaya), 5 dakika mola. Üç turda bir bildirimlere bak.");
-        lines.push("Bugün ilk turu kaçta başlatacağız?");
-      } else if (/alternatif|bahçe|spor|yürüyüş|kitap|dışarı|arkadaş|hobi/i.test(lower)) {
-        lines.push("Ekran yerine somut bir alternatif öneriyorum: bugün 10 dakikalık yürüyüş + 1 sayfa kitap.");
-        lines.push("Küçük deney: feed yerine radyo/playlist dinle, ellerin meşgulken kaydırma isteği azalır.");
-      } else if (/üzgün|kızgı|suçlu|pişman|kötü hisset|mahcup/i.test(lower)) {
-        lines.push("Bu hissi adlandırdığın için bunu kutlayalım; suçluluk motivasyon yaratmaz, kalıp fark etmek yaratır.");
-        lines.push("Küçük deney: kendine mektup yaz 'yarın tek bir aşımı azaltırsam ne kazanırım?' ve o cümleyi alarm ekranına koy.");
-        lines.push("Unutma: burada ne sınav ne ceza var; sadece dikkatle seçilmiş küçük adımlar.");
-      } else if (/merhaba|selam|nasılsın|hey\b/i.test(lower)) {
-        lines.push("Merhaba! Ben SÖZÜM SÖZ koçunum; ekran alışkanlıklarını birlikte gözden geçirebiliriz.");
-        lines.push("Zamanın varsa: son 7 günün özetini çıkarayım mı, yoksa küçük bir hedefle mi başlayalım?");
+      } else if (/break|stress|tired|rest|eye|relax|drained/i.test(lower)) {
+        lines.push("A good step. Now close your eyes for 20 seconds, take 3 slow breaths and drink a glass of water.");
+        lines.push("While on the app screen, the 'Start break' button gives you a short break and +5 points.");
+      } else if (/plan|goal|start|how|tip|suggest|advice|routine|schedule/i.test(lower)) {
+        lines.push("Let's start small and flexible:");
+        lines.push("1) Make a duration promise for 3 apps today; keep the first one at 10 minutes.");
+        lines.push("2) Take a 1-minute breathing break after each promise.");
+        lines.push("3) Note the hour when you overshoot the most; tomorrow try to shorten it by 3 minutes.");
+        lines.push("If you like, we can set your first promise right now on the Phone tab.");
+      } else if (/evening|night|scroll|late|sleep|insomnia|can('t|not)? sleep|bed|unwind/i.test(lower)) {
+        lines.push("Late-night sessions usually start with fatigue; automatic scrolling continues unnoticed.");
+        lines.push("Small experiment: after 21:00 leave the phone in another room. Which day will you try it first?");
+      } else if (/motivation|unwilling|bored|boredom|energy|demotivated/i.test(lower)) {
+        lines.push("Low motivation is completely normal; what matters is not forcing yourself but taking one small first step.");
+        lines.push("Now divide your phone into three layers: essential (messages), enjoyable (video), escape (feed). Put a 5-minute 'entry promise' on the escape layer today.");
+        lines.push("Small experiment: tomorrow morning leave the phone out of reach for 20 minutes and keep breakfast phone-free.");
+      } else if (/notification|keep checking|urge to check|phone in (my )?hand|checking habit/i.test(lower)) {
+        lines.push("The urge to keep checking comes from how notifications are designed to steer us — not from a lack of discipline.");
+        lines.push("Small experiments: 1) Mute app notifications in bulk (keep only personal chats). 2) Keep the phone in one fixed spot at home, not in your pocket.");
+      } else if (/work|study|focus|productivity|attention|concentrate|exam|deadline/i.test(lower)) {
+        lines.push("The most effective screen for focus is removing the phone from your workspace; a phone you cannot see is missed far less.");
+        lines.push("Pomodoro trial: 25 minutes promise (phone in another room), 5 minutes break. Check notifications after three rounds.");
+        lines.push("When will we start the first round today?");
+      } else if (/alternative|walk|exercise|book|outside|friend|hobby|outdoor|nature/i.test(lower)) {
+        lines.push("I suggest a concrete offline alternative: today, a 10-minute walk + 1 page of a book.");
+        lines.push("Small experiment: listen to a playlist instead of the feed; when your hands are busy, the urge to scroll drops.");
+      } else if (/sad|angry|guilt|regret|bad feel|ashamed|upset|blue|down/i.test(lower)) {
+        lines.push("Let's honor the fact that you named this feeling; guilt does not create motivation — recognizing a pattern does.");
+        lines.push("Small experiment: write yourself a note — 'what do I gain if I reduce one overshoot tomorrow?' — and put that sentence on the lockscreen.");
+        lines.push("Remember: there is no exam and no punishment here; only small, carefully chosen steps.");
+      } else if (/hello|hi|hey\b|good (morning|afternoon|evening)/i.test(lower)) {
+        lines.push("Hello! I'm your SÖZÜM SÖZ coach; we can review your screen habits together.");
+        lines.push("If you have time: shall I summarize your last 7 days, or shall we start with a small goal?");
       } else {
-        lines.push("Sana netleştirici bir soru sorayım: Uygulamayı şu an hangi amaçla kullanıyorsun (can sıkıntısı, kaçış, alışkanlık)? Yanıtına göre odağı daraltayım.");
+        lines.push("Let me ask a clarifying question: what purpose are you using the app for right now (boredom, escape, habit)? I'll narrow the focus based on your answer.");
       }
     }
     lines.push("");
-    lines.push("Bu bilgi farkındalık amaçlıdır, tıbbi tanı veya tedavi önerisi değildir.");
+    lines.push("This information is for awareness purposes and is not a medical diagnosis or treatment recommendation.");
     return lines.join("\n");
   },
 
   async chat(cfg, sessions, chatHistory) {
     var agg = AI.aggregate(sessions);
     var context = {
-      son7Gun: {
-        toplamOturum: agg.total,
-        toplamKullanimDk: agg.usedMin,
-        tutulanSoz: agg.kept,
-        bozulanSoz: agg.brokenExceed + agg.brokenHop,
-        enCokKullanilan: agg.topApps.slice(0, 3).map(function (a) { return a.name + " (" + a.used + " dk)"; })
+      last7Days: {
+        totalSessions: agg.total,
+        totalMinutes: agg.usedMin,
+        promisesKept: agg.kept,
+        promisesBroken: agg.brokenExceed + agg.brokenHop,
+        mostUsed: agg.topApps.slice(0, 3).map(function (a) { return a.name + " (" + a.used + " min)"; })
       }
     };
     var messages = [
       { role: "system", content: AI.chatSystem() },
-      { role: "system", content: "Kullanıcının anonim veri bağlamı (JSON; kimlik içermez): " + JSON.stringify(context) }
+      { role: "system", content: "The user's anonymous data context (JSON; contains no identity): " + JSON.stringify(context) }
     ];
     chatHistory.slice(-20).forEach(function (m) { messages.push({ role: m.role, content: m.content }); });
-    var promptText = messages.map(function (m) { return (m.role === "user" ? "KULLANICI" : m.role === "assistant" ? "KOÇ" : "SİSTEM") + ":\n" + m.content; }).join("\n\n");
+    var promptText = messages.map(function (m) { return (m.role === "user" ? "USER" : m.role === "assistant" ? "COACH" : "SYSTEM") + ":\n" + m.content; }).join("\n\n");
     var last = chatHistory[chatHistory.length - 1];
     var lastQ = (last && last.content) || "";
     if (AI.isCrisis(lastQ)) {
@@ -1713,15 +1713,15 @@ var lower = String(q || "").toLowerCase();
 };
 </script>
 <script>
-// ---------- SÖZÜM SÖZ: çekirdek uygulama mantığı ----------
+// ---------- SÖZÜM SÖZ: core app logic ----------
 
 (function () {
   "use strict";
 
   var STORE_KEY = "sozumsoz-v1";
-  var AI_STAMP = "Bu içerik bir yapay zekâ (YZ) modeli tarafından üretilmiştir. YZ hata yapabilir; çıktı farkındalık amaçlıdır, tıbbi tanı veya tedavi önerisi değildir. Önemli kararlar için bir uzman görüşü (doktor, psikolog) almanız önerilir.";
+  var AI_STAMP = "This content was generated by an artificial intelligence (AI) model. AI can make mistakes; this output is for awareness purposes only and is not a medical diagnosis or treatment recommendation. For important decisions, it is recommended to consult a professional (doctor, psychologist).";
 
-  // Logo resmi yüklenemezse monograma düş (inline SVG'de pratikte tetiklenmez)
+  // Fall back to a monogram if the logo image fails to load (practically not triggered with inline SVG)
   window.__ssIconFallback = function (img) {
     if (!img) return;
     var mono = document.createElement("span");
@@ -1748,14 +1748,14 @@ var lower = String(q || "").toLowerCase();
   }
 
   function nowHM(ts) {
-    return new Date(ts || Date.now()).toLocaleTimeString("tr-TR", { hour: "2-digit", minute: "2-digit" });
+    return new Date(ts || Date.now()).toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" });
   }
 
   function appById(id) {
     return APPS.filter(function (a) { return a.id === id; })[0];
   }
 
-  // ---------- durum ----------
+  // ---------- state ----------
   var state = {
     points: 0,
     streak: 0,
@@ -1784,7 +1784,7 @@ var lower = String(q || "").toLowerCase();
   };
 
   function save() {
-    try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) { /* boş */ }
+    try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) { /* noop */ }
   }
 
   function load() {
@@ -1796,7 +1796,7 @@ var lower = String(q || "").toLowerCase();
           if (typeof s[k] !== "undefined") state[k] = s[k];
         });
       }
-    } catch (e) { /* boş */ }
+    } catch (e) { /* noop */ }
     if (!state.ai.provider) state.ai.provider = "openai";
     if (!state.challenges) state.challenges = { week: null, joined: [], claimed: [] };
     if (!state.breaksLog) state.breaksLog = [];
@@ -1808,7 +1808,7 @@ var lower = String(q || "").toLowerCase();
     }
   }
 
-  // ---------- yardımcılar ----------
+  // ---------- helpers ----------
   function $(id) { return document.getElementById(id); }
 
   var session = null;
@@ -1824,7 +1824,7 @@ var lower = String(q || "").toLowerCase();
       .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
   }
 
-  // ---------- yazı-yazılma efekti (typewriter) ----------
+  // ---------- typewriter text effect ----------
   function typeText(container, text, done) {
     if (window.__SS_INSTANT) {
       container.textContent = text;
@@ -1841,7 +1841,7 @@ var lower = String(q || "").toLowerCase();
     })();
   }
 
-  // ---------- puan uçuş efekti ----------
+  // ---------- floating points effect ----------
   function floatPoints(delta) {
     try {
       var anchor = $("hPoints");
@@ -1855,10 +1855,10 @@ var lower = String(q || "").toLowerCase();
       el.style.left = (r.left - rr.left + r.width / 2 - 15) + "px";
       el.style.top = (r.top - rr.top) + "px";
       setTimeout(function () { if (el.parentNode) el.parentNode.removeChild(el); }, 1100);
-    } catch (e) { /* görsel, hata olursa süreç etkilenmesin */ }
+    } catch (e) { /* cosmetic; process must not be affected on error */ }
   }
 
-  // ---------- bildirimler ----------
+  // ---------- notifications ----------
   var NOTIF_ICONS = { info: "💬", warn: "⏰", danger: "🚫", good: "🎉", bg: "📲" };
   if (window.__SS_INSTANT) { window.__ss_notify = function (t, b, k, a) { return notify(t, b, k, a); }; }
   function notify(title, body, kind, actions) {
@@ -1906,7 +1906,7 @@ var lower = String(q || "").toLowerCase();
     setTimeout(function () { if (el.parentNode) el.parentNode.removeChild(el); }, 300);
   }
 
-  // ---------- besleme ----------
+  // ---------- feed ----------
   function pushFeed(text) {
     state.feed.unshift({ text: text, ts: Date.now() });
     state.feed = state.feed.slice(0, 30);
@@ -1915,21 +1915,21 @@ var lower = String(q || "").toLowerCase();
   }
 
   function feedEmoji(text) {
-    if (/mola/i.test(text)) return "☕";
-    if (/çekiliş/i.test(text)) return "🎟️";
-    if (/sipariş|ödül/i.test(text)) return "🏆";
-    if (/seri/i.test(text)) return "⚡";
-    if (/tuttun|tamamlandı|kazandın/i.test(text)) return "🎉";
-    if (/aştın|aşım|geçti/i.test(text)) return "⏰";
-    if (/atladın/i.test(text)) return "🚫";
-    if (/puan/i.test(text)) return "🌟";
+    if (/break/i.test(text)) return "☕";
+    if (/draw|lottery/i.test(text)) return "🎟️";
+    if (/order|reward/i.test(text)) return "🏆";
+    if (/streak/i.test(text)) return "⚡";
+    if (/kept|completed|earned|won/i.test(text)) return "🎉";
+    if (/exceed|overshoot|went/i.test(text)) return "⏰";
+    if (/hop|switch/i.test(text)) return "🚫";
+    if (/point/i.test(text)) return "🌟";
     return "📲";
   }
 
   function renderFeed() {
     var el = $("phoneFeed");
     if (!el) return;
-    if (!state.feed.length) { el.innerHTML = "Henüz aktivite yok."; el.className = "feed muted"; return; }
+    if (!state.feed.length) { el.innerHTML = "No activity yet."; el.className = "feed muted"; return; }
     el.className = "feed";
     el.innerHTML = state.feed.slice(0, 10).map(function (f) {
       return "<div class='feed-item'><span class='feed-emoji'>" + feedEmoji(f.text) + "</span>" +
@@ -1938,7 +1938,7 @@ var lower = String(q || "").toLowerCase();
     }).join("");
   }
 
-  // ---------- sekme yönlendirme ----------
+  // ---------- tab routing ----------
   function setTab(name) {
     document.querySelectorAll(".tab").forEach(function (t) {
       t.classList.toggle("active", t.getAttribute("data-tab") === name);
@@ -1958,11 +1958,11 @@ var lower = String(q || "").toLowerCase();
     t.addEventListener("click", function () { setTab(t.getAttribute("data-tab")); });
   });
 
-  // ---------- başlık ----------
+  // ---------- header ----------
   var WEEKLY_MOODS = {
-    good: { emoji: "😀", label: "iyi" },
-    mid: { emoji: "😐", label: "ortalama" },
-    bad: { emoji: "🙁", label: "kötü" }
+    good: { emoji: "😀", label: "good" },
+    mid: { emoji: "😐", label: "average" },
+    bad: { emoji: "🙁", label: "bad" }
   };
 
   function weeklyMoodKey() {
@@ -2019,13 +2019,13 @@ var lower = String(q || "").toLowerCase();
     if (bgMode === "soz") {
       e.innerHTML =
         "<div class='n-icon'>📊</div>" +
-        "<div class='n-box'><div class='n-title'>SÖZÜM SÖZ açık " + mood.emoji + "</div>" +
-        "<div class='n-body'>Bu hafta: " + mood.label + " performans · özet uygulama içinde.</div></div>";
+        "<div class='n-box'><div class='n-title'>SÖZÜM SÖZ open " + mood.emoji + "</div>" +
+        "<div class='n-body'>This week: " + mood.label + " performance · summary inside the app.</div></div>";
     } else {
       e.innerHTML =
         "<div class='n-icon'>🛡️</div>" +
-        "<div class='n-box'><div class='n-title'>SÖZÜM SÖZ arka planda çalışıyor " + mood.emoji + "</div>" +
-        "<div class='n-body'>Söz takibi aktif · saat " + nowHM() + "</div></div>";
+        "<div class='n-box'><div class='n-title'>SÖZÜM SÖZ running in the background " + mood.emoji + "</div>" +
+        "<div class='n-body'>Promise tracking active · " + nowHM() + "</div></div>";
     }
   }
 
@@ -2051,22 +2051,22 @@ var lower = String(q || "").toLowerCase();
     updateMoodUI();
   }
 
-  // ---------- TELEFON: ana ekran ----------
+  // ---------- PHONE: home screen ----------
   function renderHome() {
     var screen = $("phoneScreen");
     var now = new Date();
     var hour = now.getHours();
-    var selam = hour < 12 ? "Günaydın" : hour < 18 ? "İyi günler" : "İyi akşamlar";
+    var greet = hour < 12 ? "Good morning" : hour < 18 ? "Good afternoon" : "Good evening";
     var html =
       "<div class='s-home'>" +
       "<div class='s-statusbar'><span class='s-status-left'>" +
       "<span class='s-status-mood mood-" + weeklyMoodKey() + "' id='phoneMood'>" + moodFaceSVG(weeklyMoodKey()) + "</span>" +
       nowHM() + "</span><span>🔋</span></div>" +
       "<div class='s-top-row'>" +
-      "<div class='s-greet'><h1>" + selam + " 👋</h1>" +
-      "<p class='s-sub'>Bugün " + state.todayKept + " sözün tutuldu. Hangi uygulamayı açıyorsun?</p></div>" +
+      "<div class='s-greet'><h1>" + greet + " 👋</h1>" +
+      "<p class='s-sub'>Promises kept today: " + state.todayKept + ". Which app are you opening?</p></div>" +
       "<div class='s-score'>" +
-      "<div class='s-score-label'>PUAN</div><div class='s-score-val'>" + state.points + "</div>" +
+      "<div class='s-score-label'>POINTS</div><div class='s-score-val'>" + state.points + "</div>" +
       "</div></div>" +
       "<div class='app-grid'>" +
       "<div class='app-tile' data-app='sozumsoz' style='animation-delay:60ms'>" +
@@ -2099,7 +2099,7 @@ var lower = String(q || "").toLowerCase();
     openPromiseDialog(app);
   }
 
-  // ---------- TELEFON: SÖZÜM SÖZ uygulaması içi ----------
+  // ---------- PHONE: inside the SÖZÜM SÖZ app ----------
   function topAppName7() {
     var since = Date.now() - 7 * 86400000;
     var sums = {}, best = null;
@@ -2121,47 +2121,47 @@ var lower = String(q || "").toLowerCase();
     $("phoneScreen").innerHTML =
       "<div class='s-consent anim-pop'>" +
       "<div class='brand'><span class='brand-mark'><img class='brand-mark-img' src='" + SOZ_LOGO + "' alt='SÖZÜM SÖZ'></span><span class='brand-name'>SÖZÜM <b>SÖZ</b></span></div>" +
-      "<h2>Bilgilendirme ve Açık Rıza</h2>" +
+      "<h2>Privacy Notice and Explicit Consent</h2>" +
       "<div class='consent-body'>" +
-      "<h4>1. Veri Sorumlusu ve Kapsam</h4>" +
-      "<p>Bu uygulama (SÖZÜM SÖZ) bir hackathon prototipidir ve 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) madde 10 uyarınca, uygulamanın geliştiricisi veri sorumlusu sıfatıyla aşağıdaki şekilde aydınlatma yapmaktadır.</p>" +
-      "<h4>2. İşlenen Kişisel Veriler</h4>" +
+      "<h4>1. Data Controller and Scope</h4>" +
+      "<p>This application (SÖZÜM SÖZ) is a hackathon prototype. Pursuant to Article 10 of Turkish Law No. 6698 on the Protection of Personal Data (KVKK), the developer of the application, acting as the data controller, provides the following information.</p>" +
+      "<h4>2. Personal Data Processed</h4>" +
       "<ul>" +
-      "<li><b>Süre sözü kayıtları:</b> uygulama adı, kategori, hedeflenen ve gerçekleşen süre.</li>" +
-      "<li><b>Etkileşim istatistikleri:</b> puan, seri, mola sayısı, görev katılımı.</li>" +
-      "<li><b>Sohbet geçmişi:</b> YZ koç sohbetindeki mesajların tamamı.</li>" +
-      "<li><b>Cihaz ayarları:</b> seçili YZ sağlayıcı, model ve (isterseniz) API anahtarı.</li>" +
+      "<li><b>Time-promise records:</b> app name, category, promised and actual time.</li>" +
+      "<li><b>Interaction statistics:</b> points, streak, number of breaks, challenge participation.</li>" +
+      "<li><b>Chat history:</b> all messages from the AI coach chat.</li>" +
+      "<li><b>Device settings:</b> chosen AI provider, model, and (if you wish) API key.</li>" +
       "</ul>" +
-      "<h4>3. İşleme Amaçları</h4>" +
+      "<h4>3. Purposes of Processing</h4>" +
       "<ul>" +
-      "<li>Dijital iyi olma hâlinin izlenmesi ve kişisel raporlama.</li>" +
-      "<li>Söz/puan/seri/ödül motivasyon sisteminin çalıştırılması.</li>" +
-      "<li>İsteğe bağlı YZ koç sohbeti ile yansıma desteği.</li>" +
+      "<li>Monitoring digital well-being and personal reporting.</li>" +
+      "<li>Running the promise/points/streak/reward motivation system.</li>" +
+      "<li>Reflection support through the optional AI coach chat.</li>" +
       "</ul>" +
-      "<h4>4. Hukuki Sebep ve Aktarım</h4>" +
+      "<h4>4. Legal Basis and Transfer</h4>" +
       "<ul>" +
-      "<li>KVKK m.5: veri sahibinin <b>açık rızası</b> (bu ekranda verdiğiniz onay) ve meşru menfaat.</li>" +
-      "<li>KVKK m.8-9: yurt dışı aktarım yalnızca canlı YZ açıkken ve seçtiğiniz sağlayıcıya yapılır; aksi hâlde verileriniz hiçbir sunucuya otomatik gönderilmez.</li>" +
+      "<li>KVKK art. 5: the data subject's <b>explicit consent</b> (the approval you give on this screen) and legitimate interest.</li>" +
+      "<li>KVKK arts. 8-9: cross-border transfer happens only when live AI is enabled and only to the provider you choose; otherwise your data is never sent to any server automatically.</li>" +
       "</ul>" +
-      "<p>Verileriniz yalnızca bu cihazın tarayıcı hafızasında (localStorage) saklanır. Canlı YZ'yi Ayarlar'dan açıp anahtar girmediğiniz sürece cihazdan dışarı çıkmaz. Canlı YZ açılırsa yalnızca anonim oturum özeti ve sohbetin son mesajları seçtiğiniz sağlayıcıya (OpenAI/Gemini) gönderilir; ad, fotoğraf ve iletişim bilgisi asla toplanmaz.</p>" +
-      "<h4>5. Saklama Süresi</h4>" +
-      "<p>Verileriniz, uygulamayı kullandığınız süre boyunca cihazda saklanır. 'Verilerimi sil' işlemiyle veya tarayıcı verileri temizlendiğinde kalıcı olarak silinir.</p>" +
-      "<h4>6. Veri Sahibinin Hakları (KVKK m.11)</h4>" +
+      "<p>Your data is stored only in this device's browser storage (localStorage). It never leaves your device unless you enable live AI and enter a key in Settings. If live AI is enabled, only an anonymous session summary and the latest chat messages are sent to the provider you select (OpenAI/Gemini); your name, photos, and contact details are never collected.</p>" +
+      "<h4>5. Retention Period</h4>" +
+      "<p>Your data is stored on your device for as long as you use the app. It is permanently deleted when you use the \"Delete my data\" option or when browser data is cleared.</p>" +
+      "<h4>6. Rights of the Data Subject (KVKK art. 11)</h4>" +
       "<ul>" +
-      "<li>Verilerinizin işlenip işlenmediğini öğrenme,</li>" +
-      "<li>İşlenmişse bilgi talep etme,</li>" +
-      "<li>İşleme amacını ve amaca uygun kullanımı öğrenme,</li>" +
-      "<li>Eksik veya yanlış işlenmiş verilerin düzeltilmesini isteme,</li>" +
-      "<li>Verilerin silinmesini veya yok edilmesini isteme,</li>" +
-      "<li>Değişiklik ve silme işlemlerinin aktarıldığı kişilere bildirilmesini isteme,</li>" +
-      "<li>Otomatik işlemeye itiraz etme ve uğranılan zararın giderilmesini talep etme.</li>" +
+      "<li>To learn whether your personal data is being processed,</li>" +
+      "<li>To request information if it has been processed,</li>" +
+      "<li>To learn the purpose of the processing and whether it is used in line with that purpose,</li>" +
+      "<li>To request correction of incomplete or incorrectly processed data,</li>" +
+      "<li>To request erasure or destruction of your data,</li>" +
+      "<li>To request that corrections and erasures be notified to the parties to whom the data was transferred,</li>" +
+      "<li>To object to automated processing and to request compensation for the damage suffered.</li>" +
       "</ul>" +
-      "<p class='small'>Bu haklarınızı uygulama içindeki <b>Ayarlar → Verilerimi indir / Verilerimi sil / Rızayı geri al</b> seçenekleriyle veya tarayıcının gizlilik araçlarıyla doğrudan kullanabilirsiniz.</p>" +
-      "<h4>7. Açık Rıza</h4>" +
-      "<p class='muted small'>Yukarıdaki aydınlatma metnini okudum; verilerimin belirtilen amaçlarla işlenmesine, gerektiğinde sohbet mesajlarımın seçtiğim YZ sağlayıcısına iletilmesine ve bu kapsamda kişisel verilerimin işlenmesine <b>açık rıza</b> veriyorum. Rızamı istediğim an geri alabilirim (Ayarlar → Rızayı geri al).</p>" +
+      "<p class='small'>You can exercise these rights directly with the in-app options <b>Settings → Download my data / Delete my data / Withdraw consent</b> or through your browser's privacy tools.</p>" +
+      "<h4>7. Explicit Consent</h4>" +
+      "<p class='muted small'>I have read the notice above; I <b>explicitly consent</b> to my data being processed for the stated purposes, to my chat messages being forwarded when necessary to the AI provider I choose, and to my personal data being processed in this scope. I can withdraw my consent at any time (Settings → Withdraw consent).</p>" +
       "</div>" +
-      "<button class='btn btn-primary btn-lg' id='consentYes'>Kabul ediyorum, uygulamayı aç</button>" +
-      "<button class='btn btn-ghost btn-lg' id='consentNo'>Kabul etmiyorum</button>" +
+      "<button class='btn btn-primary btn-lg' id='consentYes'>I accept, open the app</button>" +
+      "<button class='btn btn-ghost btn-lg' id='consentNo'>I do not accept</button>" +
       "</div>";
     $("consentYes").addEventListener("click", function () {
       state.consent = true;
@@ -2173,11 +2173,11 @@ var lower = String(q || "").toLowerCase();
       $("phoneScreen").innerHTML =
         "<div class='s-consent'>" +
         "<div class='brand'><span class='brand-mark'><img class='brand-mark-img' src='" + SOZ_LOGO + "' alt='SÖZÜM SÖZ'></span><span class='brand-name'>SÖZÜM <b>SÖZ</b></span></div>" +
-        "<h2>Uygulama kullanılamıyor</h2>" +
-        "<p>Bilgilendirmeyi kabul etmediğin için SÖZÜM SÖZ uygulaması açılmadı. Hiçbir verin toplanmaz, saklanmaz ve işlenmez.</p>" +
-        "<p class='muted small'>İstersen bilgilendirmeyi tekrar okuyup kararını değiştirebilirsin.</p>" +
-        "<button class='btn btn-primary btn-lg' id='consentBack'>Bilgilendirmeyi tekrar oku</button>" +
-        "<button class='btn btn-ghost btn-lg' id='consentExit'>Ana ekrana dön</button>" +
+        "<h2>App unavailable</h2>" +
+        "<p>Because you did not accept the notice, the SÖZÜM SÖZ app was not opened. None of your data is collected, stored, or processed.</p>" +
+        "<p class='muted small'>If you wish, you can read the notice again and change your mind.</p>" +
+        "<button class='btn btn-primary btn-lg' id='consentBack'>Read the notice again</button>" +
+        "<button class='btn btn-ghost btn-lg' id='consentExit'>Back to home screen</button>" +
         "</div>";
       $("consentBack").addEventListener("click", function () { openSozumsozConsent(); });
       $("consentExit").addEventListener("click", renderHome);
@@ -2196,24 +2196,24 @@ var lower = String(q || "").toLowerCase();
       "<div class='s-soz'>" +
       "<div class='soz-header'>" +
       "<span class='soz-title'>SÖZÜM SÖZ</span>" +
-      "<span class='soz-mood'>Bu hafta " + mood.emoji + " " + mood.label + "</span>" +
+      "<span class='soz-mood'>This week " + mood.emoji + " " + mood.label + "</span>" +
       "</div>" +
       "<div class='soz-stats'>" +
-      "<div class='soz-stat'><b>" + state.points + "</b><span>Puan</span></div>" +
-      "<div class='soz-stat'><b>" + state.streak + "</b><span>Seri</span></div>" +
-      "<div class='soz-stat'><b>" + state.todayKept + "</b><span>Bugün tutulan</span></div>" +
+      "<div class='soz-stat'><b>" + state.points + "</b><span>Points</span></div>" +
+      "<div class='soz-stat'><b>" + state.streak + "</b><span>Streak</span></div>" +
+      "<div class='soz-stat'><b>" + state.todayKept + "</b><span>Kept today</span></div>" +
       "</div>" +
       "<div class='soz-top'>" + (top
-        ? "Son 7 günde en çok kullandığın: <b>" + top.name + "</b> (" + top.min + " dk)"
-        : "Henüz veri yok. " + state.points + " puanınla başlamak için bir söz ver.") + "</div>" +
+        ? "Most used in the last 7 days: <b>" + top.name + "</b> (" + top.min + " min)"
+        : "No data yet. Make a promise to start with your " + state.points + " points.") + "</div>" +
       "<div class='soz-menu'>" +
-      sozMenuRow("Durum", "stats") +
-      sozMenuRow("Grafikler", "charts") +
-      sozMenuRow("Ödül Kataloğu", "rewards") +
-      sozMenuRow("Aylık Çekiliş", "draw") +
-      sozMenuRow("Yansıma (YZ)", "ai") +
+      sozMenuRow("Status", "stats") +
+      sozMenuRow("Charts", "charts") +
+      sozMenuRow("Reward Catalog", "rewards") +
+      sozMenuRow("Monthly Draw", "draw") +
+      sozMenuRow("Reflection (AI)", "ai") +
       "</div>" +
-      "<button class='btn btn-ghost btn-lg' id='sozBack'>Geri dön</button>" +
+      "<button class='btn btn-ghost btn-lg' id='sozBack'>Go back</button>" +
       "</div>";
     $("sozBack").addEventListener("click", function () { hideBgNotif(); renderHome(); });
     $("phoneScreen").querySelectorAll("[data-soztab]").forEach(function (row) {
@@ -2222,11 +2222,11 @@ var lower = String(q || "").toLowerCase();
     showBgNotif("soz");
   }
 
-  // ---------- TELEFON: süre sözü diyaloğu (telefon içi alt sayfa) ----------
+  // ---------- PHONE: time-promise dialog (in-phone sub page) ----------
   function openPromiseDialog(app) {
     var chosen = null;
     var opts = TIME_OPTIONS.map(function (m) {
-      return "<button class='time-btn dur-chip' data-min='" + m + "'>" + m + "<span>dk</span></button>";
+      return "<button class='time-btn dur-chip' data-min='" + m + "'>" + m + "<span>min</span></button>";
     }).join("");
     var sc = $("phoneScreen");
     sc.innerHTML =
@@ -2238,15 +2238,15 @@ var lower = String(q || "").toLowerCase();
       "<div class='sheet-meta'><div class='sheet-apptitle'>" + app.name + "</div>" +
       "<span class='sheet-cat'>" + CATEGORY_LABELS[app.category] + "</span></div>" +
       "</div>" +
-      "<div class='sheet-q'>Kaç dakikaya <b>söz veriyorsun?</b></div>" +
+      "<div class='sheet-q'>How many minutes do you <b>promise?</b></div>" +
       "<div class='dur-chips' id='durChips'>" + opts + "</div>" +
       "<div class='dur-custom'>" +
-      "<input type='number' id='customMin' min='1' max='240' placeholder='Özel süre (dk)'>" +
-      "<button class='dur-dice' id='durSuggest' title='Rastgele süre öner'>🎲</button>" +
+      "<input type='number' id='customMin' min='1' max='240' placeholder='Custom time (min)'>" +
+      "<button class='dur-dice' id='durSuggest' title='Suggest a random time'>🎲</button>" +
       "</div>" +
-      "<div class='sheet-reward'><span>Sözünü tutarsan <b class='p-plus'>+3 puan</b></span><span>Aşarsan <b class='p-minus'>−5 puan</b></span></div>" +
-      "<button class='btn btn-primary btn-lg btn-glow' id='promiseOk' disabled>Söz ver</button>" +
-      "<button class='sheet-link' id='promiseNo'>Vazgeç</button>" +
+      "<div class='sheet-reward'><span>If you keep your promise: <b class='p-plus'>+3 points</b></span><span>If you exceed it: <b class='p-minus'>−5 points</b></span></div>" +
+      "<button class='btn btn-primary btn-lg btn-glow' id='promiseOk' disabled>Promise</button>" +
+      "<button class='sheet-link' id='promiseNo'>Cancel</button>" +
       "</div>";
     var ok = $("promiseOk");
     var custom = $("customMin");
@@ -2256,7 +2256,7 @@ var lower = String(q || "").toLowerCase();
       document.querySelectorAll(".dur-chip").forEach(function (b) {
         b.classList.toggle("sel", parseInt(b.getAttribute("data-min"), 10) === min);
       });
-      if (ok) { ok.textContent = "Söz ver (" + min + " dk)"; ok.disabled = false; }
+      if (ok) { ok.textContent = "Promise (" + min + " min)"; ok.disabled = false; }
     };
     document.querySelectorAll(".dur-chip").forEach(function (b) {
       b.addEventListener("click", function () { btnPromise(parseInt(b.getAttribute("data-min"), 10)); });
@@ -2277,7 +2277,7 @@ var lower = String(q || "").toLowerCase();
     $("promiseScrim").addEventListener("click", renderHome);
   }
 
-  // ---------- uygulama içine girme ----------
+  // ---------- entering an app ----------
   function enterApp(app, minutes) {
     checkHopGuard(app);
     session = {
@@ -2301,7 +2301,7 @@ var lower = String(q || "").toLowerCase();
     if (!last) return;
     var withinWindow = (Date.now() - last.ts) <= HOP_WINDOW_MS;
     if (last.result === "broken_exceed") {
-      notify("Biraz mola ver", "Aşım ile kapattığın oturumun ardından yeni bir uygulama açtın. Ekran dışında birkaç dakika kal.", "warn");
+      notify("Take a break", "You opened a new app right after closing a session that ended in an overshoot. Step away from the screen for a few minutes.", "warn");
       state.lastClose = { ts: Date.now(), result: "broken_exceed" };
       save();
       return;
@@ -2310,7 +2310,7 @@ var lower = String(q || "").toLowerCase();
       recordResult("broken_hop", PENALTY, {
         appId: app.id, appName: app.name, category: app.category, promisedMin: 1, usedMin: 1
       });
-      notify("Uygulama atlama", app.name + " uygulamasına kapatır kapatmaz girdin. Uygulama atlamak sözünü bozar; puanın düştü.", "danger");
+      notify("App hop detected", "You opened " + app.name + " right after closing it. Hopping between apps breaks your promise; points were deducted.", "danger");
       requestCoach("hop", { appName: app.name, category: app.category, promisedMin: 0, overMin: 0 });
       state.lastClose = { ts: Date.now(), result: "broken_hop" };
       save();
@@ -2319,7 +2319,7 @@ var lower = String(q || "").toLowerCase();
     }
   }
 
-  // ---------- YZ koçu: dinamik bildirim + mola ----------
+  // ---------- AI coach: dynamic notification + break ----------
   function requestCoach(type, extra) {
     var s = session;
     var opts = {
@@ -2333,27 +2333,27 @@ var lower = String(q || "").toLowerCase();
     };
     AI.generateCoach(opts, state.ai).then(function (res) {
       var m = res.msg;
-      var el = notify(m.title, m.body + " " + m.breakOffer + " (YZ üretimi)", type === "overshoot" ? "warn" : "danger", [
+      var el = notify(m.title, m.body + " " + m.breakOffer + " (AI-generated)", type === "overshoot" ? "warn" : "danger", [
         {
-          label: "Mola başla (+" + m.points + " puan)",
+          label: "Start break (+" + m.points + " points)",
           cls: "btn-success",
           onClick: function () { dismissNotif(el); startMicroBreak(m.points, m.breakOffer); }
         },
         {
-          label: "Şimdi değil",
+          label: "Not now",
           cls: "btn-ghost",
           onClick: function () { dismissNotif(el); }
         }
       ]);
     }).catch(function (err) {
-      notify("Bildirim üretilemedi", err.message, "info");
+      notify("Could not generate notification", err.message, "info");
     });
   }
 
-  // ---------- mikromola ----------
+  // ---------- micro-break ----------
   function startMicroBreak(points, offerText) {
     if (!session) {
-      notify("Mola", "Oturum kapalı olduğu için mola önerisi iptal edildi; bir sonraki oturumda kullanılabilir.", "info");
+      notify("Break", "Break offer cancelled because the session is closed; it will be available in the next session.", "info");
       return;
     }
     var sc = $("phoneScreen");
@@ -2362,8 +2362,8 @@ var lower = String(q || "").toLowerCase();
       "<div class='s-break'>" +
       "<div class='bk-ring'><div class='bk-count' id='breakCount'>" + BREAK_SECONDS + "</div></div>" +
       "<div class='bk-text'>" + offerText + "</div>" +
-      "<div class='bk-hint'>Mola bitiminde +" + points + " puan kazanırsın.</div>" +
-      "<div class='row'><button class='btn btn-warn' id='bkCancel'>Mola değil</button></div>" +
+      "<div class='bk-hint'>You'll earn +" + points + " points when the break ends.</div>" +
+      "<div class='row'><button class='btn btn-warn' id='bkCancel'>Not a break</button></div>" +
       "</div>";
     $("bkCancel").addEventListener("click", function () { clearInterval(bkTimer); renderAppScreen(); });
     var bkTimer = setInterval(function () {
@@ -2383,15 +2383,15 @@ var lower = String(q || "").toLowerCase();
     state.breaksTaken++;
     state.breaksLog.push({ ts: Date.now() });
     state.breaksLog = state.breaksLog.slice(-60);
-    pushFeed("Molayı tamamladın: +" + points + " puan");
-    notify("Mola tamamlandı", "+" + points + " puan kazandın 🎉", "good");
+    pushFeed("Break completed: +" + points + " points");
+    notify("Break completed", "You earned +" + points + " points 🎉", "good");
     save();
     renderHeader();
     if (session) renderAppScreen(); else renderHome();
     renderStats();
   }
 
-  // ---------- süre sayacı ----------
+  // ---------- time ticker ----------
   function tick() {
     if (!session) return;
     session.elapsedSec += 1;
@@ -2416,12 +2416,12 @@ var lower = String(q || "").toLowerCase();
       "<div class='timer-ring' style='--p:" + pct + "%'>" +
       "<div class='timer-ring-in'>" +
       "<div class='timer-num'>" + (over ? "+" + (session.usedMin - session.promisedMin) : remain) + "</div>" +
-      "<div class='timer-num-label'>" + (over ? "dk aşım" : "dk kaldı") + "</div>" +
+      "<div class='timer-num-label'>" + (over ? "min over" : "min left") + "</div>" +
       "</div></div>" +
       "<div class='timer-info'>" +
-      "<div class='timer-info-row'><span>Söz</span><b>" + session.promisedMin + " dk</b></div>" +
-      "<div class='timer-info-row'><span>Kullanılan</span><b>" + session.usedMin + " dk</b></div>" +
-      "<div class='timer-tip'>Sözünü tutarsan <b>+3 puan</b></div>" +
+      "<div class='timer-info-row'><span>Promise</span><b>" + session.promisedMin + " min</b></div>" +
+      "<div class='timer-info-row'><span>Used</span><b>" + session.usedMin + " min</b></div>" +
+      "<div class='timer-tip'>If you keep this promise: <b>+3 points</b></div>" +
       "</div></div>";
     if (over && !$("overBanner")) {
       var sc = $("phoneScreen");
@@ -2430,13 +2430,13 @@ var lower = String(q || "").toLowerCase();
         var b = document.createElement("div");
         b.id = "overBanner";
         b.className = "over-banner";
-        b.innerHTML = "⏰ Süren aşıldı — ekranı kapatıp kısa bir mola ver";
+        b.innerHTML = "⏰ Time exceeded — close the screen and take a short break";
         feed.insertBefore(b, feed.firstChild);
       }
     }
   }
 
-  // ---------- uygulama ekranı ----------
+  // ---------- app screen ----------
   function renderAppScreen() {
     var sc = $("phoneScreen");
     var app = appById(session.appId);
@@ -2446,7 +2446,7 @@ var lower = String(q || "").toLowerCase();
       feed +=
         "<div class='post-card'>" +
         "<div class='post-head'><span class='post-ava' style='background:linear-gradient(135deg," + app.color + ",#0f172a)'>" + app.monogram + "</span>" +
-        "<div class='post-id'><div class='post-user'>" + app.name + "</div><div class='post-time'>1 saniye önce · sponsorlu</div></div>" +
+        "<div class='post-id'><div class='post-user'>" + app.name + "</div><div class='post-time'>1 second ago · sponsored</div></div>" +
         "<span class='post-more'>•••</span></div>" +
         "<div class='post-media' style='background:linear-gradient(135deg," + MOCK_MEDIA[(i * 3) % MOCK_MEDIA.length] + ",#0f172a)'>" + glyphs[i] + "</div>" +
         "<div class='post-actions'><span>♥ " + (128 + i * 97) + "</span><span>💬 " + (23 + i * 18) + "</span><span>↗ " + (34 + i * 21) + "</span></div>" +
@@ -2458,29 +2458,29 @@ var lower = String(q || "").toLowerCase();
       "<button class='appbar-back' id='appBackBtn'>‹</button>" +
       appIconHTML(app, "appbar-icon") +
       "<div class='appbar-mid'><div class='appbar-name'>" + app.name + "</div><div class='appbar-cat'>" + CATEGORY_LABELS[app.category] + "</div></div>" +
-      "<span class='appbar-badge'>SÖZ aktif</span>" +
+      "<span class='appbar-badge'>PROMISE active</span>" +
       "</div>" +
       "<div id='appTimerCard' class='timer-card'></div>" +
       "<div class='mock-feed'>" + feed + "</div>" +
       "<div class='app-actions'>" +
-      "<button class='btn btn-success btn-lg btn-glow' id='btnKeep'>Sözümü tut ve kapat</button>" +
-      "<button class='btn btn-ghost btn-lg' id='btnSwitch'>Başka uygulamaya geç</button>" +
+      "<button class='btn btn-success btn-lg btn-glow' id='btnKeep'>Keep my promise and close</button>" +
+      "<button class='btn btn-ghost btn-lg' id='btnSwitch'>Switch to another app</button>" +
       "</div></div>";
     $("appBackBtn").addEventListener("click", function () { finishSession(false); });
     $("btnKeep").addEventListener("click", function () { finishSession(false); });
     $("btnSwitch").addEventListener("click", function () {
       if (session && session.usedMin > session.promisedMin) {
-        notify("Süre aşımı", "Süreni aştın; oturum bozulan olarak kapanıyor ve puanın düşüyor.", "danger");
+        notify("Time exceeded", "You exceeded your time; the session closes as broken and points are deducted.", "danger");
         finishSession(false);
       } else {
-        notify("Uygulama atlama", "Başka uygulamaya geçiş sözünü bozar; puanın düşer.", "warn");
+        notify("App hop detected", "Switching to another app breaks your promise; points are deducted.", "warn");
         finishSession(true);
       }
     });
     renderAppTicker();
   }
 
-  // ---------- oturum bitişi ----------
+  // ---------- session end ----------
   function finishSession(hopFlag) {
     if (!session) return;
     var s = session;
@@ -2525,21 +2525,21 @@ var lower = String(q || "").toLowerCase();
         state.milestones.push(state.streak);
         state.points += MILESTONES[state.streak];
         floatPoints(MILESTONES[state.streak]);
-        notify("Seri bonusu", "" + state.streak + ". sözünü üst üste tuttun! +" + MILESTONES[state.streak] + " puan bonus 🎉", "good");
-        pushFeed("Seri bonusu: " + state.streak + " arka arkaya söz tutma, +" + MILESTONES[state.streak] + " puan");
+        notify("Streak bonus", "You kept " + state.streak + " promises in a row! +" + MILESTONES[state.streak] + " bonus points 🎉", "good");
+        pushFeed("Streak bonus: " + state.streak + " promises in a row, +" + MILESTONES[state.streak] + " points");
       }
       if (state.todayKept >= DAILY_CHALLENGE.target && !state.challengeClaimed) {
-        notify("Günün sözü tamam", "Bugün " + DAILY_CHALLENGE.target + " sözünü tuttun; Durum sekmesinden ekstra +" + DAILY_CHALLENGE.reward + " puan al 👏", "good");
+        notify("Promise of the day complete", "You kept " + DAILY_CHALLENGE.target + " promises today; claim an extra +" + DAILY_CHALLENGE.reward + " points from the Status tab 👏", "good");
       }
     } else {
       state.streak = 0;
       if (result === "broken_exceed") state.brokenExceed++;
       else state.brokenHop++;
     }
-    pushFeed((delta >= 0 ? "+" : "") + delta + " puan | " + (result === "kept" ? "sözünü tuttun" : result === "broken_exceed" ? "sözünü aştın" : "uygulama atladın") + " (" + info.appName + ")");
+    pushFeed((delta >= 0 ? "+" : "") + delta + " points | " + (result === "kept" ? "you kept your promise" : result === "broken_exceed" ? "you exceeded your time" : "you jumped to another app") + " (" + info.appName + ")");
   }
 
-  // ---------- DURUM sekmesi ----------
+  // ---------- STATUS tab ----------
   function sessionsSince(days) {
     var cutoff = Date.now() - days * 86400000;
     return state.history.filter(function (h) { return h.ts >= cutoff; });
@@ -2549,15 +2549,17 @@ var lower = String(q || "").toLowerCase();
     var cards = $("statCards");
     var todaySessions = sessionsSince(1).filter(function (h) { return dailyOf(h.ts) === todayKey(); });
     var todayMin = todaySessions.reduce(function (a, h) { return a + h.usedMin; }, 0);
+    var streakTxt = state.streak + (state.streak === 1 ? " promise" : " promises");
+    var bestTxt = state.bestStreak + (state.bestStreak === 1 ? " promise" : " promises");
     var stat = [
-      { label: "Puanın", value: state.points, cls: "s-ok" },
-      { label: "Şu anki seri", value: state.streak + " söz", cls: "s-amber" },
-      { label: "En iyi seri", value: state.bestStreak + " söz", cls: "" },
-      { label: "Tutulan söz", value: state.kept, cls: "s-ok" },
-      { label: "Bozulan (aşım)", value: state.brokenExceed, cls: "s-bad" },
-      { label: "Bozulan (atlama)", value: state.brokenHop, cls: "s-bad" },
-      { label: "Tamamlanan mola", value: state.breaksTaken || 0, cls: "s-ok" },
-      { label: "Bugünkü kullanım", value: todayMin + " dk", cls: "" }
+      { label: "Your points", value: state.points, cls: "s-ok" },
+      { label: "Current streak", value: streakTxt, cls: "s-amber" },
+      { label: "Best streak", value: bestTxt, cls: "" },
+      { label: "Promises kept", value: state.kept, cls: "s-ok" },
+      { label: "Broken (overshoot)", value: state.brokenExceed, cls: "s-bad" },
+      { label: "Broken (hop)", value: state.brokenHop, cls: "s-bad" },
+      { label: "Breaks completed", value: state.breaksTaken || 0, cls: "s-ok" },
+      { label: "Today's usage", value: todayMin + " min", cls: "" }
     ];
     cards.innerHTML = stat.map(function (s) {
       return "<div class='stat-card " + s.cls + "'><div class='stat-label'>" + s.label + "</div><div class='stat-value'>" + s.value + "</div></div>";
@@ -2571,13 +2573,13 @@ var lower = String(q || "").toLowerCase();
     var maxMin = sorted.length ? sorted[0].min : 0;
     var barsEl = $("categoryBars");
     if (!sorted.length) {
-      barsEl.innerHTML = "<div class='muted'>Henüz veri yok.</div>";
+      barsEl.innerHTML = "<div class='muted'>No data yet.</div>";
     } else {
       barsEl.innerHTML = sorted.map(function (c) {
         var w = maxMin ? Math.round(c.min / maxMin * 100) : 0;
         return "<div class='cat-bar-row'><span class='cat-bar-label'>" + c.name + "</span>" +
           "<div class='cat-bar-track'><div class='cat-bar-fill' style='width:" + w + "%'></div></div>" +
-          "<span class='cat-bar-min'>" + c.min + " dk</span></div>";
+          "<span class='cat-bar-min'>" + c.min + " min</span></div>";
       }).join("");
     }
 
@@ -2598,13 +2600,13 @@ var lower = String(q || "").toLowerCase();
       "<h3>" + DAILY_CHALLENGE.title + "</h3>" +
       "<p>" + DAILY_CHALLENGE.text + "</p>" +
       "<div class='challenge-box'><div class='challenge-progress'>" +
-      "<div class='cnt'>" + prog + " / " + DAILY_CHALLENGE.target + " söz tutuldu</div>" +
+      "<div class='cnt'>" + prog + " / " + DAILY_CHALLENGE.target + " promises kept</div>" +
       "<div class='progress'><div style='width:" + Math.round(prog / DAILY_CHALLENGE.target * 100) + "%'></div></div>" +
       "</div>";
     if (done) {
       html += state.challengeClaimed
-        ? "<button class='btn' disabled>Ödül alındı (+" + DAILY_CHALLENGE.reward + ")</button>"
-        : "<button class='btn btn-primary' id='btnClaim'>Ödülü al (+" + DAILY_CHALLENGE.reward + " puan)</button>";
+        ? "<button class='btn' disabled>Reward claimed (+" + DAILY_CHALLENGE.reward + ")</button>"
+        : "<button class='btn btn-primary' id='btnClaim'>Claim reward (+" + DAILY_CHALLENGE.reward + " points)</button>";
     }
     html += "</div>";
     el.innerHTML = html;
@@ -2612,8 +2614,8 @@ var lower = String(q || "").toLowerCase();
       $("btnClaim").addEventListener("click", function () {
         state.challengeClaimed = true;
         state.points += DAILY_CHALLENGE.reward;
-        pushFeed("Günün sözü ödülü: +" + DAILY_CHALLENGE.reward + " puan");
-        notify("Ödül eklendi", "Günün sözü ödülü +" + DAILY_CHALLENGE.reward + " puan hesabına eklendi.", "good");
+        pushFeed("Promise-of-the-day reward: +" + DAILY_CHALLENGE.reward + " points");
+        notify("Reward added", "Promise-of-the-day reward of +" + DAILY_CHALLENGE.reward + " points added to your account.", "good");
         save();
         renderHeader();
         renderStats();
@@ -2621,7 +2623,7 @@ var lower = String(q || "").toLowerCase();
     }
   }
 
-  // ---------- HAFTALIK GÖREVLER ----------
+  // ---------- WEEKLY CHALLENGES ----------
   function ensureWeeklyChallenges() {
     if (!state.challenges) state.challenges = { week: null, joined: [], claimed: [] };
     var wk = weekIdx(Date.now());
@@ -2671,24 +2673,24 @@ var lower = String(q || "").toLowerCase();
       var barPct = Math.min(100, Math.round(Math.min(cur, c.target) / c.target * 100));
       var stateTxt, btn;
       if (isC) {
-        stateTxt = "Tamamlandı ✓";
-        btn = "<button class='btn' disabled>Ödül alındı (+" + c.reward + " puan)</button>";
+        stateTxt = "Completed ✓";
+        btn = "<button class='btn' disabled>Reward claimed (+" + c.reward + " points)</button>";
       } else if (!isJ) {
         stateTxt = c.direction === "less"
-          ? "Şu an: " + cur + " " + c.unit + " (hedef: < " + c.target + " " + c.unit + ")"
-          : "Şu an: " + cur + " / " + c.target + " " + c.unit;
-        btn = "<button class='btn btn-primary' data-join='" + c.id + "'>Göreve katıl</button>";
+          ? "Current: " + cur + " " + c.unit + " (target: < " + c.target + " " + c.unit + ")"
+          : "Current: " + cur + " / " + c.target + " " + c.unit;
+        btn = "<button class='btn btn-primary' data-join='" + c.id + "'>Join challenge</button>";
       } else if (met) {
-        stateTxt = "Şart sağlandı!";
-        btn = "<button class='btn btn-success' data-claim='" + c.id + "'>Ödülü al (+" + c.reward + " puan)</button>";
+        stateTxt = "Condition met!";
+        btn = "<button class='btn btn-success' data-claim='" + c.id + "'>Claim reward (+" + c.reward + " points)</button>";
       } else {
         stateTxt = c.direction === "less"
-          ? "İlerleme: " + cur + " " + c.unit + " (hedef < " + c.target + ")"
-          : "İlerleme: " + cur + " / " + c.target + " " + c.unit;
-        btn = "<button class='btn' disabled>Katıldın</button>";
+          ? "Progress: " + cur + " " + c.unit + " (target < " + c.target + ")"
+          : "Progress: " + cur + " / " + c.target + " " + c.unit;
+        btn = "<button class='btn' disabled>Joined</button>";
       }
       return "<div class='ch-card'>" +
-        "<div class='ch-head'><div class='ch-title'>" + c.title + "</div><div class='ch-reward'>+" + c.reward + " puan</div></div>" +
+        "<div class='ch-head'><div class='ch-title'>" + c.title + "</div><div class='ch-reward'>+" + c.reward + " points</div></div>" +
         "<p class='ch-text'>" + c.text + "</p>" +
         "<div class='ch-progress'><div class='ch-bar'><div style='width:" + barPct + "%'></div></div></div>" +
         "<div class='ch-cur'>" + stateTxt + "</div>" +
@@ -2710,8 +2712,8 @@ var lower = String(q || "").toLowerCase();
         state.challenges.joined = state.challenges.joined.filter(function (x) { return x !== c.id; });
         state.challenges.claimed.push(c.id);
         state.points += c.reward;
-        pushFeed("Haftalık görev tamamlandı: " + c.title + " · +" + c.reward + " puan");
-        notify("Görev tamamlandı", c.title + " +" + c.reward + " puan hesabına eklendi.", "good");
+        pushFeed("Weekly challenge completed: " + c.title + " · +" + c.reward + " points");
+        notify("Challenge completed", c.title + ": +" + c.reward + " points added to your account.", "good");
         save();
         renderHeader();
         renderStats();
@@ -2720,8 +2722,8 @@ var lower = String(q || "").toLowerCase();
     });
   }
 
-  // ---------- GRAFİKLER sekmesi ----------
-  var DAY_NAMES = ["Paz", "Pzt", "Sal", "Çar", "Per", "Cum", "Cmt"];
+  // ---------- CHARTS tab ----------
+  var DAY_NAMES = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   var CATEGORY_COLORS = { social: "#e1306c", video: "#dc2626", messaging: "#16a34a", streaming: "#b91c1c", gaming: "#7c3aed", music: "#15803d", news: "#ea580c" };
 
   function minOnDayKey(key) {
@@ -2768,19 +2770,19 @@ var lower = String(q || "").toLowerCase();
     var dif = todayMin - lastMin;
     var diffTxt =
       dif === 0
-        ? "Geçen haftanın aynı günüyle aynı kullanım süren var (" + todayMin + " dk)."
+        ? "Your usage today matches the same day last week (" + todayMin + " min)."
         : dif > 0
-          ? "Bugün, geçen hafta aynı güne göre " + dif + " dk daha çok zaman harcadın."
-          : "Bugün, geçen hafta aynı güne göre " + (-dif) + " dk daha az zaman harcadın.";
+          ? "Today you spent " + dif + " min more than the same day last week."
+          : "Today you spent " + (-dif) + " min less than the same day last week.";
     el.innerHTML =
-      "<h3>Bugün vs geçen haftanın aynı günü</h3>" +
+      "<h3>Today vs the same day last week</h3>" +
       "<div class='cmp'>" +
-      "<div class='cmp-col'><div class='cmp-label'>Bugün · " + todayName + "</div>" +
+      "<div class='cmp-col'><div class='cmp-label'>Today · " + todayName + "</div>" +
       "<div class='cmp-track'><div class='cmp-bar' style='height:" + todayH + "px'></div></div>" +
-      "<div class='cmp-value'>" + todayMin + " dk</div></div>" +
-      "<div class='cmp-col'><div class='cmp-label'>Geçen hafta · " + lastName + "</div>" +
+      "<div class='cmp-value'>" + todayMin + " min</div></div>" +
+      "<div class='cmp-col'><div class='cmp-label'>Last week · " + lastName + "</div>" +
       "<div class='cmp-track'><div class='cmp-bar mut' style='height:" + lastH + "px'></div></div>" +
-      "<div class='cmp-value'>" + lastMin + " dk</div></div>" +
+      "<div class='cmp-value'>" + lastMin + " min</div></div>" +
       "</div>" +
       "<div class='cmp-diff'>" + diffTxt + "</div>";
   }
@@ -2796,9 +2798,9 @@ var lower = String(q || "").toLowerCase();
       days.push({ key: k, min: m, name: DAY_NAMES[new Date(k + "T12:00:00").getDay()], today: i === 0 });
     }
     var total7 = days.reduce(function (a, d) { return a + d.min; }, 0);
-    el.innerHTML = "<h3>Son 7 gün - ekran kullanımı</h3>" +
+    el.innerHTML = "<h3>Last 7 days - screen usage</h3>" +
       (total7 === 0
-        ? "<div class='muted'>Henüz veri yok.</div>"
+        ? "<div class='muted'>No data yet.</div>"
         : "<div class='days'>" + days.map(function (d) {
             return "<div class='day-col" + (d.today ? " today" : "") + "'>" +
               "<div class='day-min'>" + d.min + "</div>" +
@@ -2806,7 +2808,7 @@ var lower = String(q || "").toLowerCase();
               "<div class='day-name'>" + d.name + "</div>" +
               "</div>";
           }).join("") + "</div>" +
-          "<p class='muted small' style='margin-top:8px'>Turuncu çubuk bugünü gösterir.</p>");
+          "<p class='muted small' style='margin-top:8px'>The orange bar marks today.</p>");
   }
 
   function renderLast4Weeks() {
@@ -2818,17 +2820,17 @@ var lower = String(q || "").toLowerCase();
       sums[w] = (sums[w] || 0) + h.usedMin;
     });
     var thisW = weekIdx(Date.now());
-    var labels = ["3 hafta önce", "2 hafta önce", "Geçen hafta", "Bu hafta"];
+    var labels = ["3 weeks ago", "2 weeks ago", "Last week", "This week"];
     var data = labels.map(function (l, i) { return { label: l, min: sums[thisW - 3 + i] || 0 }; });
     var maxMin = 1;
     data.forEach(function (d) { if (d.min > maxMin) maxMin = d.min; });
     var totalW = data.reduce(function (a, d) { return a + d.min; }, 0);
-    el.innerHTML = "<h3>Haftalık karşılaştırma (son 4 hafta)</h3>" +
+    el.innerHTML = "<h3>Weekly comparison (last 4 weeks)</h3>" +
       (totalW === 0
-        ? "<div class='muted'>Henüz veri yok.</div>"
+        ? "<div class='muted'>No data yet.</div>"
         : "<div class='weeks'>" + data.map(function (d) {
-            return "<div class='week-col'><div class='week-min'>" + d.min + " dk</div>" +
-              "<div class='week-track'><div class='week-bar" + (d.label === "Bu hafta" ? " now" : "") + "' style='height:" + Math.max(4, Math.round(d.min / maxMin * 100)) + "px'></div></div>" +
+            return "<div class='week-col'><div class='week-min'>" + d.min + " min</div>" +
+              "<div class='week-track'><div class='week-bar" + (d.label === "This week" ? " now" : "") + "' style='height:" + Math.max(4, Math.round(d.min / maxMin * 100)) + "px'></div></div>" +
               "<div class='week-name'>" + d.label + "</div></div>";
           }).join("") + "</div>");
   }
@@ -2843,7 +2845,7 @@ var lower = String(q || "").toLowerCase();
       return { name: CATEGORY_LABELS[k] || k, color: CATEGORY_COLORS[k] || "#6366f1", min: sums[k] };
     }).sort(function (a, b) { return b.min - a.min; });
     var total = data.reduce(function (a, d) { return a + d.min; }, 0);
-    if (!total) { el.innerHTML = "<h3>Kategori dağılımı (son 7 gün)</h3><div class='muted'>Henüz veri yok.</div>"; return; }
+    if (!total) { el.innerHTML = "<h3>Category breakdown (last 7 days)</h3><div class='muted'>No data yet.</div>"; return; }
     var size = 140, c = size / 2, r = 48, C = 2 * Math.PI * r;
     var acc = 0, parts = "";
     data.forEach(function (d) {
@@ -2854,12 +2856,12 @@ var lower = String(q || "").toLowerCase();
     });
     var legend = data.map(function (d) {
       return "<div class='legend-row'><span class='dot' style='background:" + d.color + "'></span>" +
-        d.name + "<span class='legend-pct'>%" + Math.round(d.min / total * 100) + " (" + d.min + " dk)</span></div>";
+        d.name + "<span class='legend-pct'>%" + Math.round(d.min / total * 100) + " (" + d.min + " min)</span></div>";
     }).join("");
-    el.innerHTML = "<h3>Kategori dağılımı (son 7 gün)</h3>" +
+    el.innerHTML = "<h3>Category breakdown (last 7 days)</h3>" +
       "<div class='donut-wrap'>" +
       "<div class='donut'><svg viewBox='0 0 " + size + " " + size + "'>" + parts + "</svg>" +
-      "<div class='donut-center'><b>" + total + "</b><span>dk</span></div></div>" +
+      "<div class='donut-center'><b>" + total + "</b><span>min</span></div></div>" +
       "<div class='legend'>" + legend + "</div>" +
       "</div>";
   }
@@ -2874,28 +2876,28 @@ var lower = String(q || "").toLowerCase();
       .sort(function (a, b) { return b.min - a.min; })
       .slice(0, 6);
     var maxMin = data.length ? data[0].min : 1;
-    el.innerHTML = "<h3>En çok kullanılan uygulamalar (son 7 gün)</h3>" +
+    el.innerHTML = "<h3>Most used apps (last 7 days)</h3>" +
       (data.length
         ? "<div class='cat-bars'>" + data.map(function (a) {
             return "<div class='cat-bar-row'><span class='cat-bar-label'>" + a.name + "</span>" +
               "<div class='cat-bar-track'><div class='cat-bar-fill' style='width:" + pctOf(a.min, maxMin) + "%'></div></div>" +
-              "<span class='cat-bar-min'>" + a.min + " dk</span></div>";
+              "<span class='cat-bar-min'>" + a.min + " min</span></div>";
           }).join("") + "</div>"
-        : "<div class='muted'>Henüz veri yok.</div>");
+        : "<div class='muted'>No data yet.</div>");
   }
 
-  // ---------- ÖDÜL sekmesi ----------
+  // ---------- REWARDS tab ----------
   function renderRewards() {
     var grid = $("rewardGrid");
     grid.innerHTML = REWARDS.map(function (r) {
       var affordable = state.points >= r.price;
       return "<div class='reward-card'>" +
         "<div class='reward-icon'>" + r.monogram + "</div>" +
-        "<div class='reward-badge'>Yeşilay ödülü</div>" +
+        "<div class='reward-badge'>Yeşilay reward</div>" +
         "<div class='reward-name'>" + r.name + "</div>" +
         "<div class='reward-desc'>" + r.desc + "</div>" +
-        "<div class='reward-price'>" + r.price + " puan</div>" +
-        "<button class='btn " + (affordable ? "btn-success" : "") + "' data-reward='" + r.id + "' " + (affordable ? "" : "disabled") + ">Al</button>" +
+        "<div class='reward-price'>" + r.price + " points</div>" +
+        "<button class='btn " + (affordable ? "btn-success" : "") + "' data-reward='" + r.id + "' " + (affordable ? "" : "disabled") + ">Get</button>" +
         "</div>";
     }).join("");
     grid.querySelectorAll("[data-reward]").forEach(function (b) {
@@ -2904,8 +2906,8 @@ var lower = String(q || "").toLowerCase();
         if (state.points >= r.price) {
           state.points -= r.price;
           state.rewardOrders.push({ id: r.id, name: r.name, ts: Date.now(), price: r.price });
-          pushFeed("Ödül siparişi: " + r.name + " (" + r.price + " puan)");
-          notify("Sipariş alındı", r.name + " siparişin Yeşilay'a iletildi (prototip senaryosu).", "good");
+          pushFeed("Reward order: " + r.name + " (" + r.price + " points)");
+          notify("Order confirmed", "Your " + r.name + " order has been forwarded to Yeşilay (prototype scenario).", "good");
           save();
           renderHeader();
           renderRewards();
@@ -2916,12 +2918,12 @@ var lower = String(q || "").toLowerCase();
     mine.className = "muted";
     mine.innerHTML = state.rewardOrders.length
       ? state.rewardOrders.slice().reverse().map(function (o) {
-          return "<div class='feed-item'>" + nowHM(o.ts) + " - " + o.name + " (" + o.price + " puan)</div>";
+          return "<div class='feed-item'>" + nowHM(o.ts) + " - " + o.name + " (" + o.price + " points)</div>";
         }).join("")
-      : "Henüz sipariş vermedin.";
+      : "You haven't placed any orders yet.";
   }
 
-  // ---------- ÇEKİLİŞ sekmesi ----------
+  // ---------- DRAW tab ----------
   function monthKeyOf(ts) { return dailyOf(ts).slice(0, 7); }
 
   function computeMonthStats() {
@@ -2942,19 +2944,19 @@ var lower = String(q || "").toLowerCase();
     var entered = state.lotteryEnteredMonth === ms.mk;
     var pct = Math.min(100, Math.round(ms.kept / DRAW_TARGET_KEPT * 100));
     $("monthProgress").innerHTML =
-      "<div class='cat-bar-row'><span class='cat-bar-label'>Tutulan söz</span>" +
+      "<div class='cat-bar-row'><span class='cat-bar-label'>Promises kept</span>" +
       "<div class='cat-bar-track'><div class='cat-bar-fill' style='width:" + pct + "%'></div></div>" +
       "<span class='cat-bar-min'>" + ms.kept + "/" + DRAW_TARGET_KEPT + "</span></div>";
     $("monthStatus").textContent =
       ms.broken === 0
-        ? "Bu ay bozulan söz yok. Tutulan: " + ms.kept + " / " + DRAW_TARGET_KEPT
-        : "Bu ay " + ms.broken + " sözün bozuldu; çekilişe katılabilmen için bozulan söz olmamalı.";
+        ? "No broken promises this month. Kept: " + ms.kept + " / " + DRAW_TARGET_KEPT
+        : "Broken this month: " + ms.broken + ". To enter the draw, you must have no broken promises.";
     $("prizeList").innerHTML = DRAW_PRIZES.map(function (p) { return "<li>" + p + "</li>"; }).join("");
     var btn = $("btnEnterDraw");
     btn.disabled = !(eligible && !entered);
-    btn.textContent = entered ? "Bu ay çekilişe katıldın" : eligible ? "Çekilişe Katıl" : "Şartlar sağlanmadı";
+    btn.textContent = entered ? "You entered this month's draw" : eligible ? "Enter the Draw" : "Conditions not met";
     $("drawEnteredNote").textContent = entered
-      ? "Katılımın kayıtlı. Sonuçlar ay sonunda Yeşilay protokolüyle duyurulur (senaryo)."
+      ? "Your entry is recorded. Results are announced at the end of the month under the Yeşilay protocol (scenario)."
       : "";
   }
 
@@ -2962,21 +2964,21 @@ var lower = String(q || "").toLowerCase();
     var mk = todayKey().slice(0, 7);
     if (state.lotteryEnteredMonth !== mk) {
       state.lotteryEnteredMonth = mk;
-      pushFeed("Aylık çekilişe katıldın (" + mk + ")");
-      notify("Çekilişe katıldın", "Bu ayki tüm sözlerini tuttun. Şansın bol olsun!", "good");
+      pushFeed("You entered the monthly draw (" + mk + ")");
+      notify("You're in the draw", "You kept all your promises this month. Good luck!", "good");
       save();
       renderDraw();
     }
   });
 
-  // ---------- YZ sekmesi ----------
+  // ---------- AI tab ----------
   function renderAIStatus() {
     var el = $("aiStatus");
     if (state.ai.live && state.ai.apiKey) {
-      el.innerHTML = "<span class='live-dot'></span> Canlı YZ · " + providerLabel() + " · " + esc(state.ai.model) + " @ " + esc(state.ai.baseUrl);
+      el.innerHTML = "<span class='live-dot'></span> Live AI · " + providerLabel() + " · " + esc(state.ai.model) + " @ " + esc(state.ai.baseUrl);
       el.className = "ai-status live";
     } else {
-      el.textContent = "Mod: YZ bağlantısı kapalı - şablon özet üretimi (canlı için Ayarlar'dan API anahtarı ekleyebilirsin).";
+      el.textContent = "Mode: AI connection off - template generation (add an API key in Settings for live).";
       el.className = "ai-status muted";
     }
   }
@@ -2989,12 +2991,12 @@ var lower = String(q || "").toLowerCase();
     var out = $("aiOutput");
     var wrap = $("aiPromptWrap");
     out.className = "ai-output busy";
-    out.innerHTML = "<span>Yapay zekâ düşünüyor</span><span class='ai-dots'></span>";
+    out.innerHTML = "<span>AI is thinking</span><span class='ai-dots'></span>";
     wrap.innerHTML = "";
     var sessions = kind === "daily" ? sessionsDaily() : sessionsSince(7);
     AI.generate(kind, sessions, state.ai).then(function (res) {
       out.className = "ai-output";
-      var tag = res.source === "live" ? "Canlı YZ yanıtı" : res.source === "live-error" ? "Canlı çağrı başarısız, şablon gösterildi: " + res.error : "Şablon üretimi (canlı bağlantı kapalı)";
+      var tag = res.source === "live" ? "Live AI response" : res.source === "live-error" ? "Live call failed, showing template: " + res.error : "Template generation (live connection off)";
       var tagLine = document.createElement("div");
       tagLine.className = "muted small";
       tagLine.style.marginBottom = "8px";
@@ -3013,31 +3015,31 @@ var lower = String(q || "").toLowerCase();
       });
       var btn = document.createElement("button");
       btn.className = "prompt-toggle";
-      btn.textContent = "Kullanılan promptu göster (+ tasarım gerekçesi)";
+      btn.textContent = "Show the prompt used (+ design rationale)";
       btn.addEventListener("click", function () {
         var existing = wrap.querySelector(".prompt-box");
-        if (existing) { existing.remove(); btn.textContent = "Kullanılan promptu göster (+ tasarım gerekçesi)"; return; }
+        if (existing) { existing.remove(); btn.textContent = "Show the prompt used (+ design rationale)"; return; }
         var pb = document.createElement("div");
         pb.className = "prompt-box";
         var note =
-          "PROMPT TASARIM NOTU: Bu projede şu teknikler kullanıldı:\n" +
-          "- Sistem rolü + kural listesi (yönlendirilmiş üretim): yargısız dil, tanı yasağı, puan donanımı.\n" +
-          "- Günlük yansıma: few-shot (2 örnek: olağan gün + zor gün) + yapılandırılmış veri (JSON) + doğrulama adımı.\n" +
-          "- Haftalık özet: adım adım (ADIM 1-4) structured prompting + doğrulama adımı.\n" +
-          "- Bölüm ayırıcıları (delimiter): KOMUT/VERİ/ÖRNEK/DOĞRULAMA ayrımı.\n" +
-          "- Bildirim koçu (mola önerisi): sistem kuralları + 2 few-shot örnek + JSON çıktı (" +
-          "title/body/breakOffer/points) ile kullanıcının bağlamına göre (saat, aşım, seri) dinamik, suçluluk hissettirmeyen bildirimler." +
-          "\n- Sıcaklık (temperature): yansıma 0.5, sohbet 0.7, bildirim 0.8.\n" +
-          "\n- Verinin anonim özeti gönderilir; kullanıcı adı/kimlik içermez.\n\n" +
+          "PROMPT DESIGN NOTE: The following techniques are used in this project:\n" +
+          "- System role + rule list (guided generation): non-judgmental language, no-diagnosis rule, point attribution.\n" +
+          "- Daily reflection: few-shot (2 examples: a normal day + a hard day) + structured data (JSON) + verification step.\n" +
+          "- Weekly summary: step-by-step (STEP 1-4) structured prompting + verification step.\n" +
+          "- Delimiters: KOMUT/DATA/EXAMPLE/VERIFY separation.\n" +
+          "- Notification coach (break suggestion): system rules + 2 few-shot examples + JSON output (" +
+          "title/body/breakOffer/points) producing dynamic, guilt-free notifications based on the user's context (hour, overshoot, streak)." +
+          "\n- Temperature: reflection 0.5, chat 0.7, notification 0.8.\n" +
+          "\n- Only an anonymous summary of the data is sent; it contains no username or identity.\n\n" +
           res.prompt;
         pb.textContent = note;
         wrap.appendChild(pb);
-        btn.textContent = "Promptu gizle";
+        btn.textContent = "Hide prompt";
       });
       wrap.appendChild(btn);
     }).catch(function (err) {
       out.className = "ai-output error";
-      out.textContent = "Beklenmedik hata: " + err.message;
+      out.textContent = "Unexpected error: " + err.message;
     });
   }
 
@@ -3062,38 +3064,38 @@ var lower = String(q || "").toLowerCase();
     return state.ai.provider === "gemini" ? "Google Gemini" : "OpenAI";
   }
 
-  // ---------- Ayarlar ----------
+  // ---------- Settings ----------
   function openSettings() {
     openModal(
-      "<h3>Ayarlar</h3>" +
-      "<div class='field'><label>Canlı YZ bağlantısı</label><label class='switch-line'>" +
-      "<input type='checkbox' id='setLive'" + (state.ai.live ? " checked" : "") + "> <span>API anahtarıyla gerçek modeli kullan</span></label></div>" +
-      "<div class='field'><label>Sağlayıcı (YZ tedarikçisi)</label>" +
+      "<h3>Settings</h3>" +
+      "<div class='field'><label>Live AI connection</label><label class='switch-line'>" +
+      "<input type='checkbox' id='setLive'" + (state.ai.live ? " checked" : "") + "> <span>Use a real model with an API key</span></label></div>" +
+      "<div class='field'><label>Provider (AI vendor)</label>" +
       "<select id='setProvider'>" +
       "<option value='openai'" + (state.ai.provider !== "gemini" ? " selected" : "") + ">OpenAI</option>" +
       "<option value='gemini'" + (state.ai.provider === "gemini" ? " selected" : "") + ">Google Gemini</option>" +
       "</select></div>" +
-      "<div class='field'><label>API temel adresi</label><input id='setBase' value='" + esc(state.ai.baseUrl) + "'></div>" +
-      "<div class='field'><label>Model (Gemini ince-ayarlı bir model adı ise buraya yazılabilir)</label><input id='setModel' value='" + esc(state.ai.model) + "'></div>" +
-      "<div class='field'><label>API anahtarı (yalnızca cihazda saklanır)</label><input id='setKey' type='password' value='" + esc(state.ai.apiKey) + "' placeholder='sk-... veya AIza...'></div>" +
+      "<div class='field'><label>API base URL</label><input id='setBase' value='" + esc(state.ai.baseUrl) + "'></div>" +
+      "<div class='field'><label>Model (type a fine-tuned model name here for Gemini)</label><input id='setModel' value='" + esc(state.ai.model) + "'></div>" +
+      "<div class='field'><label>API key (stored only on this device)</label><input id='setKey' type='password' value='" + esc(state.ai.apiKey) + "' placeholder='sk-... or AIza...'></div>" +
       "<div class='row'>" +
-      "<button class='btn btn-primary' id='setSave'>Kaydet</button>" +
-      "<button class='btn' id='setCancel'>Vazgeç</button>" +
+      "<button class='btn btn-primary' id='setSave'>Save</button>" +
+      "<button class='btn' id='setCancel'>Cancel</button>" +
       "</div>" +
       "<div class='row' style='margin-top:16px'>" +
-      "<button class='btn btn-danger-ghost' id='btnReset2'>Demoyu sıfırla</button>" +
+      "<button class='btn btn-danger-ghost' id='btnReset2'>Reset demo</button>" +
       "</div>" +
       "<div class='row' style='margin-top:16px'>" +
-      "<button class='btn btn-primary' id='btnExport'>Verilerimi indir (JSON)</button>" +
+      "<button class='btn btn-primary' id='btnExport'>Download my data (JSON)</button>" +
       "</div>" +
       "<div class='row' style='margin-top:8px'>" +
-      "<button class='btn btn-danger-ghost' id='btnRevokeConsent'>Rızayı geri al</button>" +
+      "<button class='btn btn-danger-ghost' id='btnRevokeConsent'>Withdraw consent</button>" +
       "</div>" +
       "<div class='row' style='margin-top:8px'>" +
-      "<button class='btn btn-danger-ghost' id='btnWipeData'>Verilerimi sil</button>" +
+      "<button class='btn btn-danger-ghost' id='btnWipeData'>Delete my data</button>" +
       "</div>" +
-      "<p class='muted small' style='margin-top:12px'>KVKK m.7, m.10, m.11 uyarınca: açık rızanızı dilediğiniz an geri alabilir, verilerinizi JSON olarak indirebilir (erişim hakkı) veya kalıcı olarak sildirebilirsiniz (silme hakkı). 'Demoyu sıfırla' demo verilerini temizler; 'Verilerimi sil' ise açık rıza dahil tüm verilerinizi bu cihazdan kalıcı olarak kaldırır ve uygulamayı kilide alır.</p>" +
-      "<p class='muted small' style='margin-top:8px'>Genel amaçlı dil modelleri; projeye özel koç davranışı sistem promptuyla sağlanır (ince-ayar eşdeğeri). Canlı bağlantı kapalıyken şablon üretim çalışır. Veri gizliliği: kayıtlar yalnızca bu tarayıcıda; API'ye yalnızca anonim oturum özeti ve (sohbette) son mesajlar gider. Gemini'de model adresi ve anahtar, seçili sağlayıcının otomatik olarak ayarlanır; model adını değiştirerek özel/ince-ayar model kullanabilirsin.</p>"
+      "<p class='muted small' style='margin-top:12px'>Under KVKK arts. 7, 10 and 11: you may withdraw your explicit consent at any time, download your data as JSON (right of access), or have it permanently deleted (right of erasure). \"Reset demo\" clears the demo data; \"Delete my data\" permanently removes all of your data from this device, including explicit consent, and locks the app.</p>" +
+      "<p class='muted small' style='margin-top:8px'>These are general-purpose language models; project-specific coach behavior is provided through the system prompt (fine-tuning equivalent). Template generation works while the live connection is off. Data privacy: records stay only in this browser; only an anonymous session summary and (in chat) the last messages go to the API. For Gemini, the model URL and key are set automatically for the selected provider; you can use a custom or fine-tuned model by changing the model name.</p>"
     );
     $("setSave").addEventListener("click", function () {
       state.ai.live = $("setLive").checked;
@@ -3129,16 +3131,16 @@ var lower = String(q || "").toLowerCase();
       var url = URL.createObjectURL(blob);
       var a = document.createElement("a");
       a.href = url;
-      a.download = "sozumsoz-verilerim.json";
+      a.download = "sozumsoz-my-data.json";
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
-      setTimeout(function () { try { URL.revokeObjectURL(url); } catch (e) { /* boş */ } }, 1000);
+      setTimeout(function () { try { URL.revokeObjectURL(url); } catch (e) { /* noop */ } }, 1000);
     } catch (e) {
       openModal(
-        "<h3>Verilerimi indir</h3>" +
-        "<p>Tarayıcı bu ortamda dosya indirmeyi desteklemiyor. Verileriniz hâlâ bu cihazda; 'Ayarlar → Verilerimi sil' ile istediğiniz an kalıcı olarak silebilirsiniz.</p>" +
-        "<div class='row'><button class='btn btn-primary' id='exportOk'>Tamam</button></div>"
+        "<h3>Download my data</h3>" +
+        "<p>Your browser does not support file downloads in this environment. Your data is still on this device; you can permanently delete it at any time via 'Settings → Delete my data'.</p>" +
+        "<div class='row'><button class='btn btn-primary' id='exportOk'>OK</button></div>"
       );
       $("exportOk").addEventListener("click", closeModal);
     }
@@ -3147,11 +3149,11 @@ var lower = String(q || "").toLowerCase();
   function confirmRevokeConsent() {
     closeModal();
     openModal(
-      "<h3>Rızayı geri al</h3>" +
-      "<p>KVKK m.7 uyarınca açık rızanızı geri alıyorsunuz. Rıza geri alındığında SÖZÜM SÖZ uygulaması kilitlenir ve verileriniz artık bu amaçlarla işlenmez. Mevcut verileriniz cihazda kalır; isterseniz 'Verilerimi sil' ile kalıcı olarak kaldırabilirsiniz.</p>" +
+      "<h3>Withdraw consent</h3>" +
+      "<p>Under KVKK art. 7, you are withdrawing your explicit consent. Once consent is withdrawn, the SÖZÜM SÖZ app is locked and your data is no longer processed for these purposes. Your existing data stays on the device; if you wish, you can permanently remove it with 'Delete my data'.</p>" +
       "<div class='row'>" +
-      "<button class='btn btn-danger' id='revokeYes'>Evet, rızamı geri al</button>" +
-      "<button class='btn' id='revokeNo'>Vazgeç</button>" +
+      "<button class='btn btn-danger' id='revokeYes'>Yes, withdraw my consent</button>" +
+      "<button class='btn' id='revokeNo'>Cancel</button>" +
       "</div>"
     );
     $("revokeYes").addEventListener("click", function () {
@@ -3166,15 +3168,15 @@ var lower = String(q || "").toLowerCase();
   function confirmWipeData() {
     closeModal();
     openModal(
-      "<h3>Verilerimi sil</h3>" +
-      "<p>KVKK m.11 uyarınca silme hakkınızı kullanıyorsunuz. Açık rıza dahil tüm verileriniz bu cihazdan <b>kalıcı olarak silinecek</b>, SÖZÜM SÖZ uygulaması kilitlenecek ve bir dahaki açılışta yeniden rızanız sorulacak. Bu işlem geri alınamaz. Emin misiniz?</p>" +
+      "<h3>Delete my data</h3>" +
+      "<p>You are exercising your right of erasure under KVKK art. 11. All of your data, including explicit consent, will be <b>permanently deleted</b> from this device, the SÖZÜM SÖZ app will be locked, and your consent will be requested again on the next launch. This action cannot be undone. Are you sure?</p>" +
       "<div class='row'>" +
-      "<button class='btn btn-danger' id='wipeYes'>Evet, verilerimi sil</button>" +
-      "<button class='btn' id='wipeNo'>Vazgeç</button>" +
+      "<button class='btn btn-danger' id='wipeYes'>Yes, delete my data</button>" +
+      "<button class='btn' id='wipeNo'>Cancel</button>" +
       "</div>"
     );
     $("wipeYes").addEventListener("click", function () {
-      try { localStorage.removeItem(STORE_KEY); } catch (e) { /* boş */ }
+      try { localStorage.removeItem(STORE_KEY); } catch (e) { /* noop */ }
       location.reload();
     });
     $("wipeNo").addEventListener("click", closeModal);
@@ -3183,32 +3185,32 @@ var lower = String(q || "").toLowerCase();
   function confirmReset() {
     closeModal();
     openModal(
-      "<h3>Demoyu sıfırla</h3>" +
-      "<p>Tüm puan, söz ve ayar verileri silinecek. Emin misin?</p>" +
+      "<h3>Reset demo</h3>" +
+      "<p>All points, promises, and settings data will be erased. Are you sure?</p>" +
       "<div class='row'>" +
-      "<button class='btn btn-danger' id='resetYes'>Evet, sıfırla</button>" +
-      "<button class='btn' id='resetNo'>Vazgeç</button>" +
+      "<button class='btn btn-danger' id='resetYes'>Yes, reset</button>" +
+      "<button class='btn' id='resetNo'>Cancel</button>" +
       "</div>"
     );
     $("resetYes").addEventListener("click", function () {
-      try { localStorage.removeItem(STORE_KEY); } catch (e) { /* boş */ }
+      try { localStorage.removeItem(STORE_KEY); } catch (e) { /* noop */ }
       location.reload();
     });
     $("resetNo").addEventListener("click", closeModal);
   }
 
-  // ---------- giriş adımı ----------
+  // ---------- intro step ----------
   function showIntro() {
     if (state.seenIntro) return;
     openModal(
-      "<h3>SÖZÜM SÖZ'e Hoş geldin</h3>" +
-      "<p>Dijital bağımlılık ve dijital iyi olma hâli hackathon prototipi. 3 adımda çalışır:</p>" +
-      "<p>1) <b>Süre sözü ver:</b> Bir uygulamaya girince kaç dakika kalmayı taahhüt edeceğini söyle.<br>" +
-      "2) <b>Sözünü tut:</b> Süre içinde kapatırsan +3 puan; aşarsan ya da hemen başka uygulamaya geçersen -5 puan ve uyarı.<br>" +
-      "3) <b>Mola önerileri:</b> YZ koçu, süre aşımında su iç / gözlerini dinlendir gibi küçük molalar önerir; molayı tamamlayınca birkaç puan kazanırsın.<br>" +
-      "4) <b>Kazan ve yansıt:</b> Seri bonusları, günün sözü, Yeşilay ödül kataloğu, aylık çekiliş ve YZ yansıma koçu seni destekler.</p>" +
-      "<p class='muted small'>Hızlı demo açıkken 1 saniye ≈ 1 dakika sayılır; böylece tüm akışı saniyeler içinde test edebilirsin.</p>" +
-      "<div class='row'><button class='btn btn-primary btn-lg' id='introOk'>Anladım, başlayalım</button></div>"
+      "<h3>Welcome to SÖZÜM SÖZ</h3>" +
+      "<p>Digital dependence and digital well-being hackathon prototype. It works in 4 steps:</p>" +
+      "<p>1) <b>Make a time promise:</b> When you enter an app, state how many minutes you commit to.<br>" +
+      "2) <b>Keep your promise:</b> Close within the time for +3 points; if you exceed the time or immediately jump to another app you get -5 points and a warning.<br>" +
+      "3) <b>Break suggestions:</b> The AI coach suggests small breaks like drinking water or resting your eyes when you exceed the time; you earn a few points by completing the break.<br>" +
+      "4) <b>Earn and reflect:</b> Streak bonuses, the promise of the day, the Yeşilay reward catalog, a monthly draw, and the AI reflection coach support you.</p>" +
+      "<p class='muted small'>While the fast demo is on, 1 second counts as ~1 minute, so you can test the whole flow in seconds.</p>" +
+      "<div class='row'><button class='btn btn-primary btn-lg' id='introOk'>Got it, let's start</button></div>"
     );
     $("introOk").addEventListener("click", function () {
       state.seenIntro = true;
@@ -3217,7 +3219,7 @@ var lower = String(q || "").toLowerCase();
     });
   }
 
-  // ---------- çeşitli ----------
+  // ---------- misc ----------
   $("btnSettings").addEventListener("click", openSettings);
   $("btnReset").addEventListener("click", confirmReset);
   $("speedToggle").addEventListener("change", function () {
@@ -3225,7 +3227,7 @@ var lower = String(q || "").toLowerCase();
     save();
   });
 
-  // ---------- haftalık skor emojisi (demo) ----------
+  // ---------- weekly score emoji (demo) ----------
   document.querySelectorAll("#moodRow .btn").forEach(function (b) {
     b.addEventListener("click", function () {
       var m = b.getAttribute("data-mood");
@@ -3235,7 +3237,7 @@ var lower = String(q || "").toLowerCase();
     });
   });
 
-  // ---------- SOHBET (çok turlu YZ koç) ----------
+  // ---------- CHAT (multi-turn AI coach) ----------
   function appendChat(role, text, opts) {
     var log = $("chatLog");
     var empty = log.querySelector(".chat-empty");
@@ -3245,12 +3247,12 @@ var lower = String(q || "").toLowerCase();
     if (role === "user") {
       el.innerHTML = "<div>" + esc(text).split("\n").join("<br>") + "</div>";
     } else if (opts && opts.busy) {
-      el.innerHTML = "<span>Koç düşünüyor</span><span class='ai-dots'></span>";
+      el.innerHTML = "<span>Coach is thinking</span><span class='ai-dots'></span>";
       el.classList.add("chat-busy");
     } else {
       var badge = document.createElement("div");
       badge.className = "ai-badge";
-      badge.textContent = "YZ";
+      badge.textContent = "AI";
       el.appendChild(badge);
       var body = document.createElement("div");
       body.style.whiteSpace = "pre-wrap";
@@ -3287,11 +3289,11 @@ var lower = String(q || "").toLowerCase();
     state.chatHistory.push({ role: "user", content: text, ts: Date.now() });
     state.chatHistory = state.chatHistory.slice(-40);
     save();
-    var busyEl = appendChat("assistant", "Koç düşünüyor...", { busy: true });
+    var busyEl = appendChat("assistant", "Coach is thinking...", { busy: true });
     AI.chat(state.ai, sessionsSince(7), state.chatHistory).then(function (res) {
-      var note = res.source === "live" ? "Canlı model yanıtı"
-        : res.source === "live-error" ? "Canlı çağrı başarısız, şablon gösterildi: " + res.error
-        : "Şablon yanıtı (canlı bağlantı kapalı)";
+      var note = res.source === "live" ? "Live model response"
+        : res.source === "live-error" ? "Live call failed, showing template: " + res.error
+        : "Template response (live connection off)";
       state.chatHistory.push({ role: "assistant", content: res.text, ts: Date.now() });
       state.chatHistory = state.chatHistory.slice(-40);
       save();
@@ -3301,7 +3303,7 @@ var lower = String(q || "").toLowerCase();
       sendBtn.disabled = false;
     }).catch(function (err) {
       if (busyEl.parentNode) busyEl.parentNode.removeChild(busyEl);
-      appendChat("assistant", "Beklenmedik hata: " + err.message, {});
+      appendChat("assistant", "Unexpected error: " + err.message, {});
       chatBusy = false;
       sendBtn.disabled = false;
     });

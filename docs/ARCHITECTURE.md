@@ -1,85 +1,85 @@
-# Mimarî — SÖZÜM SÖZ
+# Architecture — SÖZÜM SÖZ
 
-SÖZÜM SÖZ, tamamen istemci taraflı (client-side) çalışan bir web prototipidir: sunucuya
-bağımlı değildir, tüm kullanıcı verisi `localStorage`'da durur ve YZ yalnızca anonim özetleri
-işler. Çok-katmanlı (layered) ve seyrek ama net bir mimarî kullanır.
+SÖZÜM SÖZ is a fully client-side web prototype: it does not depend on a server, all user data
+lives in `localStorage`, and the AI only processes anonymous summaries. It uses a layered yet
+lean and clear architecture.
 
-## Katmanlar
+## Layers
 
-| Katman | Dosya | Sorumluluk |
+| Layer | File | Responsibility |
 | --- | --- | --- |
-| Sunum / UI | `src/index.html`, `src/css/styles.css`, `src/js/app.js` (render + olaylar) | Arayüz, telefon mock ekranı, bildirim yığını, tüm ekran akışı |
-| Uygulama motoru | `src/js/app.js` | Durum yönetimi, süre sözü motoru, puan/seri, görevler, çekiliş, ödül, feed, KVKK akışı, ekran yönlendirme |
-| Veri | `src/js/data.js` | Statik içerik: uygulama kataloğu, ödül kataloğu, çekiliş ödülleri, haftalık görevler, svg logo üreticileri |
-| YZ katmanı | `src/js/ai.js` | Prompt tasarımı (sistem rolü, few-shot, adım-adım), sağlayıcı çağrısı (OpenAI/Gemini), şablon fallback, kriz guard'ı, YZ damgası üreticisi |
-| Kalıcı veri | tarayıcı `localStorage` | Anahtar-değer durumun kalıcılığı (uygulama içinde `state` + `save()`) |
-| Yapım / test | `tools/`, `tests/` | `build-standalone.js` → `dist/` tek dosya; jsdom tabanlı davranış testleri |
+| Presentation / UI | `src/index.html`, `src/css/styles.css`, `src/js/app.js` (render + events) | Interface, phone-mockup screen, notification stack, all screen flows |
+| Application engine | `src/js/app.js` | State management, time-promise engine, points/streak, challenges, draw, rewards, feed, KVKK flow, screen routing |
+| Data | `src/js/data.js` | Static content: app catalog, reward catalog, draw prizes, weekly challenges, svg logo generators |
+| AI layer | `src/js/ai.js` | Prompt design (system role, few-shot, step-by-step), provider call (OpenAI/Gemini), template fallback, crisis guard, AI stamp generator |
+| Persistent data | browser `localStorage` | Key-value persistence of state (in-app `state` + `save()`) |
+| Build / test | `tools/`, `tests/` | `build-standalone.js` → `dist/` single file; jsdom-based behavior tests |
 
-## Veri akışı (bir oturum örneği)
-
-```
-index.html ──> app.js (IIFE başlatıcı)
-   ├─ localStorage'dan state yükle → renderHome()
-   ├─ ikona bas → openPromiseDialog()  (süre sözü "söz ver" ekranı)
-   │    └─ durum seçildi → enterApp(): sayacı başlat (1 sn ≈ 1 dk demo)
-   ├─ süre dolar → coachBuild() → bildirim (mikromola + puan) → finishSession()
-   │    └─ feed/istatistik/seri/görev güncelle → save()
-   ├─ Yansıma sekmesi → ai.js: buildDaily/buildWeekly → API veya fallback → çıktı (YZ damgası + "tıbbi değil" uyarısı)
-   └─ Sohbet → ai.js: chatSystem + kriz guard → mesaj geçmişi (son 20) + yanıt
-```
-
-## Dosya / dizin ağacı
+## Data flow (session example)
 
 ```
-`Sozum-Soz-Uygulamasi/`
-├── src/                     # tek doğruluk kaynağı (source of truth)
-│   ├── index.html           # sayfa iskeleti + sekmeler + telefon mock
-│   ├── css/styles.css       # tüm stil/poetika
+index.html ──> app.js (IIFE bootstrap)
+   ├─ load state from localStorage → renderHome()
+   ├─ tap a tile → openPromiseDialog()  (the "make a promise" screen)
+   │    └─ a duration is chosen → enterApp(): start the timer (1 sec ≈ 1 min demo)
+   ├─ time runs out → coachBuild() → notification (micro-break + points) → finishSession()
+   │    └─ feed/stats/streak/challenge update → save()
+   ├─ Reflection tab → ai.js: buildDaily/buildWeekly → API or fallback → output (AI stamp + "not medical" notice)
+   └─ Chat → ai.js: chatSystem + crisis guard → history (last 20) + response
+```
+
+## File / directory tree
+
+```
+`Sozum-Soz-Uygulamasi-EN/`
+├── src/                     # single source of truth
+│   ├── index.html           # page skeleton + tabs + phone mockup
+│   ├── css/styles.css       # all styles/aesthetics
 │   └── js/
-│       ├── data.js          # statik veri kataloğu
-│       ├── ai.js            # YZ katmanı
-│       └── app.js           # uygulama motoru + sunum
-├── tests/                   # jsdom uçtan uca davranış testleri
-│   ├── test-app.js          # 69 test (çekirdek akış, KVKK, görev, sheet, ödül…)
-│   ├── test-offtopic.js     # YZ alan dışı yönlendirme
-│   ├── test-ai-stamp.js     # YZ damgası / "tıbbi değil" uyarısı
-│   ├── test-kvkk-full.js    # KVKK bölüm başlıkları + veri hakları
-│   └── run-all.cmd          # hepsini sırayla çalıştırır (Windows)
+│       ├── data.js          # static data catalog
+│       ├── ai.js            # AI layer
+│       └── app.js           # app engine + presentation
+├── tests/                   # jsdom end-to-end behavior tests
+│   ├── test-app.js          # 69 tests (core flow, KVKK, challenges, sheet, rewards…)
+│   ├── test-offtopic.js     # AI off-topic rejection
+│   ├── test-ai-stamp.js     # AI stamp / "not medical" disclaimer
+│   ├── test-kvkk-full.js    # privacy-notice section headings + data rights
+│   └── run-all.cmd          # runs everything in sequence (Windows)
 ├── tools/
-│   ├── build-standalone.js  # src/ → dist/ tek dosya derleyicisi
-│   ├── standalone-check.js  # üretilen tek dosyayı jsdom'da doğrular
-│   ├── BASLAT.bat           # yerel sunucuyu açıp tarayıcıyı başlatır
-│   └── server.ps1           # bağımlılıksız mini statik sunucu
+│   ├── build-standalone.js  # src/ → dist/ single-file builder
+│   ├── standalone-check.js  # verifies the generated single file in jsdom
+│   ├── START.bat            # starts the local server and opens the browser
+│   └── server.ps1           # dependency-free mini static server
 ├── docs/
-│   ├── ARCHITECTURE.md      # bu belge
-│   └── DEMO-SCRIPT.md       # ~5 dk jüri anlatımı
-├── dist/                    # üretilen tek dosya (sunum artifact)
-│   └── SOZUM-SOZ-TEKDOSYA.html
+│   ├── ARCHITECTURE.md      # this document
+│   └── DEMO-SCRIPT.md       # ~5-minute jury presentation flow
+├── dist/                    # generated single file (presentation artifact)
+│   └── SOZUM-SOZ-SINGLEFILE.html
 ├── package.json             # npm test / npm run build:check / npm run serve
 ├── README.md
-├── REPORT.md                # hackathon raporu (İng.)
+├── REPORT.md                # hackathon report (English)
 ├── LICENSE                  # Apache-2.0
 └── .gitignore
 ```
 
-## Tasarım kararları
+## Design decisions
 
-1. **Bağımlılıksız çalışma:** Uygulama anahtar olmadan da uçtan uca çalışır (şablon YZ).
-   Bu, jüri demosunda "internet/API yok" senaryosunu bile kurtarır.
-2. **Tek-dosya `dist/`:** Sunum tek bir HTML dosyasıyla yapılabilir; repo içinde büyüklük
-   algısı için `src/` ayrı tutulur. Üretim `tools/build-standalone.js`.
-3. **Gizlilik merkezli:** Hiçbir katman kullanıcı kimliğini bilmez; API'ye yalnızca sayısal
-   özetler gider. KVKK akışı motorun içindedir; veri hakları ekranı da.
-4. **Test edilebilirlik:** jsdom + `runScripts:"dangerously"` ile gerçek DOM davranışı
-   test edilir (test-app 69 adet). Böylece yeni özellik mevcut akışları bozmadığı doğrulanır.
-5. **YZ güvenliği:** Tek kriz guard'ı (`ai.js`) hem canlı model hem şablon yolu için ortaktır;
-   tüm çıktılara otomatik YZ damgası ve "tıbbi değil" uyarısı eklenir.
+1. **Works without dependencies:** the app runs end-to-end even without an API key (template
+   AI). This even rescues the jury demo in a "no internet/API" scenario.
+2. **Single-file `dist/`:** the presentation can be done from a single HTML file; `src/` is
+   kept separate for a better sense of scale. Built by `tools/build-standalone.js`.
+3. **Privacy centered:** no layer knows the user's identity; only numeric summaries go to the
+   API. The KVKK flow lives inside the engine, and so does the data-rights screen.
+4. **Testability:** real DOM behavior is tested with jsdom + `runScripts:"dangerously"`
+   (test-app alone has 69 checks). This ensures a new feature does not break existing flows.
+5. **AI safety:** a single crisis guard (`ai.js`) is shared by both the live model and the
+   fallback path; every output automatically gets an AI stamp and the "not medical" disclaimer.
 
-## Yap → doğrula (build & verify)
+## Build & verify
 
 ```
-npm install                # jsdom dev-bağımlılığı (tek sefer)
-npm test                   # 69 + 4 + 5 + 9 davranış testi (0 FAIL beklenir)
-npm run build:check        # src/ → dist/ tek dosya üret + jsdom'da doğrula
-npm run serve              # python ile yerel sunucu (src/ kök)
+npm install                # jsdom dev-dependency (once)
+npm test                   # 69 + 4 + 5 + 9 behavior tests (0 FAIL expected)
+npm run build:check        # src/ → dist/ single file + verify in jsdom
+npm run serve              # local server via python (src/ root)
 ```

@@ -20,16 +20,16 @@ const wait = (ms) => new Promise(r => setTimeout(r, ms));
   const s = () => d.getElementById('phoneScreen');
 
   try {
-    // 1) KVKK ekranında tam metin bölümleri var
+    // 1) the consent screen carries the full sections of the privacy notice
     d.querySelector('.app-tile[data-app="sozumsoz"]').click();
     await wait(200);
     const bodyText = s().textContent;
-    const sections = ['Veri Sorumlusu', 'İşlenen Kişisel Veriler', 'İşleme Amaçları', 'Hukuki Sebep', 'Saklama Süresi', 'Veri Sahibinin Hakları', 'Açık Rıza', 'KVKK m.11', 'Rızayı geri al'];
+    const sections = ['Data Controller and Scope', 'Personal Data Processed', 'Purposes of Processing', 'Legal Basis and Transfer', 'Retention Period', 'Rights of the Data Subject', 'Explicit Consent', 'KVKK art. 11', 'withdraw my consent'];
     const missing = sections.filter(x => !bodyText.includes(x));
-    if (missing.length === 0) ok('KVKK tam metin: ' + sections.length + ' bölüm mevcut');
-    else bad('KVKK bölüm eksik: ' + missing.join(','));
+    if (missing.length === 0) ok('full notice: ' + sections.length + ' sections present');
+    else bad('notice section missing: ' + missing.join(','));
 
-    // 2) kabul edip uygulamayı aç, bir şeyler yap (puan biriksin)
+    // 2) accept, open the app and earn some points
     d.getElementById('consentYes').click();
     await wait(300);
     d.getElementById('sozBack').click();
@@ -43,57 +43,57 @@ const wait = (ms) => new Promise(r => setTimeout(r, ms));
     d.getElementById('btnKeep').click();
     await wait(80);
     const pts = parseInt(d.getElementById('hPoints').textContent, 10);
-    if (pts >= 3) ok('ön koşul: puan birikti (' + pts + ')');
-    else bad('ön koşul: puan yok');
+    if (pts >= 3) ok('precondition: points earned (' + pts + ')');
+    else bad('precondition: no points');
 
-    // 3) Ayarlar modalında 4 buton var
+    // 3) the settings modal offers 4 data-rights actions
     d.getElementById('btnSettings').click();
     await wait(50);
     if (d.getElementById('btnExport') && d.getElementById('btnRevokeConsent') && d.getElementById('btnWipeData') && d.getElementById('btnReset2'))
-      ok('Ayarlarda veri hakları butonları var (indir / rıza geri al / verileri sil / demo sıfırla)');
-    else bad('Ayarlar butonları eksik');
+      ok('data-rights buttons in Settings (download / withdraw consent / delete data / demo reset)');
+    else bad('Settings buttons missing');
 
-    // 4) JSON dışa aktarma: URL.createObjectURL jsdom'da olmayabilir; yalnızca hata fırlatmadığını kontrol et
+    // 4) JSON export: URL.createObjectURL is not available in jsdom; just check that it does not throw
     d.getElementById('btnExport').click();
     await wait(100);
     const exportErr = await new Promise(r => { const old = w.onerror; w.onerror = (m) => { r(m); return true; }; setTimeout(() => { w.onerror = old; r(null); }, 120); });
-    if (!exportErr) ok('JSON indir: hata fırlatmadı (' + (d.querySelector('.modal') && d.querySelector('.modal h3') ? 'özet modalı:' + d.querySelector('.modal h3').textContent : 'modal kapandı') + ')');
-    else bad('JSON indir hatası: ' + exportErr);
+    if (!exportErr) ok('JSON download: no error thrown (' + (d.querySelector('.modal') && d.querySelector('.modal h3') ? 'summary modal: ' + d.querySelector('.modal h3').textContent : 'modal closed') + ')');
+    else bad('JSON download error: ' + exportErr);
     if (d.querySelector('#exportOk')) { d.getElementById('exportOk').click(); await wait(50); }
 
-    // 5) Rızayı geri al → consent=false, ana ekrana döner, ikona basınca KVKK yine gelir
+    // 5) withdraw consent -> consent=false, back to home, tapping the icon shows the notice again
     d.getElementById('btnSettings').click();
     await wait(50);
     d.getElementById('btnRevokeConsent').click();
     await wait(50);
-    if (d.querySelector('#revokeYes')) ok('rıza geri al onay modalı açıldı');
-    else bad('rıza onay modalı');
+    if (d.querySelector('#revokeYes')) ok('withdraw-consent confirmation modal opened');
+    else bad('withdraw confirmation modal');
     d.getElementById('revokeYes').click();
     await wait(100);
-    if (!d.querySelector('.s-consent') && s() && s().querySelector('.app-grid')) ok('rıza geri alınınca ana ekrana dönüldü');
-    else bad('rıza sonrası ana ekran');
+    if (!d.querySelector('.s-consent') && s() && s().querySelector('.app-grid')) ok('after withdrawing consent, returned to the home screen');
+    else bad('home screen after withdrawal');
     d.querySelector('.app-tile[data-app="sozumsoz"]').click();
     await wait(200);
-    if (d.querySelector('.s-consent') && d.getElementById('consentYes')) ok('rıza geri alınınca KVKK tekrar geliyor');
-    else bad('rıza sonrası KVKK tekrar gelmedi');
+    if (d.querySelector('.s-consent') && d.getElementById('consentYes')) ok('after withdrawal, the notice is shown again');
+    else bad('notice not shown again after withdrawal');
 
-    // 6) Verileri sil → onay modalı, yes → reload (localStorage temiz + location.reload)
+    // 6) delete data -> confirmation modal, yes -> reload (localStorage cleared + location.reload)
     d.getElementById('consentYes').click();
     await wait(200);
     d.getElementById('btnSettings').click();
     await wait(50);
     d.getElementById('btnWipeData').click();
     await wait(50);
-    if (d.querySelector('#wipeYes')) ok('verilerimi sil onay modalı açıldı');
-    else bad('verileri sil onay modalı');
+    if (d.querySelector('#wipeYes')) ok('delete-my-data confirmation modal opened');
+    else bad('delete-data confirmation modal');
     let wipeThrew = false;
     try {
       d.getElementById('wipeYes').click();
     } catch (e) { wipeThrew = e; }
     await wait(80);
-    if (!wipeThrew) ok('verilerimi sil: onay tıklaması hatasız (silme + kilide dönüş tetiklendi)');
-    else bad('verilerimi sil: tıklama hatası', wipeThrew);
-  } catch (e) { bad('sürpriz hata', e); }
+    if (!wipeThrew) ok('delete-my-data: confirmation click was error-free (wipe + lock reset triggered)');
+    else bad('delete-my-data: click error', wipeThrew);
+  } catch (e) { bad('unexpected error', e); }
 
   console.log(out.join('\n'));
   process.exit(out.some(x => x.startsWith('FAIL')) ? 1 : 0);

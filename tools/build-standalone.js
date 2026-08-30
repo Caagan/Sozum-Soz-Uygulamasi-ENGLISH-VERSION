@@ -23,6 +23,6 @@ checks.forEach((c) => {
 });
 
 if (!fs.existsSync(distDir)) fs.mkdirSync(distDir);
-const dest = path.join(distDir, "SOZUM-SOZ-TEKDOSYA.html");
+const dest = path.join(distDir, "SOZUM-SOZ-SINGLEFILE.html");
 fs.writeFileSync(dest, out, "utf8");
 console.log("written", dest, out.length, "bytes");

@@ -1,25 +1,25 @@
-# Demo Senaryosu (~5 dk) — SÖZÜM SÖZ
+# Demo Script (~5 min) — SÖZÜM SÖZ
 
-Amaç: jüriye "süre sözü → takip → puan/seri → etik → YZ → veri hakları" zincirini tek akışta
-göstermek. `dist/SOZUM-SOZ-TEKDOSYA.html`'i tarayıcıda (tercihen iki sekme: biri uygulama,
-biri GitHub) açarak anlatın.
+Goal: show the jury the "time promise → tracking → points/streak → ethics → AI → data rights"
+chain in a single flow. Open `dist/SOZUM-SOZ-SINGLEFILE.html` in the browser (ideally in two
+tabs: one for the app, one for GitHub) and narrate along.
 
-| Süre | Anlatılacak | Ekranda ne yapılır |
+| Time | Narrate | What to do on screen |
 | --- | --- | --- |
-| 0:00–0:30 | Problem: aplik kalıcı kullanım; "kendine söz ver" fikri | Ana ekranı göster: telefon mock'u, "süre sözü" kavramı |
-| 0:30–1:15 | Süre sözü akışı | Bir sosyal ağ ikonuna dokun → süre seç (ör. 5 dk) → "Söz ver". Hızlı demo: 1 sn ≈ 1 dk |
-| 1:15–1:45 | Sürenin dolması + YZ koç bildirimi | Sayacın akışını beklet; süre dolunca empatik bildirim + mikromola öner (20 sn geri sayım, +5 puan) |
-| 1:45–2:15 | Sözü bitir → puan/seri akışı | "Sözümü tut ve kapat" → +3, seri +1; üst bar PUAN/SERİ artışını göster. Son aktiviteler ve haftalık skor emojisi |
-| 2:15–2:45 | Günlük yansıma (YZ) | "Yansıma (YZ)" sekmesi → "Yansımayı Oluştur". Çıktıda **YZ damgası + "tıbbi değil"** ibaresini göster; "promptu göster" ile prompt tasarımını açıkla (zero-shot/few-shot/step-by-step) |
-| 2:45–3:15 | Sohbet koçu + kriz guard'ı | Sohbette örn. "intihar..."/umutsuzluk içeren mesaj yaz → Yeşilay 115 / 112 yönlendirmesi |
-| 3:15–3:45 | Gizlilik: KVKK m.10 + açık rıza | Telefondaki **SÖZÜM SÖZ ikonu**: ilk basışta aydınlatma + "Kabul etmiyorum" dersen kilitli kaldığını göster |
-| 3:45–4:15 | Veri hakları (KVKK m.7/m.11) | Ayarlar → Veri Hakları: "Verilerimi indir" (JSON çıkar), "Verilerimi sil" (uygulama kilitlenir), "Rızayı geri al" |
-| 4:15–4:45 | Teknik + mimari | Repo ağacı (GitHub'da) + gereksiz bağımlılık olmaması + testler (`tests/run-all.cmd` 69+ test) |
-| 4:45–5:00 | Kapanış | Problem → çözüm → "yargısız, tıbbi olmayan, gizlilik merkezli" bir cümleyle bitir |
+| 0:00–0:30 | Problem: persistent app usage; the "make yourself a promise" idea | Show the home screen: phone mockup, the "time promise" concept |
+| 0:30–1:15 | Time-promise flow | Tap a social-network tile → pick a duration (e.g. 5 min) → "Promise". Fast demo: 1 sec ≈ 1 min |
+| 1:15–1:45 | Time running out + AI coach notification | Let the timer flow; when it expires show the empathetic notification + micro-break suggestion (20-sec countdown, +5 points) |
+| 1:45–2:15 | Ending the promise → points/streak flow | "Keep my word and close" → +3, streak +1; show the POINTS/STREAK increase in the top bar. Recent activity and the weekly score emoji |
+| 2:15–2:45 | Daily reflection (AI) | "Reflection (AI)" tab → "Generate Reflection". Point out the **AI stamp + "not medical"** in the output; use "show the prompt" to explain the prompt design (zero-shot/few-shot/step-by-step) |
+| 2:45–3:15 | Chat coach + crisis guard | In the chat write e.g. a message with "suicide..."/hopelessness → the response routes to 115 / 112 |
+| 3:15–3:45 | Privacy: KVKK m.10 + explicit consent | The **SÖZÜM SÖZ icon** in the phone: the notice appears on the first tap; show that tapping "I do not accept" keeps the app locked |
+| 3:45–4:15 | Data rights (KVKK m.7/m.11) | Settings → Data Rights: "Download my data" (extracts JSON), "Delete my data" (app becomes locked), "Withdraw consent" |
+| 4:15–4:45 | Tech + architecture | Repo tree (on GitHub) + no unnecessary dependencies + tests (`tests/run-all.cmd`, 69+ tests) |
+| 4:45–5:00 | Closing | Finish with a single sentence: problem → solution → "non-judgmental, non-medical, privacy-centered" |
 
-## İpucu
+## Tips
 
-- Demo'yu **hızlı modda** (varsayılan: 1 sn ≈ 1 dk) yapın; 5 dk'lık söz saniyeler içinde biter.
-- Canlı YZ anahtarınız varsa Ayarlar'dan etkinleştirin; yoksa şablon fallback yeterli — bu
-  özellik olarak "anahtar olmadan bile uçtan uca çalışır" şeklinde satar.
-- "Neden bu teknikler?" sorusuna RAPOR'da hazır (§3) cevabınız var.
+- Run the demo in **fast mode** (default: 1 sec ≈ 1 min); a 5-minute promise ends within seconds.
+- If you have a live AI key, enable it from Settings; otherwise the template fallback is enough —
+  sell this as a feature: "works end-to-end even without a key".
+- For "why these techniques?" you have a ready answer in the REPORT (§3).

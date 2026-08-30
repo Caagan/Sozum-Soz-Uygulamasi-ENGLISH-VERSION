@@ -1,4 +1,4 @@
-# sinir-zip ve paketler
+# archives and packages
 *.zip
 *.rar
 *.7z
@@ -9,9 +9,9 @@ bin/
 obj/
 *.user
 
-# işletim sistemi
+# operating system
 Thumbs.db
 .DS_Store
 
-# yerel ayar
+# local config
 *.local

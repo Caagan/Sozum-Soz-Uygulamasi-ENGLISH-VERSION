@@ -1,5 +1,5 @@
 @echo off
-rem SOZUM SOZ launcher - starts a local server and opens the app in the browser.
+rem SÖZÜM SÖZ launcher - starts a local server and opens the app in the browser.
 rem Works on any Windows without installing anything (uses built-in PowerShell).
 setlocal
 set "ME=%~dp0"

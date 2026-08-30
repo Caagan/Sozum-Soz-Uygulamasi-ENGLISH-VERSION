@@ -1,7 +1,7 @@
 {
   "name": "sozum-soz",
   "version": "1.0.0",
-  "description": "SÖZÜM SÖZ — dijital iyi olma hali hackathon prototipi (Samsung Innovation Campus Generative AI Hackathon)",
+  "description": "SÖZÜM SÖZ — digital well-being hackathon prototype (Samsung Innovation Campus Generative AI Hackathon)",
   "private": true,
   "scripts": {
     "test": "node tests/test-app.js && node tests/test-offtopic.js && node tests/test-ai-stamp.js && node tests/test-kvkk-full.js",

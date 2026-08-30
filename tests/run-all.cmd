@@ -1,6 +1,6 @@
 @echo off
-rem SOZUM SOZ testlercisi: tum test dosyalarini sirayla calistir.
-rem Gerekli tek sey: PATH'te node. (jsdom os yoluyla node_modules'ten yuklenir.)
+rem SÖZÜM SÖZ test runner: runs every test file in sequence.
+rem The only requirement is node on PATH. (jsdom is installed via npm.)
 setlocal
 cd /d "%~dp0"
 node test-app.js
