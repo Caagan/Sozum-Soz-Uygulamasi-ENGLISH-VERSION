@@ -2,6 +2,12 @@
 
 > This project was prepared for the **Samsung Innovation Campus Generative AI Hackathon**.
 
+## Deliverables
+
+- **Report (PDF):** [`Hackathon Report.pdf`](./Hackathon%20Report.pdf) — SÖZÜM SÖZ hackathon report (Group 8)
+- **Demo flow:** [`docs/DEMO-SCRIPT.md`](./docs/DEMO-SCRIPT.md)
+- **Turkish version:** https://github.com/Caagan/Sozum-Soz-Uygulamasi-TR (report + presentation in Turkish)
+
 ## Purpose
 
 Technology keeps evolving and is a part of our lives. In the technology age we cannot solve
@@ -129,7 +135,7 @@ and the notification/points flow can be watched end to end.
 ├── docs/                   # ARCHITECTURE.md + DEMO-SCRIPT.md
 ├── dist/SOZUM-SOZ-SINGLEFILE.html   # generated single file (presentation artifact)
 ├── package.json            # npm test / build / serve commands
-├── REPORT.md               # hackathon report (English)
+├── Hackathon Report.pdf    # hackathon report (English, PDF)
 └── LICENSE  ·  .gitignore
 ```
 

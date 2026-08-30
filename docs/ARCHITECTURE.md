@@ -57,7 +57,7 @@ index.html ──> app.js (IIFE bootstrap)
 │   └── SOZUM-SOZ-SINGLEFILE.html
 ├── package.json             # npm test / npm run build:check / npm run serve
 ├── README.md
-├── REPORT.md                # hackathon report (English)
+├── Hackathon Report.pdf    # hackathon report (English, PDF)
 ├── LICENSE                  # Apache-2.0
 └── .gitignore
 ```

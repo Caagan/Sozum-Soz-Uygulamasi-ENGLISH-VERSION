@@ -22,4 +22,4 @@ tabs: one for the app, one for GitHub) and narrate along.
 - Run the demo in **fast mode** (default: 1 sec ≈ 1 min); a 5-minute promise ends within seconds.
 - If you have a live AI key, enable it from Settings; otherwise the template fallback is enough —
   sell this as a feature: "works end-to-end even without a key".
-- For "why these techniques?" you have a ready answer in the REPORT (§3).
+- For "why these techniques?" you have a ready answer in the report (`Hackathon Report.pdf`, §3).
